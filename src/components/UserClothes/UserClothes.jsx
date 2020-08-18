@@ -1,11 +1,11 @@
 import React from 'react'
-import './UserItems.scss'
+import './UserClothes.scss'
 
-function UserItems() {
+function UserClothes() {
   return (
-    <div className='UserItems'>
+    <div className='UserClothes'>
       <button type='button'>
-        <div className='UserItems--img'>
+        <div className='UserClothes--img'>
           <img src='https://uniforma.net/21-superlarge_default/camisas-de-trabajo-algodon.jpg' alt='item' />
         </div>
       </button>
@@ -13,4 +13,4 @@ function UserItems() {
   )
 }
 
-export default UserItems
+export default UserClothes

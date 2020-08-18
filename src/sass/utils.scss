@@ -1,5 +1,5 @@
-$title-font: 'roboto', sans-serif;
-$paragraph-font: sans-serif;
+$title-font: 'Comfortaa', cursive;
+$paragraph-font: 'Roboto', sans-serif;
 $brand-font: sans-serif;
 
 $brand-color: #FF4D00;
@@ -17,10 +17,21 @@ $black-color-first: #1A171B;
 $black-color-second: #3d3c3f;
 $black-color-third: #58585A;
 
-//MIXINS
 @mixin flex($align, $justify, $direction: row) {
   display: flex;
-  justify-content: $justify;
   align-items: $align;
+  justify-content: $justify;
   flex-direction: $direction;
+}
+
+@mixin title($size, $color) {
+  font-size: $size;
+  color: $color;
+  font-family: $title-font;
+}
+
+@mixin paragraph($size, $color) {
+  font-family: $paragraph-font;
+  font-size: $size;
+  color: $color;
 }
