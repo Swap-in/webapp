@@ -1,0 +1,12 @@
+.UserItems {
+  border-radius: 1em;
+  overflow: hidden;
+  box-shadow: 1px 5px 8px -5px gray;
+  &--img {
+    height: 150px;
+    img {
+      object-fit: cover;
+      width: 90%;
+    }
+  }
+}

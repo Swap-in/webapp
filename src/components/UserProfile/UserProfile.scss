@@ -1,0 +1,39 @@
+@import '../../sass/utils.scss';
+
+.UserProfile {
+  overflow: hidden;
+  max-width: 100vw;
+  padding: 1em;
+  h2 {
+    font-size: 2em;
+    color: $purple-color-third;
+  };
+  &--info {
+    margin: 1em auto;
+    @include flex(center, center, column);
+    &__img {
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+    };
+    &__name{
+      margin: 1em;
+      font-size: 1.3em;
+      text-transform: uppercase;
+      color: $purple-color-third;
+    };
+  };
+};
+
+.UserProfile--clothes {
+  h3 {
+    color: $purple-color-third;
+    font-size: 1.1em;
+  }
+  &__container {
+    padding: 1em; 
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1em;
+  }
+}

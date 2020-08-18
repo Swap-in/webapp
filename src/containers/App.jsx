@@ -1,8 +1,10 @@
 import React from 'react'
+import Profile from '../pages/Profile'
+import '../sass/resets.scss'
 
 function App() {
   return (
-    <h1>Hola mundo</h1>
+    <Profile />
   )
 }
 
