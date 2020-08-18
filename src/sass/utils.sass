@@ -1,5 +1,6 @@
-$font-title: 'roboto', sans-serif
-$font-paragraph: sans-serif
+$title-font: 'roboto', sans-serif
+$paragraph-font: sans-serif
+$brand-font: sans-serif
 
 $brand-color: #FF4D00
 $brand-color-alt: #FE3C72
@@ -12,6 +13,13 @@ $white-color-first: #ffffff
 $white-color-second: #ECECED
 $white-color-third: #d9dadb
 
-$black-color: #1A171B
-$gray-color-first: #3d3c3f
-$gray-color-second: #58585A
+$black-color-first: #1A171B
+$black-color-second: #3d3c3f
+$black-color-third: #58585A
+
+//MIXINS
+@mixin flex($align, $justify, $direction: row)
+  display: flex
+  justify-content: $justify
+  align-items: $align
+  flex-direction: $direction

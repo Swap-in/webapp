@@ -22,7 +22,7 @@
   ],
   "rules": {
     "semi": "off",
-    "react/jsx-filename-extension": 0,
+    "react/jsx-filename-extension": 1,
     "array-bracket-spacing": 2,
     "arrow-body-style": 0,
     "block-scoped-var": 2,
