@@ -1,8 +1,11 @@
 import React from 'react'
+import Login from '../pages/login'
 
 function App() {
   return (
-    <h1>Hola mundo</h1>
+    <>
+      <Login/>
+    </>
   )
 }
 
