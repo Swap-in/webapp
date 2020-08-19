@@ -13,7 +13,7 @@ function Login() {
             <img className='Login--logo' src={MainLogo} alt="logo"/>
           </figure>
           <h2>Iniciar Sesión</h2>
-          <form action="" className='Login--form'>
+          <form className='Login--form'>
             <p>Email</p>
             <Input 
                 type='email'
@@ -28,7 +28,6 @@ function Login() {
             <Button
                 title='INICIAR SESIÓN'
                 className='Login--button'
-
             />
           </form>
         </div>

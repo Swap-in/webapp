@@ -7,12 +7,13 @@ input {
     border: 1px solid $purple-color-third;
 }
 input::placeholder {
-    padding: 0 17px;
+    padding: 0 12px;
     font-size: 15px;
     font-family: $paragraph-font;
     color: rgba(119, 28, 127, 0.5);
 }
-input:focus {   
+input:focus {  
+    padding-left: 5px;
     font-size: 15px;
     font-family: $paragraph-font;
     color: rgba(119, 28, 127, 0.5);
