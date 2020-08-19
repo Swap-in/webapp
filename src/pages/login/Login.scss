@@ -1,24 +1,21 @@
 @import '../../sass/utils.scss';
 
-.Login--logo__container{
+.Login {
     display: block;
     text-align: center;
-    margin-bottom: 65px;
 }
 .Login--logo {
     width: 246px;
     height: 199px;
 }
 .Login h2{
-    margin: 0 12px;
-    margin-bottom: 65px;
+    margin: 65px 12px;
     font-family: $title-font;
     font-size: 36px;
     font-weight: normal;
     color: $purple-color-third;   
 }
 .Login--form p {
-  
     margin: 0 12px;
     font-size: 13px;
     font-family: $paragraph-font;
@@ -26,8 +23,7 @@
     color: $purple-color-third;
 }
 .Login--button {
-    position: absolute;
-        bottom: 0px;
+    margin-top: 164px;
     color: $brand-color;
     border: 1px solid $brand-color;
     background-color: $white-color-first;

@@ -15,7 +15,10 @@ function Login() {
           <h2>Iniciar Sesión</h2>
           <form action="" className='Login--form'>
             <p>Email</p>
-            <Input/>
+            <Input 
+              type='email'
+              name='email'
+              placeholder='ejemplo@ejemplo.com'/>
             <p>Contraseña</p>
             <Input/>
             <Button

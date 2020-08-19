@@ -1,9 +1,16 @@
 @import '../../sass/utils.scss';
 
-
 input {
     width: 352px;
     height: 52px;
     margin: 12px;
     border: 1px solid $purple-color-third;
+}
+input::placeholder {
+    padding: 0 17px;
+    font-size: 15px;
+    font-family: $paragraph-font;
+    color: rgba(119, 28, 127, 0.5);
+
+
 }
