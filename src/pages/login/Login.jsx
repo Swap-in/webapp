@@ -1,14 +1,15 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import './Login.scss'
-import Input from '../../components/input'
-import Button from '../../components/button'
+import Input from '../../Components/input'
+import Button from '../../Components/button'
 import MainLogo from '../../assets/brand/main-logo.png'
 
 function Login() {
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  console.log(password)
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -47,12 +48,9 @@ function Login() {
             />
             <h6>
               ¿Aún no tienes cuenta?
-              {' '}
               <Link to='/registro'>
                 <span>Registrate aquí</span>
-                {' '}
               </Link>
-              {' '}
             </h6>
           </form>
         </div>

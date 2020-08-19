@@ -2,9 +2,7 @@
 
 .Register {
     margin: 0 12px;
-    &--icon {
-        padding-top: 50px;
-    }
+    padding: 1em;
     & h2 {
         padding-top: 25px;
         font-family: $title-font;
@@ -20,6 +18,10 @@
     }
 }
 
+.Register--container {
+    @include flex(center, center, column);
+}
+
 .Register--img__container {
     display: block;
     text-align: center;
@@ -29,6 +31,8 @@
     margin: 16px 0;
 }
 .Register--button {
+    width: 100%;
+    height: 50px;
     margin-top: 40px;
     color: $white-color-first;
     background: linear-gradient(180deg, #F35480 0%, #FF4D00 100%);

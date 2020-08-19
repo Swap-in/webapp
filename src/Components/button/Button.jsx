@@ -1,11 +1,11 @@
 import React from 'react'
 import './Button.scss'
 
-function Button({ title, type, className }) {
+function Button({ title, className }) {
   return (
     <div className='Btn--container'>
       <button
-        type={type}
+        type='button'
         className={className}
       >
         {title}

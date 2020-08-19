@@ -1,15 +1,19 @@
 import React from 'react'
 import './Navbar.scss'
+import { Link } from 'react-router-dom'
 import logo from '../../assets/brand/main-logo.png'
+import menuLogo from '../../assets/icons/menu.svg'
 
 function Navbar() {
   return (
     <div className='Navbar'>
       <button type='button' className='Navbar--menu'>
-        <img src='menu' alt='Menu' className='Navbar--menu__img' />
+        <img src={menuLogo} alt='Menu' className='Navbar--menu__img' />
       </button>
       <div className='Navbar--logo'>
-        <img src={logo} alt='Logo' className='Navbar--logo__img' />
+        <Link to='/'>
+          <img src={logo} alt='Logo' className='Navbar--logo__img' />
+        </Link>
       </div>
     </div>
   )
