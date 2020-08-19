@@ -7,21 +7,21 @@ import backButton from '../../assets/icons/back-button.svg'
 
 function Register() {
 
-    const [nombre, setNombre]= useState('')
-    const [telefono, setTelefono]= useState('')
-    const [email, setEmail]= useState('')
-    const [password, setPassword]= useState('')
-    const [confirm_password, setConfirm_password]= useState('')
+  const [nombre, setNombre]= useState('')
+  const [telefono, setTelefono]= useState('')
+  const [email, setEmail]= useState('')
+  const [password, setPassword]= useState('')
+  const [confirm_password, setConfirm_password]= useState('')
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        console.log(nombre, telefono,email,password,password)
-    }
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    console.log(nombre, telefono,email,password,password)
+  }
 
 
     return(
         <>
-            <div className='Register'>
+      <div className='Register'>
                 <figure className='Register--icon'>
                 <Link to='/'>
                     <img src={backButton} alt=""/>

@@ -7,8 +7,8 @@ import Button from '../../Components/button'
 function Logout() {
     return(
         <>
-            <div className="Logout">
-                <div className="Logout--container">
+      <div className="Logout">
+        <div className="Logout--container">
                         <img src={MainLogo} className='Logout--img' alt="logo" />
 
                     <div className="Logout--button__container">

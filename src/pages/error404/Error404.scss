@@ -1,0 +1,26 @@
+@import '../../sass/utils.scss';
+
+.Error404 {
+    display: block;
+    margin: 0 12px;
+    text-align: center;
+    &--logo {
+        width: 246px;
+        height: 199px;
+        margin-top: 55px;
+    }
+    & h2 {
+        margin-top: 40px;
+        font-family: $title-font;
+        font-size: 50px;
+        font-weight: 900;
+        color: $brand-color;  
+    }
+    & h4 {
+        margin-top: 36px;
+        font-family: $title-font;
+        font-size: 20px;
+        font-weight: 900;
+        color: $purple-color-third; 
+    }
+}
