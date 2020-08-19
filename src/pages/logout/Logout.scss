@@ -13,10 +13,9 @@
 
 .Logout--button__login {
     margin: 0 5px;
-    display: inline-block;
     position: absolute;
-        bottom: 33px;
-        right: 50%;
+    bottom: 33px;
+    right: 50%;
     width: 165px;
     display:inline-block;
     font-family: $paragraph-font;
@@ -29,9 +28,8 @@
     color: $white-color-first;
     background: linear-gradient(180deg, #F35480 0%, #FF4D00 100%);
 }
- .Logout--button__register {
+.Logout--button__register {
     margin: 0 5px;
-    display: inline-block;
     position: absolute;
         bottom: 33px;
         left: 50%;
@@ -41,9 +39,9 @@
     color: $white-color-first;
     background: linear-gradient(180deg, #F35480 0%, #FF4D00 100%);
     border: none;
- }
- .Logout--button__register:hover {
+}
+.Logout--button__register:hover {
     color: $brand-color;
     background: $white-color-first;
     border: 1px solid $brand-color;
- }
+}

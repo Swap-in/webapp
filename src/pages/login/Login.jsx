@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import './Login.scss'
 import Input from '../../Components/input'
@@ -16,35 +16,41 @@ function Login() {
   }
   return (
     <>
-      <div className='Login'> 
+      <div className='Login'>
         <div className='Login--container'>
           <figure className='Login--logo__container'>
-              <img className='Login--logo' src={MainLogo} alt="logo"/>
+            <img className='Login--logo' src={MainLogo} alt='logo' />
           </figure>
           <h2>Iniciar Sesión</h2>
-          <form 
+          <form
             onSubmit={handleLogin}
-            className='Login--form'>
+            className='Login--form'
+          >
             <p>Email</p>
-            <Input 
-                type='email'
-                name='email'
-                placeholder='ejemplo@ejemplo.com'
-                className='Login--input'
-                onChange={(e) => setEmail(e.target.value)}
-              />
+            <Input
+              type='email'
+              name='email'
+              placeholder='ejemplo@ejemplo.com'
+              className='Login--input'
+              onChange={(e) => setEmail(e.target.value)}
+            />
             <p>Contraseña</p>
             <Input
               type='password'
               name='password'
               className='Login--input'
               onChange={(e) => setPassword(e.target.value)}
-              />
-              <Button
-                  title='INICIAR SESIÓN'
-                  className='Login--button'
-              />
-              <h6>¿Aún no tienes cuenta? <Link to='/registro'><span>Registrate aquí</span> </Link>  </h6>
+            />
+            <Button
+              title='INICIAR SESIÓN'
+              className='Login--button'
+            />
+            <h6>
+              ¿Aún no tienes cuenta?
+              <Link to='/registro'>
+                <span>Registrate aquí</span>
+              </Link>
+            </h6>
           </form>
         </div>
       </div>

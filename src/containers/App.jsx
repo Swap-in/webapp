@@ -8,15 +8,15 @@ import Error404 from '../pages/error404'
 
 function App() {
   return (
-    <> 
-    <Router>
-      <Switch>
-        <Route exact path='/login' component={Login}/>
-        <Route exact path='/registro' component={Register}/>
-        <Route exact path='/' component={Logout}/>
-        <Route component={Error404}/>
-      </Switch>
-    </Router>
+    <>
+      <Router>
+        <Switch>
+          <Route exact path='/login' component={Login} />
+          <Route exact path='/registro' component={Register} />
+          <Route exact path='/' component={Logout} />
+          <Route component={Error404} />
+        </Switch>
+      </Router>
     </>
   )
 }
