@@ -2,31 +2,46 @@
 
 .Login {
     display: block;
-    text-align: center;
-}
-.Login--logo {
-    width: 246px;
-    height: 199px;
-}
-
-.Login h2{
-    margin: 65px 12px;
-    text-align: left;
-    font-family: $title-font;
-    font-size: 36px;
-    font-weight: normal;
-    color: $purple-color-third;   
-}
-.Login--form p {
     margin: 0 12px;
-    text-align: left;
-    font-size: 13px;
-    font-family: $paragraph-font;
-    font-weight: 900;
-    color: $purple-color-third;
+    text-align: center;
+    &--logo {
+        width: 246px;
+        height: 199px;
+        margin-top: 55px;
+    }
+    & h2{
+        margin-top: 65px;
+        text-align: left;
+        font-family: $title-font;
+        font-size: 36px;
+        font-weight: normal;
+        color: $purple-color-third;   
+    }
+    &--form p {
+        margin: 40px 0 10px;
+        text-align: left;
+        font-size: 13px;
+        font-family: $paragraph-font;
+        font-weight: 900;
+        color: $purple-color-third;
+    }
+    &--form h6 {
+        margin: 20px;
+        text-align: center;
+        font-size: 13px;
+        font-family: $paragraph-font;
+        font-weight: 900;
+        color: $purple-color-third;
+    }
+    & span {
+        color: $brand-color;
+    }
+}
+.login--input {
+    margin: 16px 0;
 }
 .Login--button {
-    margin-top: 164px;
+    margin-top: 100px;
     color: $brand-color;
     border: 1px solid $brand-color;
     background-color: $white-color-first;

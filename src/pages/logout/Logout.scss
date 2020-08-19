@@ -1,0 +1,49 @@
+@import '../../sass/utils.scss';
+
+.Logout {
+    display: block;
+    margin: 0 12px;
+    text-align: center;
+    &--img {
+        width: 246px;
+        height: 199px;
+        margin-top: 55px;
+    }
+}
+
+.Logout--button__login {
+    margin: 0 5px;
+    display: inline-block;
+    position: absolute;
+        bottom: 33px;
+        right: 50%;
+    width: 165px;
+    display:inline-block;
+    font-family: $paragraph-font;
+    text-align: center;
+    color: $brand-color;
+    background-color: $white-color-first;  
+    border: 1px solid $brand-color; 
+}
+.Logout--button__login:hover {
+    color: $white-color-first;
+    background: linear-gradient(180deg, #F35480 0%, #FF4D00 100%);
+}
+ .Logout--button__register {
+    margin: 0 5px;
+    display: inline-block;
+    position: absolute;
+        bottom: 33px;
+        left: 50%;
+    width: 165px;
+    display:inline-block;
+    text-align: center;
+    color: $white-color-first;
+    background: linear-gradient(180deg, #F35480 0%, #FF4D00 100%);
+    border: none;
+ }
+ .Logout--button__register:hover {
+    color: $brand-color;
+    background: $white-color-first;
+    border: 1px solid $brand-color;
+ }

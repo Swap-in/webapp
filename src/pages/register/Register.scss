@@ -1,26 +1,35 @@
 @import '../../sass/utils.scss';
 
-.Register--icon {
-    margin: 50px 12px;
+.Register {
+    margin: 0 12px;
+    &--icon {
+        padding-top: 50px;
+    }
+    & h2 {
+        padding-top: 25px;
+        font-family: $title-font;
+        font-size: 36px;
+        color: $purple-color-third;
+    }
+    &--img__container p {
+        padding-top: 32px;
+        font-family: $paragraph-font;
+        font-size: 13px;
+        font-weight: 900;
+        color: $purple-color-third;
+    }
 }
-.Register h2{
-    margin: 24px 12px;
-    font-family: $title-font;
-    font-size: 36px;
-    color: $purple-color-third;
-}
+
 .Register--img__container {
     display: block;
     text-align: center;
 }
-.Register--img__container p {
-    font-family: $paragraph-font;
-    font-size: 13px;
-    font-weight: 900;
-    color: $purple-color-third;
+
+.Register--input__field {
+    margin: 16px 0;
 }
 .Register--button {
-    margin-top: 100px;
+    margin-top: 40px;
     color: $white-color-first;
     background: linear-gradient(180deg, #F35480 0%, #FF4D00 100%);
     border: 1px solid $brand-color;
