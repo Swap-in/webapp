@@ -11,6 +11,9 @@ input::placeholder {
     font-size: 15px;
     font-family: $paragraph-font;
     color: rgba(119, 28, 127, 0.5);
-
-
+}
+input:focus {   
+    font-size: 15px;
+    font-family: $paragraph-font;
+    color: rgba(119, 28, 127, 0.5);
 }

@@ -16,11 +16,15 @@ function Login() {
           <form action="" className='Login--form'>
             <p>Email</p>
             <Input 
-              type='email'
-              name='email'
-              placeholder='ejemplo@ejemplo.com'/>
+                type='email'
+                name='email'
+                placeholder='ejemplo@ejemplo.com'
+              />
             <p>Contraseña</p>
-            <Input/>
+            <Input
+              type='password'
+              name='password'
+              />
             <Button
                 title='INICIAR SESIÓN'
                 className='Login--button'

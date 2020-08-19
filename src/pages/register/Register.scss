@@ -1,0 +1,8 @@
+@import '../../sass/utils.scss';
+
+.Register--button {
+    margin-top: 164px;
+    color: $white-color-first;
+    background: linear-gradient(180deg, #F35480 0%, #FF4D00 100%);
+    border: 1px solid $brand-color;
+}

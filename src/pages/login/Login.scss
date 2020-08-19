@@ -8,8 +8,10 @@
     width: 246px;
     height: 199px;
 }
+
 .Login h2{
     margin: 65px 12px;
+    text-align: left;
     font-family: $title-font;
     font-size: 36px;
     font-weight: normal;
@@ -17,6 +19,7 @@
 }
 .Login--form p {
     margin: 0 12px;
+    text-align: left;
     font-size: 13px;
     font-family: $paragraph-font;
     font-weight: 900;
