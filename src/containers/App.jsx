@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import './App.scss'
+import '../sass/reset.scss'
 import Login from '../pages/login'
 import Register from '../pages/register'
 import Logout from '../pages/logout'
