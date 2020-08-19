@@ -17,7 +17,6 @@ $black-color-first: #1A171B;
 $black-color-second: #3d3c3f;
 $black-color-third: #58585A;
 
-//MIXINS
 @mixin flex($align, $justify, $direction: row) {
   display: flex;
   justify-content: $justify;
