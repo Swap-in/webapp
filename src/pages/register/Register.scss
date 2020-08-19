@@ -1,9 +1,12 @@
 @import '../../sass/utils.scss';
 
 .Register {
+    display: block;
     margin: 0 12px;
+    text-align: center;
     &--icon {
         padding-top: 50px;
+        text-align: left;
     }
     & h2 {
         padding-top: 25px;
@@ -19,7 +22,6 @@
         color: $purple-color-third;
     }
 }
-
 .Register--img__container {
     display: block;
     text-align: center;
@@ -34,3 +36,11 @@
     background: linear-gradient(180deg, #F35480 0%, #FF4D00 100%);
     border: 1px solid $brand-color;
 }
+
+@media only screen and (min-width: 768px){
+    .Register h2 {
+        text-align: center;
+    }
+    
+     
+    }
