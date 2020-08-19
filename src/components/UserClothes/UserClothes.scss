@@ -5,6 +5,7 @@
   border-radius: 1em;
   box-shadow: 1px 5px 8px -5px gray;
   &--img {
+    cursor: pointer;
     min-height: 150px;
     @include flex(center, center);
     img {
