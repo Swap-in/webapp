@@ -6,7 +6,8 @@ import Register from '../pages/register'
 import Logout from '../pages/logout'
 import Error404 from '../pages/error404'
 import Profile from '../pages/Profile'
-import Admin from '../pages/admin'
+import AdminPictures from '../pages/adminPictures'
+import AdminClothes from '../pages/adminClothes/AdminClothes'
 
 function App() {
   return (
@@ -22,14 +23,17 @@ function App() {
           <Route exact path='/registro'>
             <Register />
           </Route>
-          <Route exact path='/upload'>
-            <Admin title='Subir prenda' />
-          </Route>
           <Route exact path='/profile'>
             <Profile />
           </Route>
+          <Route exact path='/upload'>
+            <AdminPictures title='Subir prenda' />
+          </Route>
           <Route exact path='/edit'>
-            <Admin title='Editar prenda' />
+            <AdminPictures title='Editar prenda' />
+          </Route>
+          <Route exact path='/admin'>
+            <AdminClothes />
           </Route>
           <Route component={Error404} />
         </Switch>

@@ -1,0 +1,22 @@
+@import '../../sass/utils.scss';
+
+.AdminClothes {
+  padding: 1em;
+  &--title {
+    margin: 1em 0;
+  }
+  &--grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1em;
+  }
+  &--buttons {
+    position: fixed;
+    width: 95%;
+    bottom: 10px;
+    &__button {
+      @include btn-primary(100%, 50px);
+      text-transform: uppercase;
+    }
+  }
+}
