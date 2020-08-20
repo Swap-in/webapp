@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
+import ProfilePicture from '../../assets/icons/picture-profile.svg'
 import './Register.scss'
 import Input from '../../Components/input'
 import Button from '../../Components/button'
@@ -21,16 +22,16 @@ function Register() {
 
     return(
         <>
-      <div className='Register'>
+        <div className='Register'>
+            <div className='Register--img__container'>
                 <figure className='Register--icon'>
-                <Link to='/'>
-                    <img src={backButton} alt=""/>
-                </Link>
-                </figure>
+                    <Link to='/'>
+                        <img src={backButton} alt=""/>
+                    </Link>
+                </figure>  
                 <h2>Registro</h2>
-                <div className='Register--img__container'>
-                    <p>FOTO DE PERFIL</p>
-                </div>
+                <p>FOTO DE PERFIL</p>
+                <img src={ProfilePicture} alt=""/>
                 <div className='Register--container'>
                     <form onSubmit={handleSubmit}>
                         <Input 
@@ -73,17 +74,17 @@ function Register() {
                             className='Register--input__field'
                             required
                         />
-                
-                        <Button
-                            title='CREAR CUENTA'
-                            className='Register--button'
-                            type='submit'
-                        />
+                        <Link to='/login'>
+                            <Button
+                                title='CREAR CUENTA'
+                                className='Register--button'
+                                type='submit'
+                            />
+                        </Link>
                     </form>
-               
                 </div>
-
             </div>
+        </div>
         </>
     )
 }

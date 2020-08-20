@@ -4,8 +4,12 @@
     display: block;
     margin: 0 12px;
     text-align: center;
+    &--container {
+        margin: 0 -12px;
+        background: linear-gradient(180deg, #FFFFFF 0%, #F1EFED 47.4%, rgba(229, 226, 221, 0) 100%);
+    }
     &--icon {
-        padding-top: 50px;
+        padding-top: 30px;
         text-align: left;
     }
     & h2 {
@@ -15,12 +19,15 @@
         color: $purple-color-third;
     }
     &--img__container p {
-        padding-top: 32px;
+        padding: 32px 0 10px;
         font-family: $paragraph-font;
         font-size: 13px;
         font-weight: 900;
         color: $purple-color-third;
     }
+}
+.Register--profile {
+    border: none;
 }
 .Register--img__container {
     display: block;
@@ -28,11 +35,24 @@
 }
 
 .Register--input__field {
-    margin: 16px 0;
+    margin: 12px 0;
 }
 .Register--button {
-    margin-top: 40px;
+    margin-top:20px;
     color: $white-color-first;
     background: linear-gradient(180deg, #F35480 0%, #FF4D00 100%);
     border: 1px solid $brand-color;
+}
+
+
+@media only screen and (min-width: 768px){
+    .Register h2 {
+        padding-top: 15px;
+    }
+    .Register--input__field {
+        margin: 10px 0;
+    }
+    .Register--button {
+        margin-top: 20px;
+    }
 }

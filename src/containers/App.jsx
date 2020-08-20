@@ -5,6 +5,7 @@ import Login from '../pages/login'
 import Register from '../pages/register'
 import Logout from '../pages/logout'
 import Error404 from '../pages/error404'
+import AddClothes from '../pages/addClothes'
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route exact path='/login' component={Login}/>
         <Route exact path='/registro' component={Register}/>
         <Route exact path='/' component={Logout}/>
+        <Route exact path='/add-clothes' component={AddClothes}/>
         <Route component={Error404}/>
       </Switch>
     </Router>
