@@ -35,3 +35,31 @@ $black-color-third: #58585A;
   font-size: $size;
   color: $color;
 }
+
+@mixin btn-primary($width, $height) {
+  background: linear-gradient(180deg, #F35480 0%, #FF4D00 100%);
+  color: $white-color-first;
+  border: 1px solid $brand-color;
+  width: $width;
+  height: $height;
+  font-family: $paragraph-font;
+  font-size: .8em;
+  &:hover {
+    color: $brand-color;
+    background: $white-color-first;
+  }
+}
+
+@mixin btn-secondary($width, $height) {
+  background: $white-color-first;
+  color: $brand-color;
+  border: 1px solid $brand-color;
+  width: $width;
+  height: $height;
+  font-family: $paragraph-font;
+  font-size: .8em;
+  &:hover {
+    color: $white-color-first;
+    background:  linear-gradient(180deg, #F35480 0%, #FF4D00 100%);
+  }
+}

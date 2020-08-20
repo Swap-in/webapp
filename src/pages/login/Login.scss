@@ -1,5 +1,9 @@
 @import '../../sass/utils.scss';
 
+.Navbar--login {
+    padding: 0 1em;
+}
+
 .Login {
     margin: 0 12px;
     text-align: center;
@@ -32,27 +36,19 @@
         font-weight: 900;
         color: $purple-color-third;
     }
-    & span {
+    a {
         color: $brand-color;
         text-decoration: none;
+        margin-left: .5em;
     }
 }
 
+
+
 .Login--button {
-    height: 50px;
-    width: 100%;
-    margin-top: 100px;
-    color: $brand-color;
-    border: 1px solid $brand-color;
-    background-color: $white-color-first;
+    margin-top: 80px;
+    @include btn-secondary(100%, 50px)
 }
-.Login--button:hover {
-    color: $white-color-first;
-    border: none;
-    background-color: $brand-color;
-}
-
-
 
 @media only screen and (min-width: 768px){
     .Login h2 {

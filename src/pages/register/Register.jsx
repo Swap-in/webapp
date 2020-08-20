@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
 import './Register.scss'
 import Input from '../../Components/input'
 import Button from '../../Components/button'
-import backButton from '../../assets/icons/back-button.svg'
+import Navbar from '../../Components/Navbar'
+import PageTitle from '../../Components/PageTitle'
 
 function Register() {
 
@@ -21,12 +21,8 @@ function Register() {
   return (
     <>
       <div className='Register'>
-        <figure className='Register--icon'>
-          <Link to='/'>
-            <img src={backButton} alt='' />
-          </Link>
-        </figure>
-        <h2>Registro</h2>
+        <Navbar goBack />
+        <PageTitle title='Registro' />
         <div className='Register--img__container'>
           <p>FOTO DE PERFIL</p>
         </div>

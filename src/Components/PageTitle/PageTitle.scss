@@ -1,0 +1,6 @@
+@import '../../sass/utils.scss';
+
+.PageTitle {
+  font-weight: 200;
+  @include title(2.5em, $purple-color-third);
+}

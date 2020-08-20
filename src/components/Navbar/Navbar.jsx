@@ -1,17 +1,24 @@
 import React from 'react'
 import './Navbar.scss'
 import { Link } from 'react-router-dom'
-import logo from '../../assets/brand/main-logo.png'
+import logo from '../../assets/brand/main-logo-alt.svg'
+import backButton from '../../assets/icons/back-button.svg'
 import menuLogo from '../../assets/icons/menu.svg'
 
-function Navbar() {
+function Navbar({ goBack, className }) {
   return (
-    <div className='Navbar'>
+    <div className={`${className} Navbar`}>
       <button type='button' className='Navbar--menu'>
-        <img src={menuLogo} alt='Menu' className='Navbar--menu__img' />
+        {goBack ? (
+          <Link to='/'>
+            <img src={backButton} alt='Go back' />
+          </Link>
+        ) : (
+          <img src={menuLogo} alt='Menu' className='Navbar--menu__img' />
+        )}
       </button>
       <div className='Navbar--logo'>
-        <Link to='/'>
+        <Link to='/feed'>
           <img src={logo} alt='Logo' className='Navbar--logo__img' />
         </Link>
       </div>
