@@ -1,9 +1,9 @@
 import React from 'react'
 import './Navbar.scss'
 import { Link } from 'react-router-dom'
-import logo from '../../assets/brand/main-logo-alt.svg'
+import logo from '../../assets/icons/logo-alt.svg'
 import backButton from '../../assets/icons/back-button.svg'
-import menuLogo from '../../assets/icons/menu.svg'
+import menuLogo from '../../assets/icons/menu-button.svg'
 
 function Navbar({ goBack, className }) {
   return (
@@ -11,7 +11,7 @@ function Navbar({ goBack, className }) {
       <button type='button' className='Navbar--menu'>
         {goBack ? (
           <Link to='/'>
-            <img src={backButton} alt='Go back' />
+            <img src={backButton} alt='Go back' className='Navbar--menu__img' />
           </Link>
         ) : (
           <img src={menuLogo} alt='Menu' className='Navbar--menu__img' />

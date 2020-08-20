@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import './Login.scss'
 import Input from '../../Components/input'
 import Button from '../../Components/button'
-import MainLogo from '../../assets/brand/main-logo.png'
+import MainLogo from '../../assets/icons/logo.svg'
 import Navbar from '../../Components/Navbar'
 import PageTitle from '../../Components/PageTitle'
 

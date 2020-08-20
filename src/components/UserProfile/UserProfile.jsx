@@ -2,7 +2,7 @@ import React from 'react'
 import './UserProfile.scss'
 import { Link } from 'react-router-dom'
 import UserClothes from '../UserClothes'
-import userDefault from '../../assets/icons/user-default.svg'
+import userDefault from '../../assets/icons/user-icon-default.svg'
 import Button from '../button'
 import PageTitle from '../PageTitle/PageTitle'
 
