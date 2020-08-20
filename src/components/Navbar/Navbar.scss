@@ -1,0 +1,35 @@
+@import '../../sass/utils.scss';
+
+.Navbar {
+  padding: .5em;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  &--menu {
+    cursor: pointer;
+    @include flex(center, center);
+    &__img {
+      width: 50%;
+    };
+  };
+  &--logo {
+    grid-column: 3 / 4;
+    a {
+      @include flex(center, center);
+    }
+    &__img {
+      width: 80%;
+    };
+  };
+};
+
+@media screen and (min-width: 500px) {
+  .Navbar {
+    grid-template-columns: repeat(9, 1fr);
+    &--logo {
+      grid-column: 5 / 6;
+      &__img {
+        width: 70%;
+      }
+    }
+  }
+}

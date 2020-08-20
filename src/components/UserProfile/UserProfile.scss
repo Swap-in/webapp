@@ -1,0 +1,76 @@
+@import '../../sass/utils.scss';
+
+.UserProfile {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1em;
+  overflow: hidden;
+  h2 {
+    font-weight: 200;
+    @include title(3em, $purple-color-third);
+  };
+  &--info {
+    margin: 1em auto;
+    @include flex(center, center, column);
+    &__img {
+      background-color: $white-color-second;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      @include flex(center, center);
+    };
+    &__name{
+      margin: 1em;
+      text-transform: uppercase;
+      @include paragraph(1em, $purple-color-third);
+    };
+  };
+};
+
+.UserProfile--clothes {
+  h3 {
+    @include title(1.3em, $purple-color-third);
+  }
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: .9em;
+    padding: 1em; 
+  };
+};
+
+.UserProfile--buttons {
+  @include flex(center, space-around);
+  position: sticky;
+  width: 100%;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, .4);
+  backdrop-filter: blur(2px);
+  padding: 1em;
+  &__explore {
+    transition: .5s; 
+    height: 50px;
+    min-width: 200px;
+    max-width: 100%;
+    color: $brand-color;
+    border: 1px solid $brand-color;
+    background-color: $white-color-first;
+    &:hover {
+      color: $white-color-first;
+      border: none;
+      background: linear-gradient(180deg, #F35480 0%, #FF4D00 100%);
+    }
+  }
+  &__admin {
+    transition: .5s; 
+    @extend .UserProfile--buttons__explore;
+    color: $white-color-first;
+    background: linear-gradient(180deg, #F35480 0%, #FF4D00 100%);
+    border: 1px solid $brand-color;
+    &:hover {
+      color: $brand-color;
+      background: $white-color-first;
+      border: 1px solid $brand-color;
+    }
+  }
+}

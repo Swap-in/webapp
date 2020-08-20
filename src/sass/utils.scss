@@ -19,8 +19,8 @@ $black-color-third: #58585A;
 
 @mixin flex($align, $justify, $direction: row) {
   display: flex;
-  justify-content: $justify;
   align-items: $align;
+  justify-content: $justify;
   flex-direction: $direction;
 }
 
@@ -31,7 +31,7 @@ $black-color-third: #58585A;
 }
 
 @mixin paragraph($size, $color) {
+  font-family: $paragraph-font;
   font-size: $size;
   color: $color;
-  font-family: $paragraph-font;
 }

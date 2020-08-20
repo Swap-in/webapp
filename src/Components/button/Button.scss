@@ -1,0 +1,9 @@
+@import '../../sass/utils.scss';
+
+button {
+    font-family: $paragraph-font;
+    font-size: 13px;
+    font-weight: 900;
+    border-radius: 6px;
+    cursor: pointer;
+}
