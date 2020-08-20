@@ -21,3 +21,15 @@
     };
   };
 };
+
+@media screen and (min-width: 500px) {
+  .Navbar {
+    grid-template-columns: repeat(9, 1fr);
+    &--logo {
+      grid-column: 5 / 6;
+      &__img {
+        width: 70%;
+      }
+    }
+  }
+}

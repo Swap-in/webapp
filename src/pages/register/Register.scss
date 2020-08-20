@@ -1,8 +1,13 @@
 @import '../../sass/utils.scss';
 
 .Register {
+    display: block;
     margin: 0 12px;
     padding: 1em;
+    text-align: center;
+    &--icon {
+        text-align: left;
+    }
     & h2 {
         padding-top: 25px;
         font-family: $title-font;

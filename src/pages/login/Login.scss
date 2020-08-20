@@ -11,7 +11,6 @@
     }
     & h2{
         margin-top: 65px;
-        text-align: left;
         font-family: $title-font;
         font-size: 36px;
         font-weight: normal;
@@ -35,11 +34,10 @@
     }
     & span {
         color: $brand-color;
+        text-decoration: none;
     }
 }
-.login--input {
-    margin: 16px 0;
-}
+
 .Login--button {
     height: 50px;
     width: 100%;
@@ -52,4 +50,21 @@
     color: $white-color-first;
     border: none;
     background-color: $brand-color;
+}
+
+
+
+@media only screen and (min-width: 768px){
+    .Login h2 {
+        margin-top: 45px;
+    }
+    .Login--input {
+        margin-top: 0px;
+    }
+    .Login--form p {
+        margin: 40px 0 5px;
+    }
+    .Login--button {
+        margin-top: 40px;
+    }
 }

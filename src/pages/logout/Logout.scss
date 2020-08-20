@@ -32,6 +32,8 @@
 .Logout--button__register {
     @extend .Logout--button__login;
     left: 50%;
+    position: absolute;
+    bottom: 33px;
     color: $white-color-first;
     background: linear-gradient(180deg, #F35480 0%, #FF4D00 100%);
     border: none;

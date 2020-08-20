@@ -10,7 +10,6 @@ function Logout() {
       <div className='Logout'>
         <div className='Logout--container'>
           <img src={MainLogo} className='Logout--img' alt='logo' />
-
           <div className='Logout--button__container'>
             <Link to='/login'>
               <Button
