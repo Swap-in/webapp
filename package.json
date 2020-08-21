@@ -7,7 +7,7 @@
     "test": "jest",
     "test:coverage": "jest --coverage",
     "start": "webpack-dev-server --config ./webpack.config.dev.js",
-    "lint": "eslint ./ --fix",
+    "lint": "eslint --fix --ext .jsx --ignore-path './node_modules/' ",
     "build": "webpack --config webpack.config.js"
   },
   "keywords": [],

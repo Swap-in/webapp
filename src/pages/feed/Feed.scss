@@ -1,0 +1,13 @@
+@import '../../sass/utils.scss';
+
+.Feed {
+  height: 100vh;
+  overflow: scroll;
+  scroll-snap-type: y mandatory;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.Feed::-webkit-scrollbar {
+  display: none;
+}

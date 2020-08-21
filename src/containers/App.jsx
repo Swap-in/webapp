@@ -8,6 +8,7 @@ import Error404 from '../pages/error404'
 import Profile from '../pages/Profile'
 import AdminPictures from '../pages/adminPictures'
 import AdminClothes from '../pages/adminClothes/AdminClothes'
+import Feed from '../pages/feed'
 
 function App() {
   return (
@@ -25,6 +26,9 @@ function App() {
           </Route>
           <Route exact path='/profile'>
             <Profile />
+          </Route>
+          <Route exact path='/feed'>
+            <Feed />
           </Route>
           <Route exact path='/upload'>
             <AdminPictures title='Subir prenda' />

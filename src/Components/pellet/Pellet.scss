@@ -1,0 +1,11 @@
+@import '../../sass/utils.scss';
+
+.Pellet {
+  padding: .1em .5em;
+  margin: 0 .5em;
+  font-family: $title-font;
+  font-size: .9em;
+  color: $white-color-first;
+  background-color: $brand-color;
+  border-radius: 20px;
+}
