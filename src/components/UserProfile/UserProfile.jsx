@@ -2,14 +2,15 @@ import React from 'react'
 import './UserProfile.scss'
 import { Link } from 'react-router-dom'
 import UserClothes from '../UserClothes'
-import userDefault from '../../assets/icons/user-default.svg'
+import userDefault from '../../assets/icons/user-icon-default.svg'
 import Button from '../button'
+import PageTitle from '../PageTitle/PageTitle'
 
-function UserProfile({ user = true }) {
+function UserProfile() {
   return (
     <>
       <div className='UserProfile'>
-        <h2>{user && 'Mi perfil'}</h2>
+        <PageTitle title='Mi perfil' />
         <div className='UserProfile--info'>
           <div className='UserProfile--info__img'>
             <img src={userDefault} alt='User' />
@@ -34,7 +35,7 @@ function UserProfile({ user = true }) {
             className='UserProfile--buttons__explore'
           />
         </Link>
-        <Link to='/'>
+        <Link to='/admin'>
           <Button
             title='Administrar'
             className='UserProfile--buttons__admin'

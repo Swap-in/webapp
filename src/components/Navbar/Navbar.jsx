@@ -1,17 +1,24 @@
 import React from 'react'
 import './Navbar.scss'
-import { Link } from 'react-router-dom'
-import logo from '../../assets/brand/main-logo.png'
-import menuLogo from '../../assets/icons/menu.svg'
+import { Link, withRouter } from 'react-router-dom'
+import logo from '../../assets/brand/logo-alt.svg'
+import backButton from '../../assets/icons/back-button.svg'
+import menuLogo from '../../assets/icons/menu-button.svg'
 
-function Navbar() {
+function Navbar({ goBackIcon, className }) {
   return (
-    <div className='Navbar'>
+    <div className={`${className} Navbar`}>
       <button type='button' className='Navbar--menu'>
-        <img src={menuLogo} alt='Menu' className='Navbar--menu__img' />
+        {goBackIcon ? (
+          <Link to='/'>
+            <img src={backButton} alt='Go back' className='Navbar--menu__img' />
+          </Link>
+        ) : (
+          <img src={menuLogo} alt='Menu' className='Navbar--menu__img' />
+        )}
       </button>
       <div className='Navbar--logo'>
-        <Link to='/'>
+        <Link to='/feed'>
           <img src={logo} alt='Logo' className='Navbar--logo__img' />
         </Link>
       </div>
@@ -19,4 +26,4 @@ function Navbar() {
   )
 }
 
-export default Navbar
+export default withRouter(Navbar)

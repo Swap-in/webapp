@@ -1,7 +1,7 @@
 import React from 'react'
 import './Logout.scss'
 import { Link } from 'react-router-dom'
-import MainLogo from '../../assets/brand/main-logo.png'
+import MainLogo from '../../assets/brand/logo.svg'
 import Button from '../../Components/button'
 
 function Logout() {

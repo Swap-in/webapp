@@ -16,30 +16,12 @@
     position: absolute;
     bottom: 33px;
     right: 50%;
-    width: 165px;
-    height: 50px;
-    display:inline-block;
-    font-family: $paragraph-font;
     text-align: center;
-    color: $brand-color;
-    background-color: $white-color-first;  
-    border: 1px solid $brand-color;
-}
-.Logout--button__login:hover {
-    color: $white-color-first;
-    background: linear-gradient(180deg, #F35480 0%, #FF4D00 100%);
+    @include btn-secondary(165px, 50px);
 }
 .Logout--button__register {
-    @extend .Logout--button__login;
     left: 50%;
     position: absolute;
     bottom: 33px;
-    color: $white-color-first;
-    background: linear-gradient(180deg, #F35480 0%, #FF4D00 100%);
-    border: none;
-}
-.Logout--button__register:hover {
-    color: $brand-color;
-    background: $white-color-first;
-    border: 1px solid $brand-color;
+    @include btn-primary(165px, 50px);
 }

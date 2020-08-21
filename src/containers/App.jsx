@@ -6,16 +6,35 @@ import Register from '../pages/register'
 import Logout from '../pages/logout'
 import Error404 from '../pages/error404'
 import Profile from '../pages/Profile'
+import AdminPictures from '../pages/adminPictures'
+import AdminClothes from '../pages/adminClothes/AdminClothes'
 
 function App() {
   return (
     <>
       <Router>
         <Switch>
-          <Route exact path='/login' component={Login} />
-          <Route exact path='/registro' component={Register} />
-          <Route exact path='/profile' component={Profile} />
-          <Route exact path='/' component={Logout} />
+          <Route exact path='/'>
+            <Logout />
+          </Route>
+          <Route exact path='/login'>
+            <Login />
+          </Route>
+          <Route exact path='/registro'>
+            <Register />
+          </Route>
+          <Route exact path='/profile'>
+            <Profile />
+          </Route>
+          <Route exact path='/upload'>
+            <AdminPictures title='Subir prenda' />
+          </Route>
+          <Route exact path='/admin'>
+            <AdminClothes />
+          </Route>
+          <Route exact path='/admin/:id'>
+            <AdminPictures title='Editar prenda' />
+          </Route>
           <Route component={Error404} />
         </Switch>
       </Router>

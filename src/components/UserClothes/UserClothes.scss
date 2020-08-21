@@ -4,6 +4,16 @@
   overflow: hidden;
   border-radius: 1em;
   box-shadow: 1px 5px 8px -5px gray;
+  position: relative;
+  &--edit {
+    position: absolute;
+    width: 30px;
+    bottom: 0;
+    right: 0;
+    img {
+      width: 100%;
+    }
+  }
   &--img {
     cursor: pointer;
     min-height: 150px;
