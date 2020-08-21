@@ -1,6 +1,6 @@
 import React from 'react'
 import './Error404.scss'
-import MainLogo from '../../assets/icons/logo.svg'
+import MainLogo from '../../assets/brand/logo.svg'
 
 function Error404() {
   return (

@@ -8,7 +8,7 @@ import Button from '../../Components/button'
 function AdminPictures({ title }) {
   return (
     <div className='AdminPictures'>
-      <Navbar goBack />
+      <Navbar goBackIcon />
       <PageTitle title={title} className='AdminPictures--title' />
       <div className='AdminPictures--clothes'>
         <div className='AdminPictures--clothes__grid'>

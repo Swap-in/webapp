@@ -7,6 +7,9 @@
   &--menu {
     cursor: pointer;
     @include flex(center, start);
+    a {
+      @include flex(center, start);
+    }
     &__img {
       width: 50%;
     };

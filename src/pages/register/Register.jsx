@@ -21,7 +21,7 @@ function Register() {
   return (
     <>
       <div className='Register'>
-        <Navbar goBack />
+        <Navbar goBackIcon />
         <PageTitle title='Registro' />
         <div className='Register--img__container'>
           <p>FOTO DE PERFIL</p>

@@ -29,11 +29,11 @@ function App() {
           <Route exact path='/upload'>
             <AdminPictures title='Subir prenda' />
           </Route>
-          <Route exact path='/edit'>
-            <AdminPictures title='Editar prenda' />
-          </Route>
           <Route exact path='/admin'>
             <AdminClothes />
+          </Route>
+          <Route exact path='/admin/:id'>
+            <AdminPictures title='Editar prenda' />
           </Route>
           <Route component={Error404} />
         </Switch>

@@ -25,3 +25,8 @@ button, input {
   border: none;
   background-color: inherit; 
 }
+
+input[type="file"] {
+  border: 1px solid red;
+  display: none;
+}

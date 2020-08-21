@@ -2,6 +2,7 @@
 
 .AdminClothes {
   padding: 1em;
+  position: relative;
   &--title {
     margin: 1em 0;
   }
@@ -11,9 +12,9 @@
     gap: 1em;
   }
   &--buttons {
-    position: fixed;
-    width: 95%;
-    bottom: 10px;
+    position: sticky;
+    bottom: 0;
+    margin-top: 1em;
     &__button {
       @include btn-primary(100%, 50px);
       text-transform: uppercase;

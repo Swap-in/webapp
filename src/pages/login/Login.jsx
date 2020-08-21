@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import './Login.scss'
 import Input from '../../Components/input'
 import Button from '../../Components/button'
-import MainLogo from '../../assets/icons/logo.svg'
+import MainLogo from '../../assets/brand/logo.svg'
 import Navbar from '../../Components/Navbar'
 import PageTitle from '../../Components/PageTitle'
 
@@ -19,7 +19,7 @@ function Login() {
   }
   return (
     <>
-      <Navbar goBack className='Navbar--login' />
+      <Navbar goBackIcon className='Navbar--login' />
       <div className='Login'>
         <div className='Login--container'>
           <figure className='Login--logo__container'>

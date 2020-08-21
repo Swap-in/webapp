@@ -5,9 +5,10 @@ import plusButton from '../../assets/icons/plus-button.svg'
 function SubmitPicture() {
   return (
     <div className='SubmitPicture'>
-      <button type='button'>
+      <label htmlFor='inputFile'>
         <img src={plusButton} alt='add Garment' />
-      </button>
+        <input type='file' accept='image/*' id='inputFile' />
+      </label>
     </div>
   )
 }
