@@ -10,6 +10,13 @@
         margin-top: 55px;
     }
 }
+.Logout--container {
+    margin: 0 -12px;
+    height: 100vh; 
+    background-image: url("../../assets/images/login-image-mobile.png");
+    background-color: #cccccc; 
+    background-size: cover; 
+}
 
 .Logout--button__login {
     margin: 0 5px;
@@ -25,3 +32,13 @@
     bottom: 33px;
     @include btn-primary(165px, 50px);
 }
+
+@media only screen and (min-width: 768px){
+    .Logout--container {
+        margin: 0 -12px;
+        height: 100vh; 
+        background-image: url("../../assets//images/login-image.png");
+        background-color: #cccccc; 
+        background-size: 100% 100%;
+        }
+    }

@@ -51,7 +51,7 @@ function Login() {
             />
             <h6>
               ¿Aún no tienes cuenta?
-              <Link to='/registro'>
+              <Link to='/register'>
                 <span>Registrate aquí</span>
               </Link>
             </h6>
