@@ -1,0 +1,35 @@
+@import '../../sass/utils.scss';
+.NotificationItem {
+    // background-color: bisque;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+    align-items: center;
+    margin-top: 2em;
+
+    &--image{
+        width: 70px;
+        min-width: 70px;
+        -o-object-fit: cover;
+           object-fit: cover;
+        height: 70px;
+        border-radius: 50%;
+    };
+    &--Text span{
+        padding: 10px;
+        font-size: 18px;
+        color: blue;
+        min-width: 250px;
+        // border: solid 1px red;
+        display: flex;
+        @include title(1.3em, $black-color-first);
+        font-weight: 500;
+    };
+    &--buttons__secundary{
+        @include btn-secondary(100px, 50px);
+        @include title(1.3em, $black-color-first);
+        font-weight: 500;
+        margin-left: 20px;
+        line-height: 48px;
+    };
+}
