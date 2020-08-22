@@ -1,0 +1,16 @@
+@import '../../sass/utils.scss';
+
+.Search {
+  padding: 1em;
+  &--title{
+    text-transform: uppercase;
+    margin: 2em 0 .5em 0;
+    @include paragraph(1.2em, $purple-color-third);
+  }
+}
+
+.SearchContainerResults{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}

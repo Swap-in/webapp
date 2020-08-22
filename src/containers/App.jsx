@@ -10,6 +10,7 @@ import AdminPictures from '../pages/adminPictures'
 import AdminClothes from '../pages/adminClothes/AdminClothes'
 import Feed from '../pages/feed'
 import Notifications from '../pages/notifications/Notifications'
+import Search from '../pages/search/Search'
 
 function App() {
   return (
@@ -36,6 +37,9 @@ function App() {
           </Route>
           <Route exact path='/notifications'>
             <Notifications title='Notificaciones' />
+          </Route>
+          <Route exact path='/search'>
+            <Search title='Buscar' />
           </Route>
           <Route exact path='/admin'>
             <AdminClothes />
