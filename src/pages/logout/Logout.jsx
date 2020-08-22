@@ -18,7 +18,7 @@ function Logout() {
                 className='Logout--button__login'
               />
             </Link>
-            <Link to='/registro'>
+            <Link to='/register'>
               <Button
                 title='REGISTRARSE'
                 type='button'
