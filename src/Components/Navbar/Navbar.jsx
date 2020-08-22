@@ -6,7 +6,7 @@ import backButton from '../../assets/icons/back-button.svg'
 import menuLogo from '../../assets/icons/menu-button.svg'
 import MenuContainer from '../../containers/MenuContainer'
 
-function Navbar({ goBackIcon, className }) {
+function Navbar({ goBackIcon, className, history }) {
   const [openNav, setOpenNav] = useState(false)
   const [transitionMenu, setTransitionMenu] = useState('')
   function onOpenNav() {
@@ -20,13 +20,14 @@ function Navbar({ goBackIcon, className }) {
       setTransitionMenu('is-opening')
     }
   }
+  console.log(history)
   return (
     <div className={`${className} Navbar`}>
       <div className='Navbar--menu'>
         {goBackIcon ? (
-          <Link to='/'>
+          <button type='button' onClick={() => history.goBack()}>
             <img src={backButton} alt='Go back' className='Navbar--menu__img' />
-          </Link>
+          </button>
         ) : (
           <>
             <button type='button' onClick={onOpenNav}>
