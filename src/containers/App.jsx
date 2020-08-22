@@ -9,6 +9,7 @@ import Profile from '../pages/Profile'
 import AdminPictures from '../pages/adminPictures'
 import AdminClothes from '../pages/adminClothes/AdminClothes'
 import Feed from '../pages/feed'
+import Notifications from '../pages/notifications/Notifications'
 
 function App() {
   return (
@@ -21,7 +22,7 @@ function App() {
           <Route exact path='/login'>
             <Login />
           </Route>
-          <Route exact path='/registro'>
+          <Route exact path='/register'>
             <Register />
           </Route>
           <Route exact path='/profile'>
@@ -32,6 +33,9 @@ function App() {
           </Route>
           <Route exact path='/upload'>
             <AdminPictures title='Subir prenda' />
+          </Route>
+          <Route exact path='/notifications'>
+            <Notifications title='Notificaciones' />
           </Route>
           <Route exact path='/admin'>
             <AdminClothes />

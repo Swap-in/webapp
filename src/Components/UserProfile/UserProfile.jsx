@@ -29,7 +29,7 @@ function UserProfile() {
         </div>
       </div>
       <div className='UserProfile--buttons'>
-        <Link to='/'>
+        <Link to='/feed'>
           <Button
             title='Explorar'
             className='UserProfile--buttons__explore'
