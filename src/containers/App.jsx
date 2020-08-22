@@ -1,9 +1,52 @@
 import React from 'react'
-import './App.module.sass'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import '../sass/resets.scss'
+import Login from '../pages/login'
+import Register from '../pages/register'
+import Logout from '../pages/logout'
+import Error404 from '../pages/error404'
+import Profile from '../pages/Profile'
+import AdminPictures from '../pages/adminPictures'
+import AdminClothes from '../pages/adminClothes/AdminClothes'
+import Feed from '../pages/feed'
+import Notifications from '../pages/notifications/Notifications'
 
 function App() {
   return (
-    <h1>Hola mundo</h1>
+    <>
+      <Router>
+        <Switch>
+          <Route exact path='/'>
+            <Logout />
+          </Route>
+          <Route exact path='/login'>
+            <Login />
+          </Route>
+          <Route exact path='/register'>
+            <Register />
+          </Route>
+          <Route exact path='/profile'>
+            <Profile />
+          </Route>
+          <Route exact path='/feed'>
+            <Feed />
+          </Route>
+          <Route exact path='/upload'>
+            <AdminPictures title='Subir prenda' />
+          </Route>
+          <Route exact path='/notifications'>
+            <Notifications title='Notificaciones' />
+          </Route>
+          <Route exact path='/admin'>
+            <AdminClothes />
+          </Route>
+          <Route exact path='/admin/:id'>
+            <AdminPictures title='Editar prenda' />
+          </Route>
+          <Route component={Error404} />
+        </Switch>
+      </Router>
+    </>
   )
 }
 

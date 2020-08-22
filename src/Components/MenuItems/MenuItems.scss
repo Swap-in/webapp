@@ -1,0 +1,30 @@
+@import '../../sass/utils.scss';
+
+.MenuItems--container {
+    margin: 0 12px;
+    text-align: center;
+    @include flex(center, center);
+}
+.MenuItems--container__item {
+    display: flex;
+    text-align: center;
+    margin-top: 10px;
+    padding: 10px;
+    width: 100%;
+    height: 53px;
+    border-radius: 6px;
+    background: $purple-color-first;
+    color: $white-color-first;
+    font-family: $title-font;
+    font-size: 30px;
+    font-weight: normal;
+    text-decoration: none;
+}
+.MenuItems--img {
+    width: 30px;
+    align-items: flex-start;
+    margin-left: 40px;
+}
+.MenuItems--text {
+    margin-left: 20px;
+}

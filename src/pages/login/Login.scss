@@ -1,0 +1,66 @@
+@import '../../sass/utils.scss';
+
+.Navbar--login {
+    padding: 0 1em;
+}
+
+.Login {
+    margin: 0 12px;
+    text-align: center;
+    @include flex(center, center);
+    &--logo {
+        width: 246px;
+        height: 199px;
+        margin-top: 55px;
+    }
+    & h2{
+        margin-top: 65px;
+        font-family: $title-font;
+        font-size: 36px;
+        font-weight: normal;
+        color: $purple-color-third;
+    }
+    &--form p {
+        margin: 40px 0 10px;
+        text-align: left;
+        font-size: 16px;
+        font-family: $paragraph-font;
+        font-weight: 900;
+        color: $purple-color-third;
+    }
+    &--form h6 {
+        margin: 20px;
+        text-align: center;
+        font-size: 13px;
+        font-family: $paragraph-font;
+        font-weight: 900;
+        color: $purple-color-third;
+    }
+    a {
+        color: $brand-color;
+        text-decoration: none;
+        margin-left: .5em;
+    }
+}
+
+
+
+.Login--button {
+    margin-top: 80px;
+    @include btn-secondary(100%, 50px)
+}
+
+@media only screen and (min-width: 768px){
+    .Login h2 {
+        margin-top: 45px;
+    }
+    .Login--input {
+        margin-top: 0px;
+    }
+    .Login--form p {
+        margin: 40px 0 5px;
+    }
+    .Login--button {
+        margin-top: 40px;
+    }
+}
