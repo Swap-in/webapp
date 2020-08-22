@@ -1,0 +1,54 @@
+@import '../../sass/utils.scss';
+
+.UserProfile {
+  max-width: 600px;
+  margin: 0 auto;
+  overflow: hidden;
+  &--info {
+    margin: 1em auto;
+    @include flex(center, center, column);
+    &__img {
+      background-color: $white-color-second;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      @include flex(center, center);
+    };
+    &__name{
+      margin-top: 1.5em;
+      text-transform: uppercase;
+      @include paragraph(1em, $purple-color-third);
+    };
+  };
+};
+
+.UserProfile--clothes {
+  h3 {
+    @include title(1.3em, $purple-color-third);
+  }
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: .9em;
+    padding: 1em; 
+  };
+};
+
+.UserProfile--buttons {
+  position: sticky;
+  width: 100%;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, .4);
+  backdrop-filter: blur(2px);
+  padding: 1em;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: stretch;
+  column-gap: .5em; 
+  &__explore {
+    @include btn-secondary(100%, 50px);
+  }
+  &__admin {
+    @include btn-primary(100%, 50px);
+  }
+}
