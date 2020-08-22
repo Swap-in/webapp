@@ -12,17 +12,17 @@ function Search({ title }) {
       <PageTitle title={title} />
       <Select />
       <h3 className='Search--title'>Resultados</h3>
-          <div className='SearchContainerResults'>
-            <SearchResults />
-            <SearchResults />
-            <SearchResults />
-            <SearchResults />
-            <SearchResults />
-            <SearchResults />
-            <SearchResults />
-            <SearchResults />
-            <SearchResults />
-          </div>
+      <div className='SearchContainerResults'>
+        <SearchResults />
+        <SearchResults />
+        <SearchResults />
+        <SearchResults />
+        <SearchResults />
+        <SearchResults />
+        <SearchResults />
+        <SearchResults />
+        <SearchResults />
+      </div>
     </div>
   )
 }
