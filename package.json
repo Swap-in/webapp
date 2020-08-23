@@ -70,11 +70,12 @@
     ]
   },
   "jest": {
+    "verbose": true,
     "setupFilesAfterEnv": [
       "<rootDir>/src/__test__/setupTest.js"
     ],
     "moduleNameMapper": {
-      "\\.(scss)$": "<rootdir>/src/__mocks__/styleMock.js"
+      "\\.(scss|css)$": "<rootDir>/src/__mocks__/styleMock.js"
     }
   }
 }

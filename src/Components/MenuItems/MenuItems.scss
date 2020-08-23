@@ -1,4 +1,5 @@
 @import '../../sass/utils.scss';
+@import '../../sass/breakpoints.scss';
 
 .MenuItems--container {
     margin: 0 12px;
@@ -6,7 +7,6 @@
     @include flex(center, center);
 }
 .MenuItems--container__item {
-    display: flex;
     text-align: center;
     margin-top: 10px;
     padding: 10px;
@@ -19,6 +19,10 @@
     font-size: 30px;
     font-weight: normal;
     text-decoration: none;
+    a {
+        width: 100%;
+        @include flex(center, flex-start)
+    }
 }
 .MenuItems--img {
     width: 30px;
@@ -27,4 +31,10 @@
 }
 .MenuItems--text {
     margin-left: 20px;
+}
+
+@include media( mobile-s ) {
+    .MenuItems--container__item {
+        font-size: 20px;
+    }
 }

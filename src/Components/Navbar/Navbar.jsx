@@ -7,11 +7,11 @@ import menuLogo from '../../assets/icons/menu-button.svg'
 import MenuContainer from '../../containers/MenuContainer'
 import useOpenMenu from '../../hooks/useOpenMenu'
 
-function Navbar({ goBackIcon, className, history }) {
+function Navbar({ goBackIcon, history }) {
   const { transitionMenu, openNav, onOpenNav } = useOpenMenu(false)
 
   return (
-    <div className={`${className} Navbar`}>
+    <div className='Navbar'>
       <div className='Navbar--menu'>
         {goBackIcon ? (
           <button type='button' onClick={() => history.goBack()}>

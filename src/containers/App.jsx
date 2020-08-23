@@ -44,9 +44,6 @@ function App() {
           <Route exact path='/admin'>
             <AdminClothes />
           </Route>
-          <Route exact path='/admin/:id'>
-            <AdminPictures title='Editar prenda' />
-          </Route>
           <Route component={Error404} />
         </Switch>
       </Router>

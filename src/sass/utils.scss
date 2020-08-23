@@ -39,7 +39,6 @@ $black-color-third: #58585A;
 @mixin btn-primary($width, $height) {
   background: linear-gradient(180deg, #F35480 0%, #FF4D00 100%);
   color: $white-color-first;
-  border: 1px solid $brand-color;
   width: $width;
   height: $height;
   font-family: $paragraph-font;
@@ -47,13 +46,14 @@ $black-color-third: #58585A;
   &:hover {
     color: $brand-color;
     background: $white-color-first;
+    border: 1px solid $brand-color;
   }
 }
 
 @mixin btn-secondary($width, $height) {
   background: $white-color-first;
   color: $brand-color;
-  border: 2px solid $brand-color;
+  border: 1px solid $brand-color;
   box-sizing: border-box;
   border-radius: 10px;
   width: $width;

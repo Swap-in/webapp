@@ -7,23 +7,25 @@ import Button from '../../Components/button'
 
 function AdminPictures({ title }) {
   return (
-    <div className='AdminPictures'>
+    <>
       <Navbar goBackIcon />
-      <PageTitle title={title} className='AdminPictures--title' />
-      <div className='AdminPictures--clothes'>
-        <div className='AdminPictures--clothes__grid'>
-          <h4>Máximo 5 fotos</h4>
-          <SubmitPicture />
-          <SubmitPicture />
-          <SubmitPicture />
-          <SubmitPicture />
-          <SubmitPicture />
+      <div className='AdminPictures'>
+        <PageTitle title={title} className='AdminPictures--title' />
+        <div className='AdminPictures--clothes'>
+          <div className='AdminPictures--clothes__grid'>
+            <h4>Máximo 5 fotos</h4>
+            <SubmitPicture />
+            <SubmitPicture />
+            <SubmitPicture />
+            <SubmitPicture />
+            <SubmitPicture />
+          </div>
+        </div>
+        <div className='AdminPictures--buttons'>
+          <Button title='Guardar' />
         </div>
       </div>
-      <div className='AdminPictures--buttons'>
-        <Button title='Guardar' />
-      </div>
-    </div>
+    </>
   )
 }
 

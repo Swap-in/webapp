@@ -1,9 +1,9 @@
 @import '../../sass/utils.scss';
+@import '../../sass/breakpoints.scss';
 
 .UserProfile {
   max-width: 600px;
   margin: 0 auto;
-  overflow: hidden;
   &--info {
     margin: 1em auto;
     @include flex(center, center, column);
@@ -30,7 +30,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: .9em;
-    padding: 1em; 
+    padding: 1em 0;
   };
 };
 
@@ -50,5 +50,11 @@
   }
   &__admin {
     @include btn-primary(100%, 50px);
+  }
+}
+
+@include media( mobile-s ) {
+  .UserProfile--clothes__container {
+    grid-template-columns: repeat(2, 1fr);
   }
 }

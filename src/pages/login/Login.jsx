@@ -19,7 +19,7 @@ function Login() {
   }
   return (
     <>
-      <Navbar goBackIcon className='Navbar--login' />
+      <Navbar goBackIcon />
       <div className='Login'>
         <div className='Login--container'>
           <figure className='Login--logo__container'>

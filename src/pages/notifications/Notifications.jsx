@@ -6,14 +6,16 @@ import NotificationItem from '../../Components/NotificationItem'
 
 function Notifications({ title }) {
   return (
-    <div className='Notifications'>
+    <>
       <Navbar goBackIcon />
-      <PageTitle title={title} />
-      <NotificationItem />
-      <NotificationItem />
-      <NotificationItem />
-      <NotificationItem />
-    </div>
+      <div className='Notifications'>
+        <PageTitle title={title} />
+        <NotificationItem />
+        <NotificationItem />
+        <NotificationItem />
+        <NotificationItem />
+      </div>
+    </>
   )
 }
 
