@@ -20,7 +20,7 @@ function Register() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-      console.log(firstName, lastName, gender, phone, email, password, confirmPassword)
+    console.log(firstName, lastName, gender, phone, email, password, confirmPassword)
     
   }
 
