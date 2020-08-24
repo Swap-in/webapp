@@ -4,6 +4,7 @@
 .Logout {
     margin: 0 12px;
     text-align: center;
+    position: relative;
     &--img {
         width: 246px;
         height: 199px;
@@ -14,8 +15,8 @@
     margin: 0 -12px;
     height: 100vh; 
     background-image: url("../../assets/images/login-image-mobile.png");
-    background-color: #cccccc; 
-    background-size: cover; 
+    background-color: #cccccc;
+    background-size: cover;
 }
 
 .Logout--button__container {
@@ -48,7 +49,7 @@
     .Logout--container {
         margin: 0 -12px;
         height: 100vh; 
-        background-image: url("../../assets//images/login-image.png");
+        background-image: url("../../assets/images/login-image.png");
         background-color: #cccccc; 
         background-size: 100% 100%;
         }

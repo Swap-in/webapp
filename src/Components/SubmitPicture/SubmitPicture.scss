@@ -10,5 +10,8 @@
   @include flex(center, center);
   label {
     cursor: pointer;
+    img {
+      width: 100%;
+    }
   }
 }

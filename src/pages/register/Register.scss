@@ -22,9 +22,6 @@
     }
     &--img__container {
         padding: 1em 0;
-        img {
-            // border: 1px solid red;
-        }
         p {
             margin-bottom: 1em;
             font-family: $paragraph-font;
@@ -32,11 +29,15 @@
             font-weight: 900;
             color: $purple-color-third;
         }
+        img {
+            width: 35%;
+            cursor: pointer;
+        }
     }
 }
 
 .Register--dropdown {
-    width: 343px;
+    width: 100%;
     height: 52px;
     border: 1px solid $purple-color-third;
     border-radius: 6px;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import './Register.scss'
 import Input from '../../Components/input'
 import Button from '../../Components/button'
@@ -8,17 +8,27 @@ import addPictureIcon from '../../assets/icons/add-picture.svg'
 
 function Register() {
 
+  const userImage = useRef()
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
-   const [gender, setGender] = useState('')
+  const [gender, setGender] = useState('')
   const [phone, setPhone] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
+  const [image, setImage] = useState(addPictureIcon)
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(firstName, lastName, gender, phone, email, password, confirmPassword)
+    console.log({ firstName, lastName, gender, phone, email, password, confirmPassword })
+  }
+  const onSubmitPicture = () => {
+    const currentFile = userImage.current.files[0]
+    if (currentFile) {
+      const fileToUrl = URL.createObjectURL(currentFile)
+      console.log(currentFile)
+      setImage(fileToUrl)
+    }
   }
 
   return (
@@ -28,7 +38,16 @@ function Register() {
         <PageTitle title='Registro' />
         <div className='Register--img__container'>
           <p>FOTO DE PERFIL</p>
-          <img src={addPictureIcon} alt='User' />
+          <label htmlFor='userProfile'>
+            <img src={image} alt='User' />
+            <input
+              type='file'
+              accept='image/*'
+              id='userProfile'
+              ref={userImage}
+              onChange={onSubmitPicture}
+            />
+          </label>
         </div>
         <div className='Register--container'>
           <form>
@@ -47,14 +66,15 @@ function Register() {
               className='Register--input__field'
             />
 
-             <select className='Register--dropdown'
+            <select
+              className='Register--dropdown'
               name='gender'
-              onChange={e => setGender(e.target.value)}
-              >
-                <option value="" defaultValue>GENERO</option>
-                <option value="Hombre">HOMBRE</option>
-                <option value="Mujer">MUJER</option>
-            </select> 
+              onChange={(e) => setGender(e.target.value)}
+            >
+              <option value='' defaultValue>GENERO</option>
+              <option value='MALE'>HOMBRE</option>
+              <option value='WOMEN'>MUJER</option>
+            </select>
 
             <Input
               type='number'

@@ -1,0 +1,47 @@
+@import '../../sass/utils.scss';
+
+.Overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: transparentize($black-color-first, .9);
+  backdrop-filter: blur(10px);
+  @include flex(center, center);
+}
+
+.MatchModal {
+  height: 50%;
+  width: 90%;
+  h2 {
+    text-align: center;
+    color: $brand-color-alt;
+  }
+  &--clothes {
+    margin-top: .5em;
+    position: relative;
+    @include flex(center, space-between);
+    &__like {
+      position: absolute;
+      left: 43%;
+      z-index: 100;
+    }
+    .UserClothes {
+      box-shadow: none;
+    }
+  }
+  &--buttons {
+    margin-top: 1em;
+    @include flex(center, space-around);
+    &__agree {
+      @include btn-primary(100%, 50px)
+    }
+    &__ignore {
+      @include btn-secondary(100%, 50px);
+    }
+    .Btn--container {
+      width: 45%;
+    }
+  }
+}
