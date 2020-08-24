@@ -6,6 +6,9 @@
     &--container {
         form {
             width: 100%;
+            span {
+                @include paragraph(1em, $purple-color-third);
+            }
             .Input--container {
                 margin: 1em 0;
             }
