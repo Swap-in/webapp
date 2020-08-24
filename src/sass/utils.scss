@@ -42,6 +42,7 @@ $black-color-third: #58585A;
   width: $width;
   height: $height;
   font-family: $paragraph-font;
+  border-radius: 10px;
   font-size: .8em;
   &:hover {
     color: $brand-color;

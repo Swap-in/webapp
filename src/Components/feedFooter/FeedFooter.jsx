@@ -5,7 +5,7 @@ import superLikeIcon from '../../assets/icons/superlike.svg'
 import dislikeIcon from '../../assets/icons/dislike.svg'
 import Pellet from '../pellet/Pellet'
 
-function FeedFooter() {
+function FeedFooter({ openMatchModal }) {
   return (
     <div className='FeedFooter'>
       <div className='FeedFooter--content'>
@@ -20,7 +20,7 @@ function FeedFooter() {
         <button type='button' className='FeedFooter--actions__button'>
           <img src={likeIcon} alt='Like' />
         </button>
-        <button type='button' className='FeedFooter--actions__button'>
+        <button type='button' className='FeedFooter--actions__button' onClick={openMatchModal}>
           <img src={superLikeIcon} alt='Super Like' />
         </button>
         <button type='button' className='FeedFooter--actions__button'>

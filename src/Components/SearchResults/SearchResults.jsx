@@ -8,11 +8,12 @@ function SearchResults({ image, location }) {
   return (
     <div className='SearchResultsItem'>
       <Link to={`${location.pathname}/${id}`}>
-        <img
-          className='SearchResultsItem--img'
-          src={image || 'https://cdn-images.farfetch-contents.com/14/43/69/43/14436943_21290509_1000.jpg'}
-          alt='item'
-        />
+        <div className='SearchResultsItem--img'>
+          <img
+            src={image || 'https://cdn-images.farfetch-contents.com/14/43/69/43/14436943_21290509_1000.jpg'}
+            alt='item'
+          />
+        </div>
       </Link>
     </div>
   )
