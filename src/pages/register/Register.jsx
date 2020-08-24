@@ -109,6 +109,7 @@ function Register() {
               className='Register--button'
               type='button'
               onClick={handleSubmit}
+              disabled={!firstName || !lastName || !gender || !phone || !email || !password || !confirmPassword}
             />
           </form>
         </div>
