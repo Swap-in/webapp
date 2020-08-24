@@ -11,14 +11,14 @@ function Register() {
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
    const [gender, setGender] = useState('')
-  const [telefono, setTelefono] = useState('')
+  const [phone, setPhone] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(firstName, lastName, gender, telefono, email, password, confirmPassword)
+    console.log(firstName, lastName, gender, phone, email, password, confirmPassword)
   }
 
   return (
@@ -34,21 +34,21 @@ function Register() {
           <form>
             <Input
               type='text'
-              name='nombre'
+              name='firstName'
               placeholder='NOMBRE'
               onChange={(e) => setFirstName(e.target.value)}
               className='Register--input__field'
             />
             <Input
               type='text'
-              name='apellido'
+              name='lastName'
               placeholder='APELLIDO'
               onChange={(e) => setLastName(e.target.value)}
               className='Register--input__field'
             />
 
              <select className='Register--dropdown'
-              name='genero'
+              name='gender'
               onChange={e => setGender(e.target.value)}
               >
                 <option value="" defaultValue>GENERO</option>
@@ -58,9 +58,9 @@ function Register() {
 
             <Input
               type='number'
-              name='telefono'
+              name='phone'
               placeholder='TELÉFONO'
-              onChange={(e) => setTelefono(e.target.value)}
+              onChange={(e) => setPhone(e.target.value)}
               className='Register--input__field'
             />
             <Input
