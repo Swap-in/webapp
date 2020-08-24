@@ -10,15 +10,18 @@ function Register() {
 
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
-   const [gender, setGender] = useState('')
+  const [gender, setGender] = useState('')
   const [phone, setPhone] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [confirmPassword, setConfirmPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('');
+
+
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(firstName, lastName, gender, phone, email, password, confirmPassword)
+      console.log(firstName, lastName, gender, phone, email, password, confirmPassword)
+    
   }
 
   return (
@@ -89,6 +92,7 @@ function Register() {
               className='Register--button'
               type='button'
               onClick={handleSubmit}
+              disabled={!firstName, !lastName, !gender, !phone, !email, !password, !confirmPassword}
             />
           </form>
         </div>
