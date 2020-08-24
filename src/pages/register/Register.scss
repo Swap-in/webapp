@@ -35,6 +35,14 @@
     }
 }
 
+.Register--dropdown {
+    width: 343px;
+    height: 52px;
+    border: 1px solid $purple-color-third;
+    border-radius: 6px;
+    color: rgba(119, 28, 127, 0.5);
+}
+
 .Register--container {
     @include flex(center, center, column);
 }

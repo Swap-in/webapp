@@ -8,7 +8,9 @@ import addPictureIcon from '../../assets/icons/add-picture.svg'
 
 function Register() {
 
-  const [nombre, setNombre] = useState('')
+  const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName] = useState('')
+   const [gender, setGender] = useState('')
   const [telefono, setTelefono] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -16,7 +18,7 @@ function Register() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(nombre, telefono, email, password, confirmPassword)
+    console.log(firstName, lastName, gender, telefono, email, password, confirmPassword)
   }
 
   return (
@@ -29,22 +31,37 @@ function Register() {
           <img src={addPictureIcon} alt='User' />
         </div>
         <div className='Register--container'>
-          <form onSubmit={handleSubmit}>
+          <form>
             <Input
               type='text'
               name='nombre'
-              placeholder='NOMBRE COMPLETO'
-              onChange={(e) => setNombre(e.target.value)}
+              placeholder='NOMBRE'
+              onChange={(e) => setFirstName(e.target.value)}
               className='Register--input__field'
-              required
             />
+            <Input
+              type='text'
+              name='apellido'
+              placeholder='APELLIDO'
+              onChange={(e) => setLastName(e.target.value)}
+              className='Register--input__field'
+            />
+
+             <select className='Register--dropdown'
+              name='genero'
+              onChange={e => setGender(e.target.value)}
+              >
+                <option value="" defaultValue>GENERO</option>
+                <option value="Hombre">HOMBRE</option>
+                <option value="Mujer">MUJER</option>
+            </select> 
+
             <Input
               type='number'
               name='telefono'
               placeholder='TELÉFONO'
               onChange={(e) => setTelefono(e.target.value)}
               className='Register--input__field'
-              required
             />
             <Input
               type='email'
@@ -52,7 +69,6 @@ function Register() {
               placeholder='EMAIL'
               onChange={(e) => setEmail(e.target.value)}
               className='Register--input__field'
-              required
             />
             <Input
               type='password'
@@ -60,7 +76,6 @@ function Register() {
               placeholder='CONTRASEÑA'
               onChange={(e) => setPassword(e.target.value)}
               className='Register--input__field'
-              required
             />
             <Input
               type='password'
@@ -68,12 +83,12 @@ function Register() {
               placeholder='CONFIRMAR CONTRASEÑA'
               onChange={(e) => setConfirmPassword(e.target.value)}
               className='Register--input__field'
-              required
             />
             <Button
               title='CREAR CUENTA'
               className='Register--button'
-              type='submit'
+              type='button'
+              onClick={handleSubmit}
             />
           </form>
         </div>
