@@ -8,7 +8,9 @@ import addPictureIcon from '../../assets/icons/add-picture.svg'
 
 function Register() {
 
+  const emailInputRef = useRef(null)
   const userImage = useRef()
+  const [emailError, setEmailError] = useState(null)
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [gender, setGender] = useState('')
@@ -29,6 +31,12 @@ function Register() {
       console.log(currentFile)
       setImage(fileToUrl)
     }
+  }
+
+  const validateEmailInput = (e) => {
+    const { validationMessage } = emailInputRef.current
+    validationMessage ? setEmailError(validationMessage) : setEmailError(null)
+    setEmail(e)
   }
 
   return (
@@ -87,9 +95,11 @@ function Register() {
               type='email'
               name='email'
               placeholder='EMAIL'
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={validateEmailInput}
               className='Register--input__field'
+              reference={emailInputRef}
             />
+            {emailError && (<span>{emailError}</span>)}
             <Input
               type='password'
               name='password'
