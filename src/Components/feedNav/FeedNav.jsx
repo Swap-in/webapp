@@ -18,7 +18,7 @@ function FeedNav() {
           transition={transitionMenu}
         />
       </button>
-      <Link to='/' className='FeedNav--user'>
+      <Link to='/profile/diego' className='FeedNav--user'>
         <p>UserName</p>
         <div className='FeedNav--user__img'>
           <img src='https://images.pexels.com/photos/1310522/pexels-photo-1310522.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500' alt='User' />

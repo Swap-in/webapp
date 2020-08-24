@@ -1,9 +1,9 @@
 import React from 'react'
 import './Search.scss'
-import Navbar from '../../Components/Navbar/Navbar'
 import PageTitle from '../../Components/PageTitle'
 import Select from '../../Components/Select'
 import SearchResults from '../../Components/SearchResults'
+import Navbar from '../../Components/Navbar/Navbar'
 
 function Search({ title }) {
   return (

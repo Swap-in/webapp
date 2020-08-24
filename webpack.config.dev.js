@@ -16,7 +16,6 @@ module.exports = {
     open: true,
     hot: true,
     historyApiFallback: true,
-    contentBase: 'dist',
   },
   resolve: {
     extensions: ['.js', '.jsx'],

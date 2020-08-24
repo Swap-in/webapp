@@ -1,27 +1,24 @@
 import React, { useState } from 'react'
 import './Select.scss'
+import { useHistory, useLocation } from 'react-router-dom'
+
+const OPTIONS = ['corbatas', 'zapatos', 'Pantalones', 'Playeras', 'Sombreros']
 
 function Select() {
-  const [state, setState] = useState({
-    value: 'corbatas',
-  })
-  function handleChange(event) {
-    setState({ value: event.target.value });
+  const history = useHistory()
+  const location = useLocation()
+  const [options, setOptions] = useState(OPTIONS[0])
+  const handleChangeOptions = (e) => {
+    e.preventDefault()
+    setOptions(e.target.value)
+    history.push(`${location.pathname}/${options}`)
   }
 
-  function handleSubmit(event) {
-    event.preventDefault();
-    alert(`Your favorite flavor is: ${state.value}`);
-  }
   return (
-    <form className='formSearch' onSubmit={handleSubmit}>
-      <select className='formSearch--Select' onChange={handleChange}>
-        <option value='Zapatos'>Zapatos</option>
-        <option value='Pantalones'>Pantalones</option>
-        <option value='Playeras'>Playeras</option>
-        <option value='Sombreros'>Sombreros</option>
+    <form className='formSearch'>
+      <select className='formSearch--Select' onChange={handleChangeOptions} value={options}>
+        {OPTIONS.map((option) => <option key={option}>{option}</option>)}
       </select>
-      {/* <input type='submit' value='Submit' /> */}
     </form>
   )
 }

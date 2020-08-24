@@ -19,9 +19,12 @@
   "plugins": [
     "react",
     "jsx-a11y",
-    "import"
+    "import",
+    "react-hooks"
   ],
   "rules": {
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
     "semi": "off",
     "react/jsx-filename-extension": 0,
     "array-bracket-spacing": 2,

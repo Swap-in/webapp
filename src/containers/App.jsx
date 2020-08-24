@@ -20,16 +20,16 @@ function App() {
           <Route exact path='/'>
             <Logout />
           </Route>
-          <Route exact path='/login'>
+          <Route path='/login'>
             <Login />
           </Route>
-          <Route exact path='/register'>
+          <Route path='/register'>
             <Register />
           </Route>
           <Route exact path='/profile'>
             <Profile />
           </Route>
-          <Route exact path='/feed'>
+          <Route path='/feed'>
             <Feed />
           </Route>
           <Route exact path='/upload'>
@@ -38,8 +38,11 @@ function App() {
           <Route exact path='/notifications'>
             <Notifications title='Notificaciones' />
           </Route>
-          <Route exact path='/search'>
+          <Route exact path='/search/'>
             <Search title='Buscar' />
+          </Route>
+          <Route exact path='/search/:id'>
+            <AdminClothes />
           </Route>
           <Route exact path='/admin'>
             <AdminClothes />
