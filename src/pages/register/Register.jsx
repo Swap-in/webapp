@@ -22,6 +22,10 @@ function Register() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+<<<<<<< HEAD
+    console.log(firstName, lastName, gender, phone, email, password, confirmPassword)
+    
+=======
     console.log({ firstName, lastName, gender, phone, email, password, confirmPassword })
   }
   const onSubmitPicture = () => {
@@ -31,6 +35,7 @@ function Register() {
       console.log(currentFile)
       setImage(fileToUrl)
     }
+>>>>>>> 9e29d2b6ec075037bb10051ce1631cc212d7854b
   }
 
   const validateEmailInput = (e) => {
