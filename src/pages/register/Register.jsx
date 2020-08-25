@@ -5,6 +5,7 @@ import Button from '../../Components/button'
 import Navbar from '../../Components/Navbar'
 import PageTitle from '../../Components/PageTitle'
 import addPictureIcon from '../../assets/icons/add-picture.svg'
+import register from '../../services/register'
 
 function Register() {
 
@@ -23,6 +24,7 @@ function Register() {
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log({ firstName, lastName, gender, phone, email, password, confirmPassword })
+    register(firstName, lastName, gender, phone, email, password, confirmPassword)
   }
   const onSubmitPicture = () => {
     const currentFile = userImage.current.files[0]
