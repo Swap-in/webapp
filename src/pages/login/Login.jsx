@@ -11,12 +11,12 @@ function Login() {
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  console.log(password)
 
   const handleLogin = (e) => {
     e.preventDefault();
-    alert(email)
+    console.log({ email, password })
   }
+
   return (
     <>
       <Navbar goBackIcon />
@@ -27,7 +27,6 @@ function Login() {
           </figure>
           <PageTitle title='Iniciar Sesión' />
           <form
-            onSubmit={handleLogin}
             className='Login--form'
           >
             <p>Email</p>
@@ -47,6 +46,7 @@ function Login() {
             <Button
               title='INICIAR SESIÓN'
               className='Login--button'
+              onClick={handleLogin}
             />
             <h6>
               ¿Aún no tienes cuenta?

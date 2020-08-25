@@ -106,14 +106,16 @@ function Register() {
               <option value='MALE'>HOMBRE</option>
               <option value='WOMEN'>MUJER</option>
             </select>
+            <div className='Register--countryCode'>
+              <Input
+                type='number'
+                name='phone'
+                placeholder='(COL) +57 Teléfono'
+                onChange={(e) => setPhone(e.target.value)}
+                className='Register--input__field'
+              />
+            </div>
 
-            <Input
-              type='number'
-              name='phone'
-              placeholder='Teléfono'
-              onChange={(e) => setPhone(e.target.value)}
-              className='Register--input__field'
-            />
             <Input
               type='email'
               name='email'
