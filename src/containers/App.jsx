@@ -12,6 +12,7 @@ import Notifications from '../pages/notifications/Notifications'
 import Search from '../pages/search/Search'
 import UploadClothes from '../pages/uploadClothes/uploadClothes'
 import { AuthProvider } from '../providers/AuthProvider'
+import Token from '../pages/Token'
 import PrivateRoute from '../hooks/PrivateRoute'
 
 function App() {
@@ -20,6 +21,9 @@ function App() {
       <AuthProvider>
         <Router>
           <Switch>
+            <Route exact path='/token'>
+              <Token />
+            </Route>
             <Route exact path='/'>
               <Logout />
             </Route>
