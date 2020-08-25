@@ -6,20 +6,20 @@ import AdminPictures from '../../Components/adminPictures/AdminPictures'
 import FormUpload from '../../Components/addClothes'
 
 function uploadClothes({ title }) {
-    return (
-      <>
-        <Navbar goBackIcon />
-        <div className='uploadClothes'>
-          <PageTitle title={title} className='uploadClothes--title' />
-          <div className='uploadClothes--clothes'>
-            <div className='uploadClothes--clothes__grid'>
-              <AdminPictures />
-              <FormUpload />
-            </div>
+  return (
+    <>
+      <Navbar goBackIcon />
+      <div className='uploadClothes'>
+        <PageTitle title={title} className='uploadClothes--title' />
+        <div className='uploadClothes--clothes'>
+          <div className='uploadClothes--clothes__grid'>
+            <AdminPictures />
+            <FormUpload />
           </div>
         </div>
-      </>
-    )
-  }
-  
-  export default uploadClothes
+      </div>
+    </>
+  )
+}
+
+export default uploadClothes
