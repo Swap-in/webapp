@@ -1,14 +1,14 @@
 @import '../../sass/utils.scss';
 
-.AdminPictures {
+.uploadClothes {
   padding: 1em;
-  height: 100vh;
+  height: 90vh;
   &--clothes {
     height: 50%;
-    margin: 3em auto;
+    margin: 0 auto;
     &__grid {
       height: 100%;
-      display: grid;
+      // display: grid;
       grid-template-columns: repeat(4, 1fr);
       grid-template-rows: 1.5em repeat(2, 1fr);
       gap: 1em;
