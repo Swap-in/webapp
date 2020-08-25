@@ -6,6 +6,8 @@ import Navbar from '../../Components/Navbar'
 import PageTitle from '../../Components/PageTitle'
 import addPictureIcon from '../../assets/icons/add-picture.svg'
 
+
+
 function Register() {
 
   const userImage = useRef()
@@ -20,10 +22,6 @@ function Register() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-<<<<<<< HEAD
-    console.log(firstName, lastName, gender, phone, email, password, confirmPassword)
-    
-=======
     console.log({ firstName, lastName, gender, phone, email, password, confirmPassword })
   }
   const onSubmitPicture = () => {
@@ -33,7 +31,6 @@ function Register() {
       console.log(currentFile)
       setImage(fileToUrl)
     }
->>>>>>> 9e29d2b6ec075037bb10051ce1631cc212d7854b
   }
 
   return (
@@ -80,14 +77,16 @@ function Register() {
               <option value='MALE'>HOMBRE</option>
               <option value='WOMEN'>MUJER</option>
             </select>
-
+            <div className='Register--countryCode'>
             <Input
               type='number'
               name='phone'
-              placeholder='TELÉFONO'
+              placeholder='(COL) +57 TELÉFONO'
               onChange={(e) => setPhone(e.target.value)}
               className='Register--input__field'
             />
+            </div>
+        
             <Input
               type='email'
               name='email'

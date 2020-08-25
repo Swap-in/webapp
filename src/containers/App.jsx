@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import '../sass/resets.scss'
+import { AuthProvider } from '../hooks/userContext'
 import Login from '../pages/login'
 import Register from '../pages/register'
 import Logout from '../pages/logout'
@@ -15,6 +16,7 @@ import Search from '../pages/search/Search'
 function App() {
   return (
     <>
+    <AuthProvider>
       <Router>
         <Switch>
           <Route exact path='/'>
@@ -50,6 +52,7 @@ function App() {
           <Route component={Error404} />
         </Switch>
       </Router>
+    </AuthProvider>
     </>
   )
 }
