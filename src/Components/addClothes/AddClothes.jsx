@@ -14,9 +14,9 @@ function AddClothes() {
               <label htmlFor=''>
                 Tipo de prenda
                 <select className='AddClothes--form__input'>
+                  <option defaultValue value='' />
                   <option value='' />
                   <option value='' />
-                  <option selected value='' />
                   <option value='' />
                 </select>
               </label>
@@ -27,18 +27,18 @@ function AddClothes() {
               <label htmlFor='type'>
                 Tipo de prenda
                 <select className='AddClothes--form__input' id='type'>
+                  <option defaultValue value='' />
                   <option value='' />
                   <option value='' />
-                  <option selected value='' />
                   <option value='' />
                 </select>
               </label>
               <label>
                 Tipo de prenda
                 <select className='AddClothes--form__input'>
+                  <option defaultValue value='' />
                   <option value='' />
                   <option value='' />
-                  <option selected value='' />
                   <option value='' />
                 </select>
               </label>

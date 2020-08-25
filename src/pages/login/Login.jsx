@@ -1,21 +1,24 @@
-import React, { useState, useContext } from 'react'
-import { Link, Redirect } from 'react-router-dom'
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import './Login.scss'
 import Input from '../../Components/input'
 import Button from '../../Components/button'
 import MainLogo from '../../assets/brand/logo.svg'
 import Navbar from '../../Components/Navbar'
 import PageTitle from '../../Components/PageTitle'
+import login from '../../services/login'
 
 function Login() {
 
-  const [email, setEmail] = useState('')
+  const [userName, setUserName] = useState('')
   const [password, setPassword] = useState('')
-  console.log(password)
 
-  const handleLogin = (e) => {
+  const onLogin = (e) => {
     e.preventDefault();
-    alert(email)
+    const data = { userName, password }
+    login(data)
+      .then((data) => console.log('Data login', data))
+    // console.log(data)
   }
 
   return (
@@ -28,16 +31,14 @@ function Login() {
           </figure>
           <PageTitle title='Iniciar Sesión' />
           <form
-            onSubmit={handleLogin}
             className='Login--form'
           >
-            <p>Email</p>
+            <p>Nombre de usuario</p>
             <Input
-              type='email'
-              name='email'
-              placeholder='ejemplo@ejemplo.com'
+              type='text'
+              name='username'
               className='Login--input'
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => setUserName(e.target.value)}
             />
             <p>Contraseña</p>
             <Input
@@ -49,6 +50,7 @@ function Login() {
             <Button
               title='INICIAR SESIÓN'
               className='Login--button'
+              onClick={onLogin}
             />
             <h6>
               ¿Aún no tienes cuenta?

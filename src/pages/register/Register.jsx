@@ -7,13 +7,18 @@ import PageTitle from '../../Components/PageTitle'
 import addPictureIcon from '../../assets/icons/add-picture.svg'
 import register from '../../services/register'
 
-
-
 function Register() {
 
   const emailInputRef = useRef(null)
   const userImage = useRef()
-  const [emailError, setEmailError] = useState(null)
+  const [formErrors, setFormErrors] = useState({
+    email: '',
+    password: '',
+  })
+  // const [emailError, setEmailError] = useState(null)
+  // const [passwordError, setPasswordError] = useState(null)
+  const [image, setImage] = useState(addPictureIcon)
+  const [userName, setUserName] = useState('')
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [gender, setGender] = useState('')
@@ -21,13 +26,23 @@ function Register() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
-  const [image, setImage] = useState(addPictureIcon)
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    console.log({ firstName, lastName, gender, phone, email, password, confirmPassword })
-    register(firstName, lastName, gender, phone, email, password, confirmPassword)
+  const SubmitRegister = async () => {
+    const formData = {
+      userName,
+      firstName,
+      lastName,
+      gender,
+      phone,
+      email,
+      password,
+    }
+    await register(formData)
+      .then((res) => console.log(res))
+      .then(() => alert('revisa tu correo pendejo'))
+      .catch((err) => console.error('Error Register', err))
   }
+
   const onSubmitPicture = () => {
     const currentFile = userImage.current.files[0]
     if (currentFile) {
@@ -40,12 +55,23 @@ function Register() {
   const validateEmailInput = (e) => {
     const { validationMessage } = emailInputRef.current
     if (validationMessage) {
-      setEmailError(validationMessage)
-      setEmail(null)
+      setFormErrors({ email: validationMessage })
     } else {
-      setEmailError(null)
+      setFormErrors({ email: null })
       setEmail(e.target.value)
     }
+  }
+
+  const validateInputsAndSend = (e) => {
+    e.preventDefault()
+    const isNotSamePassword = password !== confirmPassword
+    const shortPassword = password.length < 8
+    if (isNotSamePassword) {
+      return setFormErrors({ password: 'Las contraseñas no coinciden' })
+    } if (shortPassword) {
+      return setFormErrors({ password: 'la contraseña debe ser mayor a 9 caracteres' })
+    }
+    return SubmitRegister()
   }
 
   return (
@@ -69,67 +95,77 @@ function Register() {
         <div className='Register--container'>
           <form>
             <Input
-              type='text'
-              name='firstName'
-              placeholder='NOMBRE'
-              onChange={(e) => setFirstName(e.target.value)}
               className='Register--input__field'
+              name='username'
+              onChange={(e) => setUserName(e.target.value)}
+              placeholder='Nombre de usuario'
+              type='text'
+              value={userName}
             />
             <Input
-              type='text'
-              name='lastName'
-              placeholder='APELLIDO'
-              onChange={(e) => setLastName(e.target.value)}
               className='Register--input__field'
+              name='firstName'
+              onChange={(e) => setFirstName(e.target.value)}
+              placeholder='Nombre'
+              type='text'
+              value={firstName}
             />
-
+            <Input
+              className='Register--input__field'
+              name='lastName'
+              onChange={(e) => setLastName(e.target.value)}
+              placeholder='Apellido'
+              type='text'
+              value={lastName}
+            />
             <select
               className='Register--dropdown'
               name='gender'
               onChange={(e) => setGender(e.target.value)}
             >
-              <option value='' defaultValue>GENERO</option>
+              <option defaultValue>GENERO</option>
               <option value='MALE'>HOMBRE</option>
               <option value='WOMEN'>MUJER</option>
             </select>
-            <div className='Register--countryCode'>
             <Input
-              type='number'
+              className='Register--input__field'
               name='phone'
-              placeholder='(COL) +57 TELÉFONO'
               onChange={(e) => setPhone(e.target.value)}
-              className='Register--input__field'
+              placeholder='(COL) Teléfono'
+              type='number'
+              value={phone}
             />
-            </div>
-        
             <Input
-              type='email'
+              className='Register--input__field'
               name='email'
-              placeholder='EMAIL'
               onChange={validateEmailInput}
-              className='Register--input__field'
+              placeholder='Email'
               reference={emailInputRef}
+              type='email'
             />
-            {emailError && (<span>{emailError}</span>)}
+            {formErrors.email && <span>{formErrors.email}</span>}
             <Input
-              type='password'
+              className='Register--input__field'
               name='password'
-              placeholder='CONTRASEÑA'
               onChange={(e) => setPassword(e.target.value)}
-              className='Register--input__field'
-            />
-            <Input
+              placeholder='Contraseña'
               type='password'
-              name='confirm_password'
-              placeholder='CONFIRMAR CONTRASEÑA'
-              onChange={(e) => setConfirmPassword(e.target.value)}
+              value={password}
+            />
+            {formErrors.password && (<span>{formErrors.password}</span>)}
+            <Input
               className='Register--input__field'
+              name='confirm_password'
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              placeholder='CONFIRMAR CONTRASEÑA'
+              type='password'
+              value={confirmPassword}
             />
             <Button
-              title='CREAR CUENTA'
               className='Register--button'
+              onClick={validateInputsAndSend}
+              title='CREAR CUENTA'
               type='button'
-              onClick={handleSubmit}
               disabled={!firstName || !lastName || !gender || !phone || !email || !password || !confirmPassword}
             />
           </form>

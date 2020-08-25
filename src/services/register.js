@@ -1,23 +1,29 @@
 const ENDPOINT = 'https://swapin.herokuapp.com'
 
-function register(
-  firstName, lastName, gender, phone, email, password, confirmPassword,
-) {
-  if (password !== confirmPassword) {
-    return console.log('las contraseñas no coinciden')
+async function register(data) {
+  const parsedData = {
+    username: data.userName,
+    password: data.password,
+    email: data.email,
+    phone_number: `+57${data.phone}`,
+    first_name: data.firstName,
+    last_name: data.lastName,
+    gender: data.gender,
   }
-  const number = `+57${phone}`
   return fetch(`${ENDPOINT}/users/signup/`, {
     method: 'POST',
     headers: {
-      'Content-type': 'application/json',
+      'Content-Type': 'application/json',
     },
-    body: JSON.stringify(
-      firstName, lastName, gender, number, email, password, confirmPassword,
-    ),
+    body: JSON.stringify(parsedData),
   })
-    .then((res) => console.log(res))
-    .catch((err) => console.error('Error', err))
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error('bad request')
+      }
+      return res.json()
+    })
+    .then((data) => data)
 }
 
 export default register

@@ -10,7 +10,7 @@ function uploadClothes({ title }) {
     <>
       <Navbar goBackIcon />
       <div className='uploadClothes'>
-        <PageTitle title={title} className='uploadClothes--title' />
+        <PageTitle title={title} />
         <div className='uploadClothes--clothes'>
           <div className='uploadClothes--clothes__grid'>
             <AdminPictures />

@@ -28,29 +28,31 @@
         font-weight: normal;
         color: $purple-color-third;
     }
-    &--form p {
-        margin: 40px 0 10px;
-        text-align: left;
-        font-size: 16px;
-        font-family: $paragraph-font;
-        font-weight: 900;
-        color: $purple-color-third;
-    }
-    &--form h6 {
-        margin: 20px;
-        text-align: center;
-        font-size: 13px;
-        font-family: $paragraph-font;
-        font-weight: 900;
-        color: $purple-color-third;
+    &--form {
+        p {
+            margin: 40px 0 10px;
+            text-align: left;
+            font-size: 16px;
+            font-family: $paragraph-font;
+            font-weight: 900;
+            color: $purple-color-third;
+        }
+        h6 {
+            margin: 20px;
+            text-align: center;
+            font-size: 13px;
+            font-family: $paragraph-font;
+            font-weight: 900;
+            color: $purple-color-third;
+        }
+        .Input--container {
+            height: 52px;
+        }
     }
     a {
         color: $brand-color;
         text-decoration: none;
         margin-left: .5em;
-    }
-    &--input {
-        height: 45px;
     }
 }
 
