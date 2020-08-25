@@ -3,22 +3,14 @@
 import React from 'react'
 import './AddClothes.scss'
 import { Link } from 'react-router-dom'
-import Button from '../../Components/button'
-import BackButton from '../../assets/icons/back-button.svg'
-import Input from '../../Components/input'
+import Button from '../button/Button'
+import Input from '../input/Input'
 
 function AddClothes() {
   return (
     <>
       <div className='AddClothes'>
         <div className='AddClothes--container'>
-          <figure className='AddClothes--icon'>
-            <Link to='/'>
-              <img src={BackButton} alt='' />
-            </Link>
-          </figure>
-          <h2>Subir Prenda</h2>
-          <p>Fotos de la prenda</p>
           <div className='AddClothes--form'>
             <form action=''>
               <label htmlFor=''>
@@ -32,9 +24,7 @@ function AddClothes() {
               </label>
               <label htmlFor=''>
                 Marca
-                <Input
-                  className='AddClothes--form__input'
-                />
+                <input type='text' name='marca' className='AddClothes--form__inputText' required/>
               </label>
               <label htmlFor='type'>
                 Tipo de prenda
@@ -64,7 +54,6 @@ function AddClothes() {
               />
             </form>
           </div>
-
         </div>
       </div>
     </>

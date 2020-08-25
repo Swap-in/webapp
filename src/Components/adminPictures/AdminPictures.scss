@@ -2,15 +2,15 @@
 
 .AdminPictures {
   padding: 1em;
-  height: 100vh;
+  // height: 100vh;
   &--clothes {
-    height: 50%;
-    margin: 3em auto;
+    height: 30vh;
+    margin: 2em auto 1em auto;
     &__grid {
-      height: 100%;
+      height: 45vh;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: 1.5em repeat(2, 1fr);
+      grid-template-rows: 1.5em repeat(3, 1fr);
       gap: 1em;
       h4 {
         grid-column: span 4;
