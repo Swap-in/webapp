@@ -11,8 +11,14 @@ function Register() {
 
   const emailInputRef = useRef(null)
   const userImage = useRef()
-  const [emailError, setEmailError] = useState(null)
-  const [passwordError, setPasswordError] = useState(null)
+  const [formErrors, setFormErrors] = useState({
+    email: '',
+    password: '',
+  })
+  // const [emailError, setEmailError] = useState(null)
+  // const [passwordError, setPasswordError] = useState(null)
+  const [image, setImage] = useState(addPictureIcon)
+  const [userName, setUserName] = useState('')
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [gender, setGender] = useState('')
@@ -20,19 +26,21 @@ function Register() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
-  const [userName, setUserName] = useState()
-  const [image, setImage] = useState(addPictureIcon)
 
-  const onSubmitRegister = (e) => {
-    e.preventDefault()
-    const isNotSamePassword = password !== confirmPassword
-    const shortPassword = password.length < 8
-    if (isNotSamePassword) {
-      return setPasswordError('Las contraseñas no coinciden')
-    } if (shortPassword) {
-      return setPasswordError('la contraseña debe ser mayor a 9 caracteres')
+  const SubmitRegister = async () => {
+    const formData = {
+      userName,
+      firstName,
+      lastName,
+      gender,
+      phone,
+      email,
+      password,
     }
-    return register(userName, firstName, lastName, gender, phone, email, password, confirmPassword)
+    await register(formData)
+      .then((res) => console.log(res))
+      .then(() => alert('revisa tu correo pendejo'))
+      .catch((err) => console.error('Error Register', err))
   }
 
   const onSubmitPicture = () => {
@@ -47,12 +55,23 @@ function Register() {
   const validateEmailInput = (e) => {
     const { validationMessage } = emailInputRef.current
     if (validationMessage) {
-      setEmailError(validationMessage)
-      setEmail(null)
+      setFormErrors({ email: validationMessage })
     } else {
-      setEmailError(null)
+      setFormErrors({ email: null })
       setEmail(e.target.value)
     }
+  }
+
+  const validateInputsAndSend = (e) => {
+    e.preventDefault()
+    const isNotSamePassword = password !== confirmPassword
+    const shortPassword = password.length < 8
+    if (isNotSamePassword) {
+      return setFormErrors({ password: 'Las contraseñas no coinciden' })
+    } if (shortPassword) {
+      return setFormErrors({ password: 'la contraseña debe ser mayor a 9 caracteres' })
+    }
+    return SubmitRegister()
   }
 
   return (
@@ -76,75 +95,77 @@ function Register() {
         <div className='Register--container'>
           <form>
             <Input
-              type='text'
+              className='Register--input__field'
               name='username'
-              placeholder='Nombre de usuario'
               onChange={(e) => setUserName(e.target.value)}
-              className='Register--input__field'
+              placeholder='Nombre de usuario'
+              type='text'
+              value={userName}
             />
             <Input
-              type='text'
+              className='Register--input__field'
               name='firstName'
-              placeholder='Nombre'
               onChange={(e) => setFirstName(e.target.value)}
-              className='Register--input__field'
+              placeholder='Nombre'
+              type='text'
+              value={firstName}
             />
             <Input
-              type='text'
-              name='lastName'
-              placeholder='Apellido'
-              onChange={(e) => setLastName(e.target.value)}
               className='Register--input__field'
+              name='lastName'
+              onChange={(e) => setLastName(e.target.value)}
+              placeholder='Apellido'
+              type='text'
+              value={lastName}
             />
-
             <select
               className='Register--dropdown'
               name='gender'
               onChange={(e) => setGender(e.target.value)}
             >
-              <option value='' defaultValue>GENERO</option>
+              <option defaultValue>GENERO</option>
               <option value='MALE'>HOMBRE</option>
               <option value='WOMEN'>MUJER</option>
             </select>
-            <div className='Register--countryCode'>
-              <Input
-                type='number'
-                name='phone'
-                placeholder='(COL) +57 Teléfono'
-                onChange={(e) => setPhone(e.target.value)}
-                className='Register--input__field'
-              />
-            </div>
-
             <Input
-              type='email'
+              className='Register--input__field'
+              name='phone'
+              onChange={(e) => setPhone(e.target.value)}
+              placeholder='(COL) Teléfono'
+              type='number'
+              value={phone}
+            />
+            <Input
+              className='Register--input__field'
               name='email'
-              placeholder='Email'
               onChange={validateEmailInput}
-              className='Register--input__field'
+              placeholder='Email'
               reference={emailInputRef}
+              type='email'
             />
-            {emailError && (<span>{emailError}</span>)}
+            {formErrors.email && <span>{formErrors.email}</span>}
             <Input
-              type='password'
+              className='Register--input__field'
               name='password'
-              placeholder='Contraseña'
               onChange={(e) => setPassword(e.target.value)}
-              className='Register--input__field'
-            />
-            {passwordError && (<span>{passwordError}</span>)}
-            <Input
+              placeholder='Contraseña'
               type='password'
-              name='confirm_password'
-              placeholder='CONFIRMAR CONTRASEÑA'
-              onChange={(e) => setConfirmPassword(e.target.value)}
+              value={password}
+            />
+            {formErrors.password && (<span>{formErrors.password}</span>)}
+            <Input
               className='Register--input__field'
+              name='confirm_password'
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              placeholder='CONFIRMAR CONTRASEÑA'
+              type='password'
+              value={confirmPassword}
             />
             <Button
-              title='CREAR CUENTA'
               className='Register--button'
+              onClick={validateInputsAndSend}
+              title='CREAR CUENTA'
               type='button'
-              onClick={onSubmitRegister}
               disabled={!firstName || !lastName || !gender || !phone || !email || !password || !confirmPassword}
             />
           </form>

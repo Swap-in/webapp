@@ -11,7 +11,7 @@ import Feed from '../pages/feed'
 import Notifications from '../pages/notifications/Notifications'
 import Search from '../pages/search/Search'
 import UploadClothes from '../pages/uploadClothes/uploadClothes'
-import { AuthProvider } from '../hooks/userContext'
+import { AuthProvider } from '../providers/AuthProvider'
 import PrivateRoute from '../hooks/PrivateRoute'
 
 function App() {

@@ -6,15 +6,19 @@ import Button from '../../Components/button'
 import MainLogo from '../../assets/brand/logo.svg'
 import Navbar from '../../Components/Navbar'
 import PageTitle from '../../Components/PageTitle'
+import login from '../../services/login'
 
 function Login() {
 
-  const [email, setEmail] = useState('')
+  const [userName, setUserName] = useState('')
   const [password, setPassword] = useState('')
 
-  const handleLogin = (e) => {
+  const onLogin = (e) => {
     e.preventDefault();
-    console.log({ email, password })
+    const data = { userName, password }
+    login(data)
+      .then((data) => console.log('Data login', data))
+    // console.log(data)
   }
 
   return (
@@ -29,12 +33,12 @@ function Login() {
           <form
             className='Login--form'
           >
-            <p>Email</p>
+            <p>Nombre de usuario</p>
             <Input
-              type='email'
-              name='email'
+              type='text'
+              name='username'
               className='Login--input'
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => setUserName(e.target.value)}
             />
             <p>Contraseña</p>
             <Input
@@ -46,7 +50,7 @@ function Login() {
             <Button
               title='INICIAR SESIÓN'
               className='Login--button'
-              onClick={handleLogin}
+              onClick={onLogin}
             />
             <h6>
               ¿Aún no tienes cuenta?
