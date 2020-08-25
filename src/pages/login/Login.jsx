@@ -6,7 +6,6 @@ import Button from '../../Components/button'
 import MainLogo from '../../assets/brand/logo.svg'
 import Navbar from '../../Components/Navbar'
 import PageTitle from '../../Components/PageTitle'
-import AuthContext from '../../hooks/userContext'
 
 function Login() {
 
