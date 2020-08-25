@@ -3,6 +3,7 @@
 .Register {
     margin: 0 12px;
     text-align: center;
+    padding: 1em 0;
     &--container {
         form {
             width: 100%;
@@ -11,6 +12,7 @@
             }
             .Input--container {
                 margin: 1em 0;
+                height: 52px;
             }
         }
     }
@@ -54,10 +56,6 @@
 .Register--img__container {
     display: block;
     text-align: center;
-}
-
-.Register--input__field {
-    margin: 16px 0;
 }
 .Register--button {
     margin-top: 40px;

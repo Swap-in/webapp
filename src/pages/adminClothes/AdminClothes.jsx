@@ -11,7 +11,7 @@ function AdminClothes() {
     <>
       <Navbar goBackIcon />
       <div className='AdminClothes'>
-        <PageTitle title='Administrar' className='AdminClothes--title' />
+        <PageTitle title='Administrar' />
         <div className='AdminClothes--grid'>
           <UserClothes />
           <UserClothes />

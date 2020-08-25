@@ -12,6 +12,7 @@ function Register() {
   const emailInputRef = useRef(null)
   const userImage = useRef()
   const [emailError, setEmailError] = useState(null)
+  const [passwordError, setPasswordError] = useState(null)
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [gender, setGender] = useState('')
@@ -19,13 +20,21 @@ function Register() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
+  const [userName, setUserName] = useState()
   const [image, setImage] = useState(addPictureIcon)
 
-  const handleSubmit = (e) => {
+  const onSubmitRegister = (e) => {
     e.preventDefault()
-    console.log({ firstName, lastName, gender, phone, email, password, confirmPassword })
-    register(firstName, lastName, gender, phone, email, password, confirmPassword)
+    const isNotSamePassword = password !== confirmPassword
+    const shortPassword = password.length < 8
+    if (isNotSamePassword) {
+      return setPasswordError('Las contraseñas no coinciden')
+    } if (shortPassword) {
+      return setPasswordError('la contraseña debe ser mayor a 9 caracteres')
+    }
+    return register(userName, firstName, lastName, gender, phone, email, password, confirmPassword)
   }
+
   const onSubmitPicture = () => {
     const currentFile = userImage.current.files[0]
     if (currentFile) {
@@ -68,15 +77,22 @@ function Register() {
           <form>
             <Input
               type='text'
+              name='username'
+              placeholder='Nombre de usuario'
+              onChange={(e) => setUserName(e.target.value)}
+              className='Register--input__field'
+            />
+            <Input
+              type='text'
               name='firstName'
-              placeholder='NOMBRE'
+              placeholder='Nombre'
               onChange={(e) => setFirstName(e.target.value)}
               className='Register--input__field'
             />
             <Input
               type='text'
               name='lastName'
-              placeholder='APELLIDO'
+              placeholder='Apellido'
               onChange={(e) => setLastName(e.target.value)}
               className='Register--input__field'
             />
@@ -94,14 +110,14 @@ function Register() {
             <Input
               type='number'
               name='phone'
-              placeholder='TELÉFONO'
+              placeholder='Teléfono'
               onChange={(e) => setPhone(e.target.value)}
               className='Register--input__field'
             />
             <Input
               type='email'
               name='email'
-              placeholder='EMAIL'
+              placeholder='Email'
               onChange={validateEmailInput}
               className='Register--input__field'
               reference={emailInputRef}
@@ -110,10 +126,11 @@ function Register() {
             <Input
               type='password'
               name='password'
-              placeholder='CONTRASEÑA'
+              placeholder='Contraseña'
               onChange={(e) => setPassword(e.target.value)}
               className='Register--input__field'
             />
+            {passwordError && (<span>{passwordError}</span>)}
             <Input
               type='password'
               name='confirm_password'
@@ -125,7 +142,7 @@ function Register() {
               title='CREAR CUENTA'
               className='Register--button'
               type='button'
-              onClick={handleSubmit}
+              onClick={onSubmitRegister}
               disabled={!firstName || !lastName || !gender || !phone || !email || !password || !confirmPassword}
             />
           </form>

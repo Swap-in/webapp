@@ -34,7 +34,6 @@ function Login() {
             <Input
               type='email'
               name='email'
-              placeholder='ejemplo@ejemplo.com'
               className='Login--input'
               onChange={(e) => setEmail(e.target.value)}
             />
