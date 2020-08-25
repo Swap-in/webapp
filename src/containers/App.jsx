@@ -7,11 +7,11 @@ import Register from '../pages/register'
 import Logout from '../pages/logout'
 import Error404 from '../pages/error404'
 import Profile from '../pages/Profile'
-import AdminPictures from '../pages/adminPictures'
 import AdminClothes from '../pages/adminClothes/AdminClothes'
 import Feed from '../pages/feed'
 import Notifications from '../pages/notifications/Notifications'
 import Search from '../pages/search/Search'
+import UploadClothes from '../pages/uploadClothes/uploadClothes'
 
 function App() {
   return (
@@ -35,7 +35,7 @@ function App() {
             <Feed />
           </Route>
           <Route exact path='/upload'>
-            <AdminPictures title='Subir prenda' />
+            <UploadClothes title='Subir prenda' />
           </Route>
           <Route exact path='/notifications'>
             <Notifications title='Notificaciones' />

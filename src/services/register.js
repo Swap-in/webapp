@@ -1,6 +1,6 @@
 const ENDPOINT = 'https://swapin.herokuapp.com'
 
-function registerService(
+function register(
   firstName, lastName, gender, phone, email, password, confirmPassword,
 ) {
   if (password !== confirmPassword) {
@@ -20,4 +20,4 @@ function registerService(
     .catch((err) => console.error('Error', err))
 }
 
-export default registerService
+export default register

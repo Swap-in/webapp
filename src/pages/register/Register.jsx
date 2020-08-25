@@ -5,12 +5,15 @@ import Button from '../../Components/button'
 import Navbar from '../../Components/Navbar'
 import PageTitle from '../../Components/PageTitle'
 import addPictureIcon from '../../assets/icons/add-picture.svg'
+import register from '../../services/register'
 
 
 
 function Register() {
 
+  const emailInputRef = useRef(null)
   const userImage = useRef()
+  const [emailError, setEmailError] = useState(null)
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [gender, setGender] = useState('')
@@ -23,6 +26,7 @@ function Register() {
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log({ firstName, lastName, gender, phone, email, password, confirmPassword })
+    register(firstName, lastName, gender, phone, email, password, confirmPassword)
   }
   const onSubmitPicture = () => {
     const currentFile = userImage.current.files[0]
@@ -31,6 +35,20 @@ function Register() {
       console.log(currentFile)
       setImage(fileToUrl)
     }
+<<<<<<< HEAD
+=======
+  }
+
+  const validateEmailInput = (e) => {
+    const { validationMessage } = emailInputRef.current
+    if (validationMessage) {
+      setEmailError(validationMessage)
+      setEmail(null)
+    } else {
+      setEmailError(null)
+      setEmail(e.target.value)
+    }
+>>>>>>> a9dbf9704d4e0effb2bbaff5ff2d9b2027e12d36
   }
 
   return (
@@ -91,9 +109,11 @@ function Register() {
               type='email'
               name='email'
               placeholder='EMAIL'
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={validateEmailInput}
               className='Register--input__field'
+              reference={emailInputRef}
             />
+            {emailError && (<span>{emailError}</span>)}
             <Input
               type='password'
               name='password'
