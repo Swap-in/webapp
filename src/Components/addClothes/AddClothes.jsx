@@ -2,9 +2,7 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import React from 'react'
 import './AddClothes.scss'
-import { Link } from 'react-router-dom'
 import Button from '../button/Button'
-import Input from '../input/Input'
 
 function AddClothes() {
   return (
@@ -24,7 +22,7 @@ function AddClothes() {
               </label>
               <label htmlFor=''>
                 Marca
-                <input type='text' name='marca' className='AddClothes--form__inputText' required/>
+                <input type='text' name='marca' className='AddClothes--form__inputText' required />
               </label>
               <label htmlFor='type'>
                 Tipo de prenda
