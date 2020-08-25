@@ -35,8 +35,6 @@ function Register() {
       console.log(currentFile)
       setImage(fileToUrl)
     }
-<<<<<<< HEAD
-=======
   }
 
   const validateEmailInput = (e) => {
@@ -48,7 +46,6 @@ function Register() {
       setEmailError(null)
       setEmail(e.target.value)
     }
->>>>>>> a9dbf9704d4e0effb2bbaff5ff2d9b2027e12d36
   }
 
   return (

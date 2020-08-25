@@ -1,11 +1,12 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState, useContext } from 'react'
+import { Link, Redirect } from 'react-router-dom'
 import './Login.scss'
 import Input from '../../Components/input'
 import Button from '../../Components/button'
 import MainLogo from '../../assets/brand/logo.svg'
 import Navbar from '../../Components/Navbar'
 import PageTitle from '../../Components/PageTitle'
+import AuthContext from '../../hooks/userContext'
 
 function Login() {
 
@@ -17,6 +18,7 @@ function Login() {
     e.preventDefault();
     alert(email)
   }
+
   return (
     <>
       <Navbar goBackIcon />
