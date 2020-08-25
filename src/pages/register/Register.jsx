@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import ProfilePicture from '../../assets/icons/picture-profile.svg'
 import './Register.scss'
 import Input from '../../Components/input'
 import Button from '../../Components/button'
@@ -18,6 +19,7 @@ function Register() {
     console.log(nombre, telefono, email, password, password)
   }
 
+<<<<<<< HEAD
   return (
     <>
       <div className='Register'>
@@ -82,6 +84,76 @@ function Register() {
       </div>
     </>
   )
+=======
+
+    return(
+        <>
+        <div className='Register'>
+            <div className='Register--img__container'>
+                <figure className='Register--icon'>
+                    <Link to='/'>
+                        <img src={backButton} alt=""/>
+                    </Link>
+                </figure>  
+                <h2>Registro</h2>
+                <p>FOTO DE PERFIL</p>
+                <img src={ProfilePicture} alt=""/>
+                <div className='Register--container'>
+                    <form onSubmit={handleSubmit}>
+                        <Input 
+                            type='text'
+                            name='nombre'
+                            placeholder='NOMBRE COMPLETO'
+                            onChange={(e) => setNombre(e.target.value)}
+                            className='Register--input__field'
+                            required
+                        />
+                        <Input 
+                            type='number'
+                            name='telefono'
+                            placeholder='TELÉFONO'
+                            onChange={(e) => setTelefono(e.target.value)}
+                            className='Register--input__field'
+                            required
+                        />
+                        <Input 
+                            type='email'
+                            name='email'
+                            placeholder='EMAIL'
+                            onChange={(e) => setEmail(e.target.value)}
+                            className='Register--input__field'
+                            required
+                        />
+                        <Input 
+                            type='password'
+                            name='password'
+                            placeholder='CONTRASEÑA'
+                            onChange={(e) => setPassword(e.target.value)}
+                            className='Register--input__field'
+                            required
+                        />
+                        <Input 
+                            type='password'
+                            name='confirm_password'
+                            placeholder='CONFIRMAR CONTRASEÑA'
+                            onChange={(e) => setConfirm_password(e.target.value)}
+                            className='Register--input__field'
+                            required
+                        />
+                        <Link to='/login'>
+                            <Button
+                                title='CREAR CUENTA'
+                                className='Register--button'
+                                type='submit'
+                            />
+                        </Link>
+                    </form>
+                </div>
+            </div>
+        </div>
+        </>
+    )
+>>>>>>> 20707c589f4a2435904321ea3421866ad8d454f6
 }
 
 export default Register

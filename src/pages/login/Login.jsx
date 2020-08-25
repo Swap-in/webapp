@@ -12,7 +12,7 @@ function Login() {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    alert(email)
+    console.log('Ingreso')
   }
   return (
     <>
@@ -41,15 +41,20 @@ function Login() {
               className='Login--input'
               onChange={(e) => setPassword(e.target.value)}
             />
-            <Button
-              title='INICIAR SESIÓN'
-              className='Login--button'
-            />
+            <Link to='add-clothes'>
+              <Button
+                title='INICIAR SESIÓN'
+                className='Login--button'
+              />
+            </Link>
             <h6>
               ¿Aún no tienes cuenta?
+              {' '}
               <Link to='/registro'>
                 <span>Registrate aquí</span>
+                {' '}
               </Link>
+              {' '}
             </h6>
           </form>
         </div>

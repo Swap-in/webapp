@@ -10,22 +10,22 @@ function Logout() {
       <div className='Logout'>
         <div className='Logout--container'>
           <img src={MainLogo} className='Logout--img' alt='logo' />
-          <div className='Logout--button__container'>
-            <Link to='/login'>
-              <Button
-                title='INICIAR SESIÓN'
-                type='button'
-                className='Logout--button__login'
-              />
-            </Link>
-            <Link to='/registro'>
-              <Button
-                title='REGISTRARSE'
-                type='button'
-                className='Logout--button__register'
-              />
-            </Link>
-          </div>
+        </div>
+        <div className='Logout--button__container'>
+          <Link to='/login'>
+            <Button
+              title='INICIAR SESIÓN'
+              type='button'
+              className='Logout--button__login'
+            />
+          </Link>
+          <Link to='/registro'>
+            <Button
+              title='REGISTRARSE'
+              type='button'
+              className='Logout--button__register'
+            />
+          </Link>
         </div>
       </div>
     </>

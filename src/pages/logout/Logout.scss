@@ -10,6 +10,13 @@
         margin-top: 55px;
     }
 }
+.Logout--container {
+    margin: 0 -12px;
+    height: 100vh; 
+    background-image: url("../../assets//images/clothes.png");
+    background-color: #cccccc; 
+    background-size: cover; 
+}
 
 .Logout--button__login {
     margin: 0 5px;
@@ -44,4 +51,16 @@
     color: $brand-color;
     background: $white-color-first;
     border: 1px solid $brand-color;
+ }
+
+
+
+@media only screen and (min-width: 768px){
+    .Logout--container {
+        margin: 0 -12px;
+        height: 100vh; 
+        background-image: url("../../assets//images/clothes-desktop.png");
+        background-color: #cccccc; 
+        background-size: 100% 100%;
+    }
 }
