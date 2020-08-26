@@ -1,10 +1,19 @@
 const ENDPOINT = 'https://swapin.herokuapp.com'
 
 async function postToken(token) {
-  await fetch(`${ENDPOINT}/users/verify/`, {
+  const parsedData = {
+    token,
+  }
+  // console.log(JSON.stringify(parsedData))
+  return fetch(`${ENDPOINT}/users/verify/`, {
     method: 'POST',
+    headers: {
+      'Content-type': 'application/json',
+    },
+    body: JSON.stringify(parsedData),
   })
-  console.log(token)
+    .then((res) => res.json())
+    .then((data) => data)
 }
 
 export default postToken
