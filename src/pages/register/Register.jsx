@@ -1,4 +1,4 @@
-import React, { useState, useRef, useHistory } from 'react'
+import React, { useState, useRef } from 'react'
 import './Register.scss'
 import Input from '../../Components/input'
 import Button from '../../Components/button'
@@ -6,6 +6,8 @@ import Navbar from '../../Components/Navbar'
 import PageTitle from '../../Components/PageTitle'
 import addPictureIcon from '../../assets/icons/add-picture.svg'
 import register from '../../services/register'
+import AlertContainer from '../../containers/AlertContainer'
+import RegisterModal from '../../Components/registerModal/RegisterModal'
 
 function Register() {
 
@@ -15,8 +17,7 @@ function Register() {
     email: '',
     password: '',
   })
-  // const [emailError, setEmailError] = useState(null)
-  // const [passwordError, setPasswordError] = useState(null)
+  const [openModal, setOpenModal] = useState(false)
   const [image, setImage] = useState(addPictureIcon)
   const [userName, setUserName] = useState('')
   const [firstName, setFirstName] = useState('')
@@ -39,9 +40,7 @@ function Register() {
     }
     await register(formData)
       .then((res) => console.log(res))
-      .then(() => alert('revisa tu correo pendejo'))
-      .then(() => location.href = "/token" )
-      .catch((err) => console.error('Error Register', err))
+      .then(() => setOpenModal(true))
   }
 
   const onSubmitPicture = () => {
@@ -78,6 +77,9 @@ function Register() {
   return (
     <>
       <Navbar goBackIcon />
+      <AlertContainer isOpen={openModal}>
+        <RegisterModal isOpen={openModal} />
+      </AlertContainer>
       <div className='Register'>
         <PageTitle title='Registro' />
         <div className='Register--img__container'>
