@@ -12,4 +12,9 @@ button:disabled {
     background: rgba(136, 94, 94, 0.2);
     color: white;
     border: none;
+    &:hover {
+        background: rgba(136, 94, 94, 0.2);
+        color: white;
+        border: none;
+    }
 }
