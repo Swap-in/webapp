@@ -32,12 +32,13 @@
     }
     &--container p, {
         font-weight: bold;
-        @include paragraph(1em, $purple-color-third);
+        @include title(1em, $purple-color-third);
     }
     &--containerDescription{
+        text-align: center;
         display: flex;
         margin: 1em 2em;
         font-weight: bold;
-        @include paragraph(1em, $purple-color-third);
+        @include title(1em, $purple-color-third);
     }
 }
