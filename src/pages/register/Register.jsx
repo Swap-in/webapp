@@ -10,7 +10,6 @@ import AlertContainer from '../../containers/AlertContainer'
 import RegisterModal from '../../Components/registerModal/RegisterModal'
 
 function Register() {
-
   const emailInputRef = useRef(null)
   const userImage = useRef()
   const [formErrors, setFormErrors] = useState({
@@ -41,6 +40,7 @@ function Register() {
     await register(formData)
       .then((res) => console.log(res))
       .then(() => setOpenModal(true))
+      .catch((err) => console.error('Error Register', err))
   }
 
   const onSubmitPicture = () => {
