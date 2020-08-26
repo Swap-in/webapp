@@ -53,6 +53,7 @@ function Login() {
               title='INICIAR SESIÓN'
               className='Login--button'
               onClick={onLogin}
+              disabled={!userName || !password}
             />
             <h6>
               ¿Aún no tienes cuenta?
