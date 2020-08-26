@@ -1,4 +1,5 @@
-import React, { useState, useRef, useHistory } from 'react'
+import React, { useState, useRef } from 'react'
+import { useHistory } from 'react-router-dom'
 import './Register.scss'
 import Input from '../../Components/input'
 import Button from '../../Components/button'
@@ -8,7 +9,7 @@ import addPictureIcon from '../../assets/icons/add-picture.svg'
 import register from '../../services/register'
 
 function Register() {
-
+  const history = useHistory()
   const emailInputRef = useRef(null)
   const userImage = useRef()
   const [formErrors, setFormErrors] = useState({
@@ -40,7 +41,7 @@ function Register() {
     await register(formData)
       .then((res) => console.log(res))
       .then(() => alert('revisa tu correo pendejo'))
-      .then(() => location.href = "/token" )
+      .then(() => history.push('/token') )
       .catch((err) => console.error('Error Register', err))
   }
 
