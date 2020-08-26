@@ -10,6 +10,7 @@ import login from '../../services/login'
 
 function Login() {
 
+  const [errors, setErrors] = useState(null)
   const [userName, setUserName] = useState('')
   const [password, setPassword] = useState('')
   const history = useHistory()
@@ -18,9 +19,11 @@ function Login() {
     e.preventDefault();
     const data = { userName, password }
     login(data)
-      .then((data) => console.log('Data login', data))
-      .then(() => history.push('/upload'))
-    // console.log(data)
+      .then((data) => {
+        console.log('Data login', data)
+      })
+      .then(() => history.push('/feed'))
+      .catch(() => setErrors('Datos incorrectos'))
   }
 
   return (
@@ -49,6 +52,7 @@ function Login() {
               className='Login--input'
               onChange={(e) => setPassword(e.target.value)}
             />
+            {errors && <span>{errors}</span>}
             <Button
               title='INICIAR SESIÓN'
               className='Login--button'

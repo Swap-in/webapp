@@ -4,6 +4,7 @@ import '../sass/resets.scss'
 import Token from '../pages/Token'
 import { AuthProvider } from '../providers/AuthProvider'
 import PrivateRoute from '../hooks/PrivateRoute'
+import Loader from '../Components/loader/Loader'
 
 const Logout = lazy(() => import('../pages/logout'))
 const Login = lazy(() => import('../pages/login'))
@@ -21,7 +22,7 @@ function App() {
   return (
     <>
       <AuthProvider>
-        <Suspense fallback={<h1>Loading...</h1>}>
+        <Suspense fallback={<Loader />}>
           <Router>
             <Switch>
               <Route exact path='/token'>

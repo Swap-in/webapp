@@ -5,7 +5,6 @@ async function login(data) {
     username: data.userName,
     password: data.password,
   }
-  // return console.log(JSON.stringify(parsedData))
   return fetch(`${ENDPOINT}/users/login/`, {
     method: 'POST',
     headers: {
@@ -13,7 +12,10 @@ async function login(data) {
     },
     body: JSON.stringify(parsedData),
   })
-    .then((res) => res.json())
+    .then((res) => {
+      if (!res.ok) throw new Error(res.text())
+      return res.json()
+    })
     .then((data) => data)
 }
 

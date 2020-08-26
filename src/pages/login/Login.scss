@@ -45,8 +45,12 @@
             font-weight: 900;
             color: $purple-color-third;
         }
+        span {
+            @include paragraph(1.1em, $purple-color-third);
+        }
         .Input--container {
             height: 52px;
+            margin: .5em 0;
         }
     }
     a {
