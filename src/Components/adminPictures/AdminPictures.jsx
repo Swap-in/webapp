@@ -2,7 +2,7 @@ import React from 'react'
 import './AdminPictures.scss'
 import SubmitPicture from '../SubmitPicture/SubmitPicture'
 
-function AdminPictures({ title }) {
+function AdminPictures() {
   return (
     <>
       <div className='AdminPictures'>
