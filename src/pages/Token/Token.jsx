@@ -1,14 +1,19 @@
 import React, { useState } from 'react'
+import { withRouter, useHistory } from 'react-router-dom'
 import Input from '../../Components/input'
 import Button from '../../Components/button'
+import postToken from '../../services/postToken'
 
 function Token() {
 
   const [token, setToken] = useState('')
+  const history = useHistory()
 
   const handleToken = (e) => {
     e.preventDefault();
-    alert(token)
+    postToken(token)
+      .then((data) => alert(data.message))
+      .then(() => history.push('/upload'))
   }
 
   return (
@@ -24,9 +29,10 @@ function Token() {
         title='INICIAR SESIÓN'
         className='Login--button'
         onClick={handleToken}
+        disabled={!token}
       />
     </>
   )
 }
 
-export default Token
+export default withRouter(Token)

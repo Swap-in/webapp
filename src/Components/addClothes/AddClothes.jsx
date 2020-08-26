@@ -1,7 +1,8 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable jsx-a11y/control-has-associated-label */
 import React, { useState } from 'react'
 import './AddClothes.scss'
 import Button from '../button/Button'
-
 
 function AddClothes() {
 
@@ -16,8 +17,6 @@ function AddClothes() {
     console.log(clotheType, brand, size, gender, description)
   }
 
-
-
   return (
     <>
       <div className='AddClothes'>
@@ -26,12 +25,12 @@ function AddClothes() {
             <form action=''>
               <label htmlFor=''>
                 Tipo de prenda
-                <select 
+                <select
                   className='AddClothes--form__input'
                   name='clotheType'
                   onChange={(e) => setClotheType(e.target.value)}
                 >
-                  <option defaultValue value=''/>
+                  <option defaultValue />
                   <option value='Cabeza'>Cabeza</option>
                   <option value='Torso'>Torso</option>
                   <option value='Piernas'>Piernas</option>
@@ -40,18 +39,19 @@ function AddClothes() {
               </label>
               <label htmlFor=''>
                 Marca
-                <input 
+                <input
                   type='text'
-                  name='brand' 
-                  className='AddClothes--form__inputText' 
+                  name='brand'
+                  className='AddClothes--form__inputText'
                   onChange={(e) => setBrand(e.target.value)}
-                  required />
+                  required
+                />
               </label>
               <label htmlFor='type'>
                 Talla
-                <select 
-                  className='AddClothes--form__input' 
-                  name='size' 
+                <select
+                  className='AddClothes--form__input'
+                  name='size'
                   onChange={(e) => setSize(e.target.value)}
                   id='type'
                 >
@@ -66,9 +66,9 @@ function AddClothes() {
               <label>
                 Género
                 <select
-                 className='AddClothes--form__input'
-                 name='gender' 
-                 onChange={(e) => setGender(e.target.value)}
+                  className='AddClothes--form__input'
+                  name='gender'
+                  onChange={(e) => setGender(e.target.value)}
                 >
                   <option defaultValue value='' />
                   <option value='Hombre'>Hombre</option>
@@ -78,10 +78,11 @@ function AddClothes() {
               </label>
               <label htmlFor='description'>
                 Descripción
-                <textarea 
-                  id='description' 
-                  name='description' 
-                  onChange={(e) => setDescription(e.target.value)}/>
+                <textarea
+                  id='description'
+                  name='description'
+                  onChange={(e) => setDescription(e.target.value)}
+                />
               </label>
               <Button
                 title='GUARDAR'

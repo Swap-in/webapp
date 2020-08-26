@@ -1,0 +1,43 @@
+@import '../../sass/utils.scss';
+
+.Overlay {
+  @include overlay();
+}
+
+.RegisterModal {
+  width: 80%;
+  height: 50%;
+  position: relative;
+  padding: 1em;
+  border-radius: 2em;
+  background-color: transparentize($black-color-second, .5);
+  animation: openingModal .5s forwards;
+  h2 {
+    text-align: center;
+  }
+  p {
+    margin-top: 10%;
+      @include paragraph(1.8em, $white-color-first);
+  }
+  &--btn {
+    @include btn-primary(90%, 50px);
+    position: absolute;
+    bottom: 1em;
+    font-weight: normal;
+    font-size: 1.3em;
+  }
+}
+
+@keyframes openingModal {
+  0% {
+    opacity: 0;
+    transform: scale(0)
+  }
+  50% {
+    transform: scale(1.5)
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1)
+  }
+}

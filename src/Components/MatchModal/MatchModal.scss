@@ -1,14 +1,7 @@
 @import '../../sass/utils.scss';
 
 .Overlay {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  background-color: transparentize($black-color-first, .9);
-  backdrop-filter: blur(10px);
-  @include flex(center, center);
+  @include overlay()
 }
 
 .MatchModal {
