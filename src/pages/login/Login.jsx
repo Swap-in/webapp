@@ -12,6 +12,7 @@ import { AuthContext } from '../../Context/context'
 
 function Login() {
 
+  const [errors, setErrors] = useState(null)
   const [userName, setUserName] = useState('')
   const [password, setPassword] = useState('')
 
@@ -20,7 +21,15 @@ function Login() {
     e.preventDefault();
     const data = { userName, password }
     login(data)
+<<<<<<< HEAD
       .then((data) => console.log('Data login', data))
+=======
+      .then((data) => {
+        console.log('Data login', data)
+      })
+      .then(() => history.push('/feed'))
+      .catch(() => setErrors('Datos incorrectos'))
+>>>>>>> 6ac7e424a3e713f93d649595d40fce9320cbefe2
   }
 
   const currentUser = useContext(AuthContext);
@@ -54,10 +63,12 @@ function Login() {
               className='Login--input'
               onChange={(e) => setPassword(e.target.value)}
             />
+            {errors && <span className='errors'>{errors}</span>}
             <Button
               title='INICIAR SESIÓN'
               className='Login--button'
               onClick={onLogin}
+              disabled={!userName || !password}
             />
             <h6>
               ¿Aún no tienes cuenta?

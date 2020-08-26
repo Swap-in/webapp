@@ -1,0 +1,44 @@
+@import '../../sass/utils.scss';
+
+.Loading {
+  height: 100vh;
+  @include flex(center, center);
+}
+
+.Loader {
+  border: 5px solid transparent;
+  border-radius: 50%;
+}
+
+.first {
+  width: 80px;
+  height: 80px;
+  border-top-color: $purple-color-first;
+  animation: loading 3s infinite linear;
+  @include flex(center, center);
+}
+
+.second {
+  width: 60px;
+  height: 60px;
+  border-top-color: $purple-color-second;
+  animation: loading 2s infinite linear;
+  @include flex(center, center);
+}
+
+.third {
+  width: 40px;
+  height: 40px;
+  border-top-color: $purple-color-third;
+  animation: loading 1s infinite linear;
+}
+
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -8,6 +8,7 @@ import addPictureIcon from '../../assets/icons/add-picture.svg'
 import register from '../../services/register'
 import AlertContainer from '../../containers/AlertContainer'
 import RegisterModal from '../../Components/registerModal/RegisterModal'
+import Loader from '../../Components/loader'
 
 function Register() {
   const emailInputRef = useRef(null)
@@ -16,6 +17,7 @@ function Register() {
     email: '',
     password: '',
   })
+  const [loading, setLoading] = useState(false)
   const [openModal, setOpenModal] = useState(false)
   const [image, setImage] = useState(addPictureIcon)
   const [userName, setUserName] = useState('')
@@ -41,6 +43,7 @@ function Register() {
       .then((res) => console.log(res))
       .then(() => setOpenModal(true))
       .catch((err) => console.error('Error Register', err))
+      .finally(() => setLoading(true))
   }
 
   const onSubmitPicture = () => {
@@ -164,6 +167,7 @@ function Register() {
               type='password'
               value={confirmPassword}
             />
+            {loading && <Loader className='Loading--register' />}
             <Button
               className='Register--button'
               onClick={validateInputsAndSend}

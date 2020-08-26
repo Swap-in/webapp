@@ -5,18 +5,22 @@ import UserClothes from '../UserClothes'
 import Button from '../button'
 import likeLogo from '../../assets/icons/superlike.svg'
 
-function MatchModal() {
+function MatchModal({ openModal }) {
   return (
     <div className='Overlay'>
       <div className='MatchModal'>
         <PageTitle title='Has hecho match!' />
         <div className='MatchModal--clothes'>
           <UserClothes />
-          <img src={likeLogo} alt='like' className='MatchModal--clothes__like' />
+          <img
+            src={likeLogo}
+            alt='like'
+            className='MatchModal--clothes__like'
+          />
           <UserClothes />
         </div>
         <div className='MatchModal--buttons'>
-          <Button title='Ignorar' className='MatchModal--buttons__ignore' />
+          <Button title='Ignorar' className='MatchModal--buttons__ignore' onClick={() => openModal()} />
           <Button title='Acordar' className='MatchModal--buttons__agree' />
         </div>
       </div>
