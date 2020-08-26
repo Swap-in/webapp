@@ -1,11 +1,11 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { useContext } from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import { AuthContext } from '../providers/AuthProvider';
+import UserContext from '../context';
 import Login from '../pages/login';
 
 const PrivateRoute = ({ component: RouteComponent, ...rest }) => {
-  const currentUser = useContext(AuthContext);
+  const currentUser = useContext(UserContext);
   return (
     <Route
       {...rest}
