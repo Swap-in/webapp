@@ -11,6 +11,7 @@ import Feed from '../pages/feed'
 import Notifications from '../pages/notifications/Notifications'
 import Search from '../pages/search/Search'
 import UploadClothes from '../pages/uploadClothes/uploadClothes'
+import ProfileClothes from '../pages/profileClothes'
 import { AuthProvider } from '../providers/AuthProvider'
 import Token from '../pages/Token'
 import PrivateRoute from '../hooks/PrivateRoute'
@@ -45,12 +46,15 @@ function App() {
             <PrivateRoute exact path='/notifications'>
               <Notifications title='Notificaciones' />
             </PrivateRoute>
-            <PrivateRoute exact path='/search/'>
+            <PrivateRoute exact path='/search'>
               <Search title='Buscar' />
             </PrivateRoute>
             <PrivateRoute exact path='/search/:id'>
               <AdminClothes />
             </PrivateRoute>
+            <Route exact path='/profileclothes'>
+              <ProfileClothes title='Mis prendas' />
+            </Route>
             <PrivateRoute exact path='/admin'>
               <AdminClothes />
             </PrivateRoute>
