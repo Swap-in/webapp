@@ -11,6 +11,7 @@ import Feed from '../pages/feed'
 import Notifications from '../pages/notifications/Notifications'
 import Search from '../pages/search/Search'
 import UploadClothes from '../pages/uploadClothes/uploadClothes'
+import ProfileClothes from '../pages/profileClothes/profileClothes'
 
 function App() {
   return (
@@ -37,6 +38,9 @@ function App() {
           </Route>
           <Route exact path='/notifications'>
             <Notifications title='Notificaciones' />
+          </Route>
+          <Route exact path='/profileclothes'>
+            <ProfileClothes title='Mis prendas' />
           </Route>
           <Route exact path='/search/'>
             <Search title='Buscar' />

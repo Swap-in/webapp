@@ -1,0 +1,43 @@
+@import '../../sass/utils.scss';
+.clotheInfo{
+    margin: 1em;
+    &--h4{
+        text-align: center;
+        text-transform: uppercase;
+        margin: 1em 0 0 0;
+        @include paragraph(1em, $purple-color-third);
+    }
+    &--img{
+        width: 270px;
+        min-width: 70px;
+        -o-object-fit: cover;
+           object-fit: cover;
+        background-color: $white-color-first;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+        border: 0.5px solid rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        cursor: pointer;
+        @include flex(center, center);
+    }
+    &--containerImg{
+        margin: 1em 0 2em 0;
+        display: flex;
+        width: 100%;
+        justify-content: center;
+    }
+    &--container{
+        display: flex;
+        justify-content: space-around;
+        margin: 1em;
+    }
+    &--container p, {
+        font-weight: bold;
+        @include paragraph(1em, $purple-color-third);
+    }
+    &--containerDescription{
+        display: flex;
+        margin: 1em 2em;
+        font-weight: bold;
+        @include paragraph(1em, $purple-color-third);
+    }
+}
