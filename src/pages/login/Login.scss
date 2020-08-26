@@ -45,7 +45,7 @@
             font-weight: 900;
             color: $purple-color-third;
         }
-        span {
+        .errors {
             @include paragraph(1.1em, $purple-color-third);
         }
         .Input--container {

@@ -52,7 +52,7 @@ function Login() {
               className='Login--input'
               onChange={(e) => setPassword(e.target.value)}
             />
-            {errors && <span>{errors}</span>}
+            {errors && <span className='errors'>{errors}</span>}
             <Button
               title='INICIAR SESIÓN'
               className='Login--button'
