@@ -1,7 +1,7 @@
 import React from 'react';
 import './Input.scss'
 
-function Input({ className, type, name, value, onChange, placeholder }) {
+function Input({ className, type, name, value, onChange, placeholder, reference }) {
   return (
     <div className='Input--container'>
       <input
@@ -11,6 +11,8 @@ function Input({ className, type, name, value, onChange, placeholder }) {
         onChange={onChange}
         className={className}
         placeholder={placeholder}
+        autoComplete='on'
+        ref={reference || null}
       />
     </div>
   )

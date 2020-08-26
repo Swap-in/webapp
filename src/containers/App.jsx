@@ -11,49 +11,57 @@ import Feed from '../pages/feed'
 import Notifications from '../pages/notifications/Notifications'
 import Search from '../pages/search/Search'
 import UploadClothes from '../pages/uploadClothes/uploadClothes'
-import ProfileClothes from '../pages/profileClothes/profileClothes'
+import ProfileClothes from '../pages/profileClothes'
+import { AuthProvider } from '../providers/AuthProvider'
+import Token from '../pages/Token'
+import PrivateRoute from '../hooks/PrivateRoute'
 
 function App() {
   return (
     <>
-      <Router>
-        <Switch>
-          <Route exact path='/'>
-            <Logout />
-          </Route>
-          <Route path='/login'>
-            <Login />
-          </Route>
-          <Route path='/register'>
-            <Register />
-          </Route>
-          <Route exact path='/profile'>
-            <Profile />
-          </Route>
-          <Route path='/feed'>
-            <Feed />
-          </Route>
-          <Route exact path='/upload'>
-            <UploadClothes title='Subir prenda' />
-          </Route>
-          <Route exact path='/notifications'>
-            <Notifications title='Notificaciones' />
-          </Route>
-          <Route exact path='/profileclothes'>
-            <ProfileClothes title='Mis prendas' />
-          </Route>
-          <Route exact path='/search/'>
-            <Search title='Buscar' />
-          </Route>
-          <Route exact path='/search/:id'>
-            <AdminClothes />
-          </Route>
-          <Route exact path='/admin'>
-            <AdminClothes />
-          </Route>
-          <Route component={Error404} />
-        </Switch>
-      </Router>
+      <AuthProvider>
+        <Router>
+          <Switch>
+            <Route exact path='/token'>
+              <Token />
+            </Route>
+            <Route exact path='/'>
+              <Logout />
+            </Route>
+            <Route path='/login'>
+              <Login />
+            </Route>
+            <Route path='/register'>
+              <Register />
+            </Route>
+            <PrivateRoute path='/profile'>
+              <Profile />
+            </PrivateRoute>
+            <PrivateRoute path='/feed'>
+              <Feed />
+            </PrivateRoute>
+            <PrivateRoute exact path='/upload'>
+              <UploadClothes title='Subir prenda' />
+            </PrivateRoute>
+            <PrivateRoute exact path='/notifications'>
+              <Notifications title='Notificaciones' />
+            </PrivateRoute>
+            <PrivateRoute exact path='/search'>
+              <Search title='Buscar' />
+            </PrivateRoute>
+            <PrivateRoute exact path='/search/:id'>
+              <AdminClothes />
+            </PrivateRoute>
+            <Route exact path='/profileclothes'>
+              <ProfileClothes title='Mis prendas' />
+            </Route>
+            <PrivateRoute exact path='/admin'>
+              <AdminClothes />
+            </PrivateRoute>
+            <PrivateRoute component={Error404} />
+          </Switch>
+        </Router>
+      </AuthProvider>
     </>
   )
 }

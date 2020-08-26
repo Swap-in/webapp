@@ -29,5 +29,28 @@
 @include media(mobile-s) {
   .FeedFooter {
     font-size: .9em;
+    &--actions {
+      padding: .6em;
+      &__button {
+        width: 90%;
+        img {
+          width: 50%;
+        }
+      }
+    }
+  }
+}
+@include media(mobile-m) {
+  .FeedFooter {
+    font-size: .9em;
+    &--actions {
+      padding: .6em;
+      &__button {
+        width: 25%;
+        img {
+          width: 50%;
+        }
+      }
+    }
   }
 }

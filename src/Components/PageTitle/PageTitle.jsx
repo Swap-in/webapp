@@ -1,9 +1,9 @@
 import React from 'react'
 import './PageTitle.scss'
 
-function PageTitle({ title, className }) {
+function PageTitle({ title }) {
   return (
-    <h2 className={`${className} PageTitle`}>{title}</h2>
+    <h2 className='PageTitle'>{title}</h2>
   )
 }
 

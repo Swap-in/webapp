@@ -42,6 +42,7 @@ $black-color-third: #58585A;
   width: $width;
   height: $height;
   font-family: $paragraph-font;
+  border-radius: 10px;
   font-size: .8em;
   &:hover {
     color: $brand-color;
@@ -64,4 +65,15 @@ $black-color-third: #58585A;
     color: $white-color-first;
     background:  linear-gradient(180deg, #F35480 0%, #FF4D00 100%);
   }
+}
+
+@mixin overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: transparentize($black-color-first, .9);
+  backdrop-filter: blur(10px);
+  @include flex(center, center);
 }
