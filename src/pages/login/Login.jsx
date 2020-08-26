@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import './Login.scss'
 import Input from '../../Components/input'
 import Button from '../../Components/button'
@@ -12,12 +12,14 @@ function Login() {
 
   const [userName, setUserName] = useState('')
   const [password, setPassword] = useState('')
+  const history = useHistory()
 
   const onLogin = (e) => {
     e.preventDefault();
     const data = { userName, password }
     login(data)
       .then((data) => console.log('Data login', data))
+      .then(() => history.push('/upload'))
     // console.log(data)
   }
 
