@@ -1,12 +1,13 @@
-import React, { useState, useEffect, createContext } from 'react';
+import React, { useState, useEffect } from 'react';
 
-export const AuthContext = createContext();
+
+export const AuthContext = React.createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [currentUser, setCurrentUser] = useState(null);
+  const [currentUser, setCurrentUser] = useState(true);
 
   useEffect(() => {
-    setCurrentUser(false)
+    setCurrentUser(true)
   }, []);
 
   return (

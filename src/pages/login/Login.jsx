@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Link, useHistory } from 'react-router-dom'
+import React, { useState, useContext } from 'react'
+import { Link, Redirect } from 'react-router-dom'
 import './Login.scss'
 import Input from '../../Components/input'
 import Button from '../../Components/button'
@@ -7,22 +7,27 @@ import MainLogo from '../../assets/brand/logo.svg'
 import Navbar from '../../Components/Navbar'
 import PageTitle from '../../Components/PageTitle'
 import login from '../../services/login'
+import { AuthContext } from '../../Context/context'
+
 
 function Login() {
 
   const [userName, setUserName] = useState('')
   const [password, setPassword] = useState('')
-  const history = useHistory()
+
 
   const onLogin = (e) => {
     e.preventDefault();
     const data = { userName, password }
     login(data)
       .then((data) => console.log('Data login', data))
-      .then(() => history.push('/upload'))
-    // console.log(data)
   }
 
+  const currentUser = useContext(AuthContext);
+  
+  if(currentUser) {
+    return <Redirect to='/feed'/>
+  }
   return (
     <>
       <Navbar goBackIcon />
