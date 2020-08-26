@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useHistory } from 'react'
 import './Register.scss'
 import Input from '../../Components/input'
 import Button from '../../Components/button'
@@ -40,6 +40,7 @@ function Register() {
     await register(formData)
       .then((res) => console.log(res))
       .then(() => alert('revisa tu correo pendejo'))
+      .then(() => location.href = "/token" )
       .catch((err) => console.error('Error Register', err))
   }
 
