@@ -37,7 +37,10 @@ function App() {
               <Route path='/register'>
                 <Register />
               </Route>
-              <PrivateRoute path='/profile'>
+              <PrivateRoute exact path='/profile'>
+                <Profile />
+              </PrivateRoute>
+              <PrivateRoute exact path='/profile/:username?'>
                 <Profile />
               </PrivateRoute>
               <PrivateRoute path='/feed'>
@@ -52,8 +55,8 @@ function App() {
               <PrivateRoute exact path='/search'>
                 <Search title='Buscar' />
               </PrivateRoute>
-              <PrivateRoute exact path='/search/:id'>
-                <AdminClothes />
+              <PrivateRoute exact path='/search/:select'>
+                <Search title='Corbatas' />
               </PrivateRoute>
               <Route exact path='/garment'>
                 <ProfileClothes title='Mis prendas' />
