@@ -60,10 +60,11 @@
     }
 }
 
-
-
+.Loading--login {
+    height: 85px;
+}
 .Login--button {
-    margin-top: 50px;
+    margin-top: 10px;
     @include btn-secondary(100%, 45px)
 }
 

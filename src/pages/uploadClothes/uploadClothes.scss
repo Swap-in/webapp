@@ -8,10 +8,6 @@
     margin: 0 auto;
     &__grid {
       height: 100%;
-      // display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: 1.5em repeat(2, 1fr);
-      gap: 1em;
       h4 {
         grid-column: span 4;
         @include paragraph(1.1em, $purple-color-third);

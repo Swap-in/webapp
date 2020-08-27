@@ -1,6 +1,6 @@
 const ENDPOINT = 'https://swapin.herokuapp.com'
 
-async function login(data) {
+async function loginService(data) {
   const parsedData = {
     username: data.userName,
     password: data.password,
@@ -19,4 +19,4 @@ async function login(data) {
     .then((data) => data)
 }
 
-export default login
+export default loginService

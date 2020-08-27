@@ -5,6 +5,7 @@ import MatchContainer from '../../containers/MatchContainer'
 
 function Feed() {
   const [isOpen, setIsOpen] = useState(false)
+
   const onMatchWithSuperlike = () => {
     (isOpen) ?
       setIsOpen(false) :
