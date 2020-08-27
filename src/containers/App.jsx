@@ -1,7 +1,6 @@
 import React, { lazy, Suspense } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import '../sass/resets.scss'
-<<<<<<< HEAD
 import Login from '../pages/login'
 import Register from '../pages/register'
 import Logout from '../pages/logout'
@@ -14,10 +13,7 @@ import Search from '../pages/search/Search'
 import UploadClothes from '../pages/uploadClothes'
 import ProfileClothes from '../pages/profileClothes'
 import { AuthProvider } from '../Context/context'
-=======
->>>>>>> 6ac7e424a3e713f93d649595d40fce9320cbefe2
 import Token from '../pages/Token'
-import AuthProvider from '../providers/AuthProvider'
 import PrivateRoute from '../hooks/PrivateRoute'
 import Loader from '../Components/loader/Loader'
 
