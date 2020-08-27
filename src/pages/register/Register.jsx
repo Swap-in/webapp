@@ -29,7 +29,7 @@ function Register() {
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
 
-  const SubmitRegister = async () => {
+  const submitRegister = async () => {
     const formData = {
       userName,
       firstName,
@@ -39,11 +39,12 @@ function Register() {
       email,
       password,
     }
+    setLoading(true)
     await register(formData)
       .then((res) => console.log(res))
       .then(() => setOpenModal(true))
+      .then(() => setLoading(false))
       .catch((err) => console.error('Error Register', err))
-      .finally(() => setLoading(true))
   }
 
   const onSubmitPicture = () => {
@@ -74,7 +75,7 @@ function Register() {
     } if (shortPassword) {
       return setFormErrors({ password: 'la contraseña debe ser mayor a 9 caracteres' })
     }
-    return SubmitRegister()
+    return submitRegister()
   }
 
   return (

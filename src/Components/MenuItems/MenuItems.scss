@@ -4,6 +4,7 @@
 .MenuItems--container {
     margin: 0 12px;
     text-align: center;
+    position: relative;
     @include flex(center, center);
 }
 .MenuItems--container__item {
@@ -31,6 +32,14 @@
 }
 .MenuItems--text {
     margin-left: 20px;
+}
+
+.logout {
+    width: 100%;
+    right: 0;
+    top: 11px;
+    height: 80%;
+    position: absolute;
 }
 
 @include media( mobile-s ) {

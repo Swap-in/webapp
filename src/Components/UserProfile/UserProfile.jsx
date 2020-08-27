@@ -1,12 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './UserProfile.scss'
 import { Link } from 'react-router-dom'
 import UserClothes from '../UserClothes'
 import userDefault from '../../assets/icons/user-icon-default.svg'
 import Button from '../button'
 import PageTitle from '../PageTitle/PageTitle'
+import UserContext from '../../context'
 
 function UserProfile() {
+
+  const currentUser = useContext(UserContext)
+  console.log(currentUser)
   return (
     <>
       <div className='UserProfile'>

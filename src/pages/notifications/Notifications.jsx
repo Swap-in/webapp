@@ -4,12 +4,12 @@ import Navbar from '../../Components/Navbar/Navbar'
 import PageTitle from '../../Components/PageTitle'
 import NotificationItem from '../../Components/NotificationItem'
 
-function Notifications({ title }) {
+function Notifications() {
   return (
     <>
       <Navbar goBackIcon />
       <div className='Notifications'>
-        <PageTitle title={title} />
+        <PageTitle title='Notificaciones' />
         <NotificationItem />
         <NotificationItem />
         <NotificationItem />

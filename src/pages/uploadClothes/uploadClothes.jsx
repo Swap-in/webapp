@@ -5,12 +5,12 @@ import PageTitle from '../../Components/PageTitle'
 import AdminPictures from '../../Components/adminPictures/AdminPictures'
 import FormUpload from '../../Components/addClothes'
 
-function uploadClothes({ title }) {
+function uploadClothes() {
   return (
     <>
       <Navbar goBackIcon />
       <div className='uploadClothes'>
-        <PageTitle title={title} />
+        <PageTitle title='subir prenda' />
         <div className='uploadClothes--clothes'>
           <div className='uploadClothes--clothes__grid'>
             <AdminPictures />
