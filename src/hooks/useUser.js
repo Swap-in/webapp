@@ -3,40 +3,39 @@ import UserContext from '../context'
 import loginService from '../services/login'
 
 function useUser() {
-  const { user, setUser, setToken } = useContext(UserContext)
-  const [loading, setLoading] = useState(false)
-  const [errors, setErrors] = useState(false)
+  const { token, setToken, setUser } = useContext(UserContext)
+  const [state, setState] = useState({ loading: false, error: false })
 
   const login = useCallback((data) => {
-    setLoading(true)
+    setState({ loading: true, error: false })
     loginService(data)
       .then((userData) => {
-        setLoading(false)
-        window.sessionStorage.setItem('token', userData.token)
-        window.sessionStorage.setItem(Object.keys(userData), Object.values(userData))
+        setState({ loading: false, error: false })
         setToken(userData.token)
-        setUser(userData)
+        setUser(userData.user)
+        window.sessionStorage.setItem('token', userData.token)
+        window.sessionStorage.setItem('user', JSON.stringify(userData.user))
       })
       .catch((err) => {
-        window.sessionStorage.removeItem('token')
-        setErrors('Datos incorrectos')
-        setLoading(false)
+        setState({ loading: false, error: true })
+        window.sessionStorage.clear()
         console.error(err)
       })
-  }, [setUser, setToken])
+  }, [setToken, setUser])
 
   const logout = useCallback(() => {
     window.sessionStorage.removeItem('token')
+    window.sessionStorage.removeItem('user')
+    setToken(null)
     setUser(null)
-  }, [setUser])
+  }, [setToken, setUser])
 
   return {
-    user,
-    isLogged: Boolean(user),
+    isLogged: Boolean(token),
     login,
     logout,
-    errors,
-    loading,
+    errors: state.error,
+    loading: state.loading,
   }
 }
 

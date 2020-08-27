@@ -1,26 +1,19 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import React, { useContext } from 'react';
+import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import UserContext from '../context';
+import useUser from '../hooks/useUser';
 
 const PrivateRoute = ({ component: RouteComponent, ...rest }) => {
-  const currentUser = useContext(UserContext);
+  const { isLogged } = useUser()
   return (
     <Route
       {...rest}
-      render={(routeProps) => (currentUser.token ? (
+      render={(routeProps) => (isLogged ? (
         <RouteComponent {...routeProps} />
       ) : (
         <Redirect to='/login' />
       ))}
     />
-
-  //  <Route {...rest}>
-  //   { currentUser ?
-  //      <RouteComponent /> :
-  //      <Redirect to='/login'/>}
-  //  </Route>
-
   );
 };
 

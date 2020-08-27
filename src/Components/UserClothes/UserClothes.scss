@@ -18,8 +18,9 @@
     cursor: pointer;
     min-height: 150px;
     @include flex(center, center);
+    padding: .4em;
     img {
-      width: 95%;
+      width: 90%;
       object-fit: cover;
     }
   }

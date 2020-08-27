@@ -19,6 +19,9 @@
       text-transform: uppercase;
       @include paragraph(1em, $purple-color-third);
     };
+    &__username {
+      @include paragraph(1em, $purple-color-first)
+    }
   };
 };
 

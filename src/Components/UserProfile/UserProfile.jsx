@@ -9,8 +9,8 @@ import UserContext from '../../context'
 
 function UserProfile() {
 
-  const currentUser = useContext(UserContext)
-  console.log(currentUser)
+  const { user } = useContext(UserContext)
+  console.log(user)
   return (
     <>
       <div className='UserProfile'>
@@ -19,7 +19,15 @@ function UserProfile() {
           <div className='UserProfile--info__img'>
             <img src={userDefault} alt='User' />
           </div>
-          <h4 className='UserProfile--info__name'>Nombre de usuario</h4>
+          <h4 className='UserProfile--info__name'>
+            {user.first_name}
+            {' '}
+            {user.last_name}
+          </h4>
+          <h5 className='UserProfile--info__username'>
+            @
+            {user.username}
+          </h5>
         </div>
         <div className='UserProfile--clothes'>
           <h3>Mis Prendas</h3>

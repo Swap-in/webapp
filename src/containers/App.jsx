@@ -2,7 +2,7 @@ import React, { lazy, Suspense } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import '../sass/resets.scss'
 import Token from '../pages/Token'
-import PrivateRoute from '../hooks/PrivateRoute'
+import PrivateRoute from '../providers/PrivateRoute'
 import Loader from '../Components/loader/Loader'
 import UserProvider from '../providers/UserProvider'
 

@@ -2,14 +2,14 @@ import React, { useState } from 'react'
 import UserContext from '../context'
 
 const UserProvider = ({ children }) => {
-  const tokenInSessionStorage = window.sessionStorage.getItem('token')
-  const userInSessionStorage = window.sessionStorage.getItem('user')
-  const [token, setToken] = useState(tokenInSessionStorage)
-  //fix this shit
-  const [user, setUser] = useState(userInSessionStorage)
+  const userDataInSession = window.sessionStorage.getItem('user')
+  const [token, setToken] = useState(window.sessionStorage.getItem('token'))
+  const [user, setUser] = useState(JSON.parse(userDataInSession))
 
   return (
-    <UserContext.Provider value={{ user, setUser, token, setToken }}>{children}</UserContext.Provider>
+    <UserContext.Provider value={{ token, setToken, user, setUser }}>
+      {children}
+    </UserContext.Provider>
   )
 }
 
