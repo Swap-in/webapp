@@ -23,7 +23,7 @@ function Login() {
   }
 
   useEffect(() => {
-    isLogged && history.push('/feed')
+    if (isLogged) history.push('/feed')
   }, [history, isLogged])
 
   return (
@@ -52,7 +52,7 @@ function Login() {
               className='Login--input'
               onChange={(e) => setPassword(e.target.value)}
             />
-            {errors && <span className='errors'>{errors}</span>}
+            {errors && <span className='errors'>Datos incorrectos</span>}
             {loading && <Loader className='Loading--login' />}
             <Button
               title='INICIAR SESIÓN'
