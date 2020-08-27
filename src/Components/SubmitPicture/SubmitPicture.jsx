@@ -9,7 +9,6 @@ function SubmitPicture({ id }) {
     const currentFile = submitFile.current.files[0]
     if (currentFile) {
       const fileToUrl = URL.createObjectURL(currentFile)
-      console.log(currentFile)
       setImage(fileToUrl)
     }
   }
