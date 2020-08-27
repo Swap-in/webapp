@@ -5,7 +5,9 @@ import plusButton from '../../assets/icons/plus-button.svg'
 function SubmitPicture({ id }) {
   const submitFile = useRef()
   const [image, setImage] = useState(plusButton)
-  function onAddPicture() {
+
+  function onAddPicture(e) {
+    console.log(e)
     const currentFile = submitFile.current.files[0]
     if (currentFile) {
       const fileToUrl = URL.createObjectURL(currentFile)

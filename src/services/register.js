@@ -2,6 +2,7 @@ const ENDPOINT = 'https://swapin.herokuapp.com'
 
 async function register(data) {
   const parsedData = {
+    picture: data.image,
     username: data.userName,
     password: data.password,
     email: data.email,
