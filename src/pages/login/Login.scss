@@ -45,8 +45,12 @@
             font-weight: 900;
             color: $purple-color-third;
         }
+        .errors {
+            @include paragraph(1.1em, $purple-color-third);
+        }
         .Input--container {
             height: 52px;
+            margin: .5em 0;
         }
     }
     a {
@@ -56,10 +60,11 @@
     }
 }
 
-
-
+.Loading--login {
+    height: 85px;
+}
 .Login--button {
-    margin-top: 50px;
+    margin-top: 10px;
     @include btn-secondary(100%, 45px)
 }
 

@@ -2,13 +2,13 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import MatchModal from '../Components/MatchModal/MatchModal'
 
-function MatchContainer({ isOpen }) {
+function MatchContainer({ isOpen, openModal }) {
   if (!isOpen) {
     return null
   }
   return (
     ReactDOM.createPortal(
-      <MatchModal />
+      <MatchModal openModal={openModal} />
       , document.getElementById('Modal'),
     )
   )

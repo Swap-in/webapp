@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import './Login.scss'
 import Input from '../../Components/input'
@@ -6,22 +6,25 @@ import Button from '../../Components/button'
 import MainLogo from '../../assets/brand/logo.svg'
 import Navbar from '../../Components/Navbar'
 import PageTitle from '../../Components/PageTitle'
-import login from '../../services/login'
+import Loader from '../../Components/loader'
+import useUser from '../../hooks/useUser'
 
 function Login() {
 
+  const { login, isLogged, loading, errors } = useUser()
+  const history = useHistory()
   const [userName, setUserName] = useState('')
   const [password, setPassword] = useState('')
-  const history = useHistory()
 
-  const onLogin = (e) => {
+  const onLogin = async (e) => {
     e.preventDefault();
     const data = { userName, password }
     login(data)
-      .then((data) => console.log('Data login', data))
-      .then(() => history.push('/upload'))
-    // console.log(data)
   }
+
+  useEffect(() => {
+    if (isLogged) history.push('/feed')
+  }, [history, isLogged])
 
   return (
     <>
@@ -49,6 +52,8 @@ function Login() {
               className='Login--input'
               onChange={(e) => setPassword(e.target.value)}
             />
+            {errors && <span className='errors'>Datos incorrectos</span>}
+            {loading && <Loader className='Loading--login' />}
             <Button
               title='INICIAR SESIÓN'
               className='Login--button'

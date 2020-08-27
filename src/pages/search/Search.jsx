@@ -5,12 +5,12 @@ import Select from '../../Components/Select'
 import SearchResults from '../../Components/SearchResults'
 import Navbar from '../../Components/Navbar/Navbar'
 
-function Search({ title }) {
+function Search() {
   return (
     <>
       <Navbar goBackIcon />
       <div className='Search'>
-        <PageTitle title={title} />
+        <PageTitle title='Buscar' />
         <Select />
         <h3 className='Search--title'>Resultados</h3>
         <div className='SearchContainerResults'>

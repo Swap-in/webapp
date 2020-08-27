@@ -5,18 +5,21 @@ import MatchContainer from '../../containers/MatchContainer'
 
 function Feed() {
   const [isOpen, setIsOpen] = useState(false)
+
   const onMatchWithSuperlike = () => {
-    setIsOpen(true)
+    (isOpen) ?
+      setIsOpen(false) :
+      setIsOpen(true)
   }
   return (
     <>
-      <div className='Feed'>
+      <main className='Feed'>
         <FeedClothes openMatchModal={onMatchWithSuperlike} />
         <FeedClothes />
         <FeedClothes />
         <FeedClothes />
-      </div>
-      <MatchContainer isOpen={isOpen} />
+      </main>
+      <MatchContainer openModal={onMatchWithSuperlike} isOpen={isOpen} />
     </>
   )
 }

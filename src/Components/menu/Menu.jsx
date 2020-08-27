@@ -46,6 +46,7 @@ function Menu({ onClose, transition }) {
         icon={Exit}
         title='Logout'
         page='/'
+        onLogout
       />
     </div>
   )
