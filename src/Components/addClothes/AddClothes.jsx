@@ -1,10 +1,10 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable jsx-a11y/control-has-associated-label */
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './AddClothes.scss'
 import Button from '../button/Button'
 
-function AddClothes({ setFormData }) {
+function AddClothes({ setFormData, handleUpload }) {
 
   const [clotheType, setClotheType] = useState('')
   const [brand, setBrand] = useState('')
@@ -12,8 +12,7 @@ function AddClothes({ setFormData }) {
   const [gender, setGender] = useState('')
   const [description, setDescription] = useState('')
 
-  const handleUpload = (e) => {
-    e.preventDefault();
+  useEffect(() => {
     const data = {
       clotheType,
       brand,
@@ -22,7 +21,7 @@ function AddClothes({ setFormData }) {
       description,
     }
     setFormData(data)
-  }
+  }, [brand, clotheType, description, gender, setFormData, size])
 
   return (
     <>
@@ -38,10 +37,10 @@ function AddClothes({ setFormData }) {
                   onChange={(e) => setClotheType(e.target.value)}
                 >
                   <option defaultValue />
-                  <option value='Cabeza'>Cabeza</option>
-                  <option value='Torso'>Torso</option>
-                  <option value='Piernas'>Piernas</option>
-                  <option value='Pies'>Pies</option>
+                  <option value='1'>Cabeza</option>
+                  <option value='2'>Torso</option>
+                  <option value='3'>Piernas</option>
+                  <option value='4'>Pies</option>
                 </select>
               </label>
               <label htmlFor=''>

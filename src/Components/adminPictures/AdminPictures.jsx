@@ -1,25 +1,45 @@
-import React, { useRef, useState } from 'react'
-import plusButton from '../../assets/icons/plus-button.svg'
+import React, { useRef, useState, useEffect, useContext } from 'react'
 import './AdminPictures.scss'
+import plusButton from '../../assets/icons/plus-button.svg'
+import Button from '../button'
+import UserContext from '../../context'
+import useUploadClothes from '../../hooks/useUploadClothes'
 
-function AdminPictures({ id }) {
+function AdminPictures({ id, setURLImages }) {
+
+  const { user } = useContext(UserContext)
+  const { uploadClothes } = useUploadClothes()
   const submitFile = useRef()
-  const [image1, setImage1] = useState(plusButton)
-  const [image2, setImage2] = useState(plusButton)
-  const [image3, setImage3] = useState(plusButton)
-  const [image4, setImage4] = useState(plusButton)
-  const [image5, setImage5] = useState(plusButton)
-  // const { user } = useContext(UserContext)
+  const [image1, setImage1] = useState()
+  const [image2, setImage2] = useState()
+  const [image3, setImage3] = useState()
+  const [image4, setImage4] = useState()
+  const [image5, setImage5] = useState()
+  const [images, setImages] = useState([])
+  const [task, setTask] = useState(null)
 
-  // function handleChangePicture() {
-  //   const currentFile = submitFile.current.files
-  //   if (currentFile) {
-  //     const fileToUrl = URL.createObjectURL(currentFile)
-  //     const currentTask = uploadClothes(currentFile, user.username)
-  //     setTask(currentTask)
-  //     setImage(fileToUrl)
-  //   }
-  // }
+  useEffect(() => {
+    const images = [image1, image2, image3, image4, image5]
+    setImages(images)
+    if (task) {
+      const onComplete = () => {
+        console.log('completado')
+        task.snapshot.ref.getDownloadURL()
+          .then((imageURL) => {
+            setURLImages(imageURL)
+          })
+      }
+      task.on('state_changed', onComplete)
+    }
+  }, [setImages, image1, image2, image3, image4, image5, task, setURLImages])
+
+  function handleSubmitPictures(e) {
+    e.preventDefault()
+    images.forEach((image) => {
+      const currentTask = uploadClothes(image, user.id)
+      setTask(currentTask)
+    })
+  }
 
   return (
     <>
@@ -30,43 +50,44 @@ function AdminPictures({ id }) {
             <div className='SubmitPicture'>
               <label htmlFor={id}>
                 <div className='SubmitPicture--image'>
-                  <img src={image1} alt='add Garment' />
+                  <img src={plusButton} alt='add Garment' />
                 </div>
-                <input type='file' accept='image/*' id={id} onChange={(e) => setImage1(e.target.value)} ref={submitFile} />
+                <input type='file' accept='image/*' id={id} onChange={(e) => setImage1(e.target.files[0])} ref={submitFile} />
               </label>
             </div>
             <div className='SubmitPicture'>
               <label htmlFor={id}>
                 <div className='SubmitPicture--image'>
-                  <img src={image2} alt='add Garment' />
+                  <img src={plusButton} alt='add Garment' />
                 </div>
-                <input type='file' accept='image/*' id={id} onChange={(e) => setImage2(e.target.value)} ref={submitFile} />
+                <input type='file' accept='image/*' id={id} onChange={(e) => setImage2(e.target.files[0])} ref={submitFile} />
               </label>
             </div>
             <div className='SubmitPicture'>
               <label htmlFor={id}>
                 <div className='SubmitPicture--image'>
-                  <img src={image3} alt='add Garment' />
+                  <img src={plusButton} alt='add Garment' />
                 </div>
-                <input type='file' accept='image/*' id={id} onChange={(e) => setImage3(e.target.value)} ref={submitFile} />
+                <input type='file' accept='image/*' id={id} onChange={(e) => setImage3(e.target.files[0])} ref={submitFile} />
               </label>
             </div>
             <div className='SubmitPicture'>
               <label htmlFor={id}>
                 <div className='SubmitPicture--image'>
-                  <img src={image4} alt='add Garment' />
+                  <img src={plusButton} alt='add Garment' />
                 </div>
-                <input type='file' accept='image/*' id={id} onChange={(e) => setImage4(e.target.value)} ref={submitFile} />
+                <input type='file' accept='image/*' id={id} onChange={(e) => setImage4(e.target.files[0])} ref={submitFile} />
               </label>
             </div>
             <div className='SubmitPicture'>
               <label htmlFor={id}>
                 <div className='SubmitPicture--image'>
-                  <img src={image5} alt='add Garment' />
+                  <img src={plusButton} alt='add Garment' />
                 </div>
-                <input type='file' accept='image/*' id={id} onChange={(e) => setImage5(e.target.value)} ref={submitFile} />
+                <input type='file' accept='image/*' id={id} onChange={(e) => setImage5(e.target.files[0])} ref={submitFile} />
               </label>
             </div>
+            <Button title='subir' onClick={handleSubmitPictures} />
           </div>
         </div>
       </div>

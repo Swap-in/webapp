@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import './uploadClothes.scss'
 import Navbar from '../../Components/Navbar/Navbar'
 import PageTitle from '../../Components/PageTitle'
@@ -7,10 +7,12 @@ import FormUpload from '../../Components/addClothes'
 
 function UploadClothes() {
   const [formData, setFormData] = useState('')
+  const [URLImages, setURLImages] = useState([])
 
-  useEffect(() => {
-    console.log({ formData })
-  })
+  const handleUpload = (e) => {
+    e.preventDefault();
+    console.log({ URLImages, formData })
+  }
 
   return (
     <>
@@ -18,8 +20,8 @@ function UploadClothes() {
       <div className='uploadClothes'>
         <PageTitle title='Subir prenda' />
         <div className='uploadClothes--clothes'>
-          <AdminPictures />
-          <FormUpload setFormData={setFormData} />
+          <AdminPictures setURLImages={setURLImages} />
+          <FormUpload setFormData={setFormData} handleUpload={handleUpload} />
         </div>
       </div>
     </>
