@@ -41,9 +41,14 @@ function AdminPictures({ setURLImages }) {
             <div className='SubmitPicture'>
               <label htmlFor='img1'>
                 <div className='SubmitPicture--image'>
-                  <img src={plusButton} alt='add Garment' />
+                  <img src={image1} alt='add Garment' />
                 </div>
-                <input type='file' accept='image/*' id='img1' onChange={(e) => setImage1(e.target.files[0])} />
+                <input
+                  type='file'
+                  accept='image/*'
+                  id='img1'
+                  onChange={(e) => setImage1(e.target.files[0])}
+                />
               </label>
             </div>
             <div className='SubmitPicture'>
@@ -51,7 +56,12 @@ function AdminPictures({ setURLImages }) {
                 <div className='SubmitPicture--image'>
                   <img src={plusButton} alt='add Garment' />
                 </div>
-                <input type='file' accept='image/*' id='img2' onChange={(e) => setImage2(e.target.files[0])} />
+                <input
+                  type='file'
+                  accept='image/*'
+                  id='img2'
+                  onChange={(e) => setImage2(e.target.files[0])}
+                />
               </label>
             </div>
             <div className='SubmitPicture'>
@@ -59,7 +69,12 @@ function AdminPictures({ setURLImages }) {
                 <div className='SubmitPicture--image'>
                   <img src={plusButton} alt='add Garment' />
                 </div>
-                <input type='file' accept='image/*' id='img3' onChange={(e) => setImage3(e.target.files[0])} />
+                <input
+                  type='file'
+                  accept='image/*'
+                  id='img3'
+                  onChange={(e) => setImage3(e.target.files[0])}
+                />
               </label>
             </div>
             <div className='SubmitPicture'>
@@ -67,7 +82,12 @@ function AdminPictures({ setURLImages }) {
                 <div className='SubmitPicture--image'>
                   <img src={plusButton} alt='add Garment' />
                 </div>
-                <input type='file' accept='image/*' id='img4' onChange={(e) => setImage4(e.target.files[0])} />
+                <input
+                  type='file'
+                  accept='image/*'
+                  id='img4'
+                  onChange={(e) => setImage4(e.target.files[0])}
+                />
               </label>
             </div>
             <div className='SubmitPicture'>
@@ -75,7 +95,12 @@ function AdminPictures({ setURLImages }) {
                 <div className='SubmitPicture--image'>
                   <img src={plusButton} alt='add Garment' />
                 </div>
-                <input type='file' accept='image/*' id='img5' onChange={(e) => setImage5(e.target.files[0])} />
+                <input
+                  type='file'
+                  accept='image/*'
+                  id='img5'
+                  onChange={(e) => setImage5(e.target.files[0])}
+                />
               </label>
             </div>
             <Button
