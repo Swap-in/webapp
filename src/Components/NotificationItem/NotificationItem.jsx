@@ -12,7 +12,10 @@ function NotificationItem() {
       </div>
       <div className='NotificationItem--buttons'>
         <Link to='/admin'>
-          <Button title='Ver' className='NotificationItem--buttons__secundary' />
+          <Button
+            title='Ver'
+            className='NotificationItem--buttons__secondary'
+          />
         </Link>
       </div>
     </div>

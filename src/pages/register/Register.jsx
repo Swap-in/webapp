@@ -4,22 +4,22 @@ import Input from '../../Components/input'
 import Button from '../../Components/button'
 import Navbar from '../../Components/Navbar'
 import PageTitle from '../../Components/PageTitle'
-import addPictureIcon from '../../assets/icons/add-picture.svg'
 import register from '../../services/register'
 import AlertContainer from '../../containers/AlertContainer'
 import RegisterModal from '../../Components/registerModal/RegisterModal'
 import Loader from '../../Components/loader'
+import SubmitProfilePicture from '../../Components/submitProfilePicture/SubmitProfilePicture'
 
 function Register() {
+
   const emailInputRef = useRef(null)
-  const userImage = useRef()
   const [formErrors, setFormErrors] = useState({
     email: '',
     password: '',
+    other: '',
   })
   const [loading, setLoading] = useState(false)
   const [openModal, setOpenModal] = useState(false)
-  const [image, setImage] = useState(addPictureIcon)
   const [userName, setUserName] = useState('')
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
@@ -28,9 +28,11 @@ function Register() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
+  const [URLImage, setURLImage] = useState('')
 
   const submitRegister = async () => {
     const formData = {
+      image: URLImage,
       userName,
       firstName,
       lastName,
@@ -44,16 +46,11 @@ function Register() {
       .then((res) => console.log(res))
       .then(() => setOpenModal(true))
       .then(() => setLoading(false))
-      .catch((err) => console.error('Error Register', err))
-  }
-
-  const onSubmitPicture = () => {
-    const currentFile = userImage.current.files[0]
-    if (currentFile) {
-      const fileToUrl = URL.createObjectURL(currentFile)
-      console.log(currentFile)
-      setImage(fileToUrl)
-    }
+      .catch((err) => {
+        console.error(err)
+        setLoading(false)
+        setFormErrors({ other: 'Error al registrarse' })
+      })
   }
 
   const validateEmailInput = (e) => {
@@ -88,16 +85,7 @@ function Register() {
         <PageTitle title='Registro' />
         <div className='Register--img__container'>
           <p>FOTO DE PERFIL</p>
-          <label htmlFor='userProfile'>
-            <img src={image} alt='User' />
-            <input
-              type='file'
-              accept='image/*'
-              id='userProfile'
-              ref={userImage}
-              onChange={onSubmitPicture}
-            />
-          </label>
+          <SubmitProfilePicture setURLImage={setURLImage} />
         </div>
         <div className='Register--container'>
           <form>
@@ -169,6 +157,7 @@ function Register() {
               value={confirmPassword}
             />
             {loading && <Loader className='Loading--register' />}
+            {formErrors.other && <span>{formErrors.other}</span>}
             <Button
               className='Register--button'
               onClick={validateInputsAndSend}

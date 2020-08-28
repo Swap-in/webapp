@@ -2,15 +2,12 @@
 
 .AdminPictures {
   padding: 1em;
-  // height: 100vh;
   &--clothes {
-    height: 30vh;
-    margin: 2em auto 1em auto;
+    height: 40vh;
     &__grid {
-      height: 45vh;
+      height: 100%;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: 1.5em repeat(3, 1fr);
       gap: 1em;
       h4 {
         grid-column: span 4;
@@ -20,13 +17,37 @@
         grid-row: 2 / 4;
         grid-column: 1 / 3; 
       }
+      .SubmitPicture--button {
+        @include btn-primary(100px, 30px);
+        &:disabled {
+          background: rgba(136, 94, 94, 0.2);
+          color: white;
+          border: none;
+        }
+      }
     }
   }
-  &--buttons {
-    position: sticky;
-    bottom: 10px;
-    button {
-      @include btn-primary(100%, 50px);
+}
+
+
+.SubmitPicture {
+  background-color: $white-color-first;
+  box-shadow: 1px 10px 10px 5px $white-color-second;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  cursor: pointer;
+  @include flex(center, center);
+  label {
+    cursor: pointer;
+    width: 50%;
+    @include flex(center, center);
+  }
+  &--image {
+    width: 70%;
+    @include flex(center, center);
+    img {
+      width: 80%;
     }
   }
 }

@@ -1,26 +1,7 @@
 @import '../../sass/utils.scss';
 .AddClothes {
-    display: block;
     margin: 0 12px;
     text-align: center;
-
-    &--icon {
-        padding-top: 30px;
-        text-align: left;
-    }
-    & h2 {
-        padding-top: 10px;
-        font-family: $title-font;
-        font-size: 36px;
-        color: $purple-color-third;
-    }
-    & p {
-        padding: 5px 0 5px;
-        font-family: $paragraph-font;
-        font-size: 13px;
-        font-weight: 900;
-        color: $purple-color-third;
-    }
 }
 .AddClothes--upload__image {
     margin: auto;
@@ -50,7 +31,7 @@
     cursor: pointer;
     appearance: none;
     background-image: url(../../assets/icons/dropdown.svg);
-    background-repeat: no-repeat, repeat;
+    background-repeat: no-repeat;
     background-position: right 1.5em top 50%, 0 0;
     background-size: 1.2em auto, 100%;
 }
@@ -68,10 +49,12 @@
     -webkit-appearance: none;
 }
 
- textarea {
+textarea {
     margin: 5px 0;
     width: 100%;
     height: 80px;
+    @include paragraph(1em, $purple-color-third);
+    padding: .5em;
 }
 .AddClothes--button {
     color: $white-color-first;
@@ -79,4 +62,11 @@
     height: 45px;
     margin: .5em 0;
     background: linear-gradient(180deg, #F35480 0%, #FF4D00 100%);
+}
+.AddClothes-error {
+    @include paragraph(1.4em, $purple-color-second);
+}
+
+.Loader--upload {
+    height: 11vh;
 }

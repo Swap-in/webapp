@@ -4,19 +4,7 @@
   padding: 1em;
   height: 90vh;
   &--clothes {
-    height: 50%;
     margin: 0 auto;
-    &__grid {
-      height: 100%;
-      h4 {
-        grid-column: span 4;
-        @include paragraph(1.1em, $purple-color-third);
-      }
-      .SubmitPicture:first-of-type {
-        grid-row: 2 / 4;
-        grid-column: 1 / 3; 
-      }
-    }
   }
   &--buttons {
     position: sticky;

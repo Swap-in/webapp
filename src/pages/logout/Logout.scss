@@ -22,8 +22,8 @@
 .Logout--button__container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    column-gap: .7em;
-    position: absolute;
+    column-gap: 1em;
+    position: fixed;
     bottom: 1em;
     width: 100%;
     padding: 0 .5em;
@@ -32,11 +32,11 @@
 .Logout--button__login {
     bottom: 33px;
     text-align: center;
-    @include btn-secondary(99%, 50px);
+    @include btn-secondary(95%, 50px);
 }
 .Logout--button__register {
     bottom: 33px;
-    @include btn-primary(99%, 50px);
+    @include btn-primary(95%, 50px);
 }
 
 @include media( mobile-s ) {

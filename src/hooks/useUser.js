@@ -1,8 +1,10 @@
 import { useContext, useCallback, useState } from 'react'
+import { useHistory } from 'react-router-dom'
 import UserContext from '../context'
 import loginService from '../services/login'
 
 function useUser() {
+  const history = useHistory()
   const { token, setToken, setUser } = useContext(UserContext)
   const [state, setState] = useState({ loading: false, error: false })
 
@@ -28,7 +30,8 @@ function useUser() {
     window.sessionStorage.removeItem('user')
     setToken(null)
     setUser(null)
-  }, [setToken, setUser])
+    history.push('/')
+  }, [setToken, setUser, history])
 
   return {
     isLogged: Boolean(token),
