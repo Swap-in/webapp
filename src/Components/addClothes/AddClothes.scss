@@ -63,3 +63,10 @@ textarea {
     margin: .5em 0;
     background: linear-gradient(180deg, #F35480 0%, #FF4D00 100%);
 }
+.AddClothes-error {
+    @include paragraph(1.4em, $purple-color-second);
+}
+
+.Loader--upload {
+    height: 11vh;
+}

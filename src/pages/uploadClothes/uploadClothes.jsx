@@ -4,19 +4,19 @@ import Navbar from '../../Components/Navbar/Navbar'
 import PageTitle from '../../Components/PageTitle'
 import AdminPictures from '../../Components/adminPictures/AdminPictures'
 import FormUpload from '../../Components/addClothes'
-import addClothes from '../../services/addClothes'
 import UserContext from '../../context'
+import useAddClothes from '../../hooks/useAddClothes'
 
 function UploadClothes() {
-  const { user } = useContext(UserContext)
+  const { addClothesService, errors, loading } = useAddClothes()
+  const { user, token } = useContext(UserContext)
   const [formData, setFormData] = useState('')
   const [URLImages, setURLImages] = useState()
 
   const handleUpload = async (e) => {
     e.preventDefault();
     console.log({ URLImages, formData })
-    await addClothes(formData, URLImages, user.id)
-
+    addClothesService(formData, URLImages, user.id, token)
   }
 
   return (
@@ -26,7 +26,12 @@ function UploadClothes() {
         <PageTitle title='Subir prenda' />
         <div className='uploadClothes--clothes'>
           <AdminPictures setURLImages={setURLImages} />
-          <FormUpload setFormData={setFormData} handleUpload={handleUpload} />
+          <FormUpload
+            setFormData={setFormData}
+            handleUpload={handleUpload}
+            errors={errors}
+            loading={loading}
+          />
         </div>
       </div>
     </>

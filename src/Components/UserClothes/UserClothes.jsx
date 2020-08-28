@@ -1,27 +1,24 @@
 import React from 'react'
 import './UserClothes.scss'
-import { Link, withRouter } from 'react-router-dom'
-import editIcon from '../../assets/icons/edit-button.svg'
+import { withRouter } from 'react-router-dom'
+import deleteIcon from '../../assets/icons/trash.svg'
 
 function UserClothes({ image, location }) {
   //remove
-  const id = 1
   const isAdmin = location.pathname === '/admin'
   return (
     <div className='UserClothes'>
       {isAdmin && (
         <button type='button' className='UserClothes--edit'>
-          <img src={editIcon} alt='Edit' />
+          <img src={deleteIcon} alt='Edit' />
         </button>
       )}
-      <Link to={`${location.pathname}/${id}`}>
-        <div className='UserClothes--img'>
-          <img
-            src={image || 'https://uniforma.net/21-superlarge_default/camisas-de-trabajo-algodon.jpg'}
-            alt='item'
-          />
-        </div>
-      </Link>
+      <div className='UserClothes--img'>
+        <img
+          src={image || 'https://uniforma.net/21-superlarge_default/camisas-de-trabajo-algodon.jpg'}
+          alt='item'
+        />
+      </div>
     </div>
   )
 }

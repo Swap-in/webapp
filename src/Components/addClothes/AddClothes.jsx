@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import './AddClothes.scss'
 import Button from '../button/Button'
+import Loader from '../loader'
 
-function AddClothes({ setFormData, handleUpload }) {
+function AddClothes({ setFormData, handleUpload, errors, loading }) {
   const [title, setTitle] = useState()
   const [clotheType, setClotheType] = useState('')
   const [brand, setBrand] = useState('')
@@ -103,6 +104,8 @@ function AddClothes({ setFormData, handleUpload }) {
                 onChange={(e) => setDescription(e.target.value)}
               />
             </label>
+            {errors && <span className='AddClothes-error'>Hubo un error al subir tu prenda</span>}
+            {loading && <Loader className='Loader--upload' />}
             <Button
               title='GUARDAR'
               className='AddClothes--button'
