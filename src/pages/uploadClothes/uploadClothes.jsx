@@ -10,7 +10,7 @@ function uploadClothes() {
     <>
       <Navbar goBackIcon />
       <div className='uploadClothes'>
-        <PageTitle title='subir prenda' />
+        <PageTitle title='Subir prenda' />
         <div className='uploadClothes--clothes'>
           <div className='uploadClothes--clothes__grid'>
             <AdminPictures />
