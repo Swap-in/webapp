@@ -7,7 +7,7 @@ import FormUpload from '../../Components/addClothes'
 
 function UploadClothes() {
   const [formData, setFormData] = useState('')
-  const [URLImages, setURLImages] = useState([])
+  const [URLImages, setURLImages] = useState()
 
   const handleUpload = (e) => {
     e.preventDefault();

@@ -2,15 +2,12 @@
 
 .AdminPictures {
   padding: 1em;
-  // height: 100vh;
   &--clothes {
-    height: 30vh;
-    margin: 2em auto 1em auto;
+    height: 40vh;
     &__grid {
-      height: 45vh;
+      height: 100%;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: 1.5em repeat(3, 1fr);
       gap: 1em;
       h4 {
         grid-column: span 4;
@@ -19,6 +16,9 @@
       .SubmitPicture:first-of-type {
         grid-row: 2 / 4;
         grid-column: 1 / 3; 
+      }
+      button {
+        @include btn-primary(100px, 30px);
       }
     }
   }
@@ -49,7 +49,7 @@
     width: 70%;
     @include flex(center, center);
     img {
-      width: 100%;
+      width: 80%;
     }
   }
 }
