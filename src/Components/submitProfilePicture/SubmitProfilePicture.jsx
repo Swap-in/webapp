@@ -9,11 +9,11 @@ function SubmitProfilePicture({ setURLImage }) {
 
   const handlePlaceImage = () => {
     const currentFile = userImage.current.files[0]
-    const task = uploadProfilePicture(currentFile)
-    setTask(task)
     if (currentFile) {
       const fileToUrl = URL.createObjectURL(currentFile)
       setImage(fileToUrl)
+      const currentTask = uploadProfilePicture(currentFile)
+      setTask(currentTask)
     }
   }
 

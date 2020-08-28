@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import './AddClothes.scss'
 import Button from '../button/Button'
 
-function AddClothes() {
+function AddClothes({ setFormData }) {
 
   const [clotheType, setClotheType] = useState('')
   const [brand, setBrand] = useState('')
@@ -14,7 +14,14 @@ function AddClothes() {
 
   const handleUpload = (e) => {
     e.preventDefault();
-    console.log(clotheType, brand, size, gender, description)
+    const data = {
+      clotheType,
+      brand,
+      size,
+      gender,
+      description,
+    }
+    setFormData(data)
   }
 
   return (

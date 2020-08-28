@@ -10,6 +10,12 @@
   @include flex(center, center);
   label {
     cursor: pointer;
+    width: 50%;
+    @include flex(center, center);
+  }
+  &--image {
+    width: 70%;
+    @include flex(center, center);
     img {
       width: 100%;
     }
