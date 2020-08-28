@@ -1,9 +1,9 @@
 import React, { useState, useContext } from 'react'
 import './AdminPictures.scss'
 import plusButton from '../../assets/icons/plus-button.svg'
-import Button from '../button'
 import UserContext from '../../context'
 import useUploadClothes from '../../hooks/useUploadClothes'
+import Button from '../button'
 
 function AdminPictures({ setURLImages }) {
 
@@ -78,7 +78,13 @@ function AdminPictures({ setURLImages }) {
                 <input type='file' accept='image/*' id='img5' onChange={(e) => setImage5(e.target.files[0])} />
               </label>
             </div>
-            <Button title='subir' onClick={handleSubmitPictures} />
+            <Button
+              title='Subir'
+              type='button'
+              onClick={handleSubmitPictures}
+              disabled={!image1}
+              className='SubmitPicture--button'
+            />
           </div>
         </div>
       </div>

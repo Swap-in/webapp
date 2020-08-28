@@ -16,6 +16,7 @@ function Register() {
   const [formErrors, setFormErrors] = useState({
     email: '',
     password: '',
+    other: '',
   })
   const [loading, setLoading] = useState(false)
   const [openModal, setOpenModal] = useState(false)
@@ -45,7 +46,11 @@ function Register() {
       .then((res) => console.log(res))
       .then(() => setOpenModal(true))
       .then(() => setLoading(false))
-      .catch((err) => console.error('Error Register', err))
+      .catch((err) => {
+        console.error(err)
+        setLoading(false)
+        setFormErrors({ other: 'Error al registrarse' })
+      })
   }
 
   const validateEmailInput = (e) => {
@@ -152,6 +157,7 @@ function Register() {
               value={confirmPassword}
             />
             {loading && <Loader className='Loading--register' />}
+            {formErrors.other && <span>{formErrors.other}</span>}
             <Button
               className='Register--button'
               onClick={validateInputsAndSend}
