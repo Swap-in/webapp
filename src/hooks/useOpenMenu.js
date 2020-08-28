@@ -6,9 +6,7 @@ function useOpenMenu(initialState) {
   function onOpenNav() {
     if (openNav) {
       setTransitionMenu('is-closing')
-      setTimeout(() => {
-        setOpenNav(false)
-      }, 400);
+      setOpenNav(false)
     } else {
       setOpenNav(true)
       setTransitionMenu('is-opening')

@@ -3,15 +3,15 @@
 .Navbar {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  margin: .7em 0;
+  box-shadow: 1px 1px 10px -5px $black-color-third;
   &--menu {
     cursor: pointer;
-    @include flex(center, start);
-    a {
+    @include flex(center, center);
+    a, button {
       @include flex(center, start);
     }
     &__img {
-      width: 50%;
+      width: 55%;
     };
   };
   &--logo {

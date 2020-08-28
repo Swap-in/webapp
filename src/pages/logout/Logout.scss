@@ -1,9 +1,10 @@
 @import '../../sass/utils.scss';
+@import '../../sass/breakpoints.scss';
 
 .Logout {
-    display: block;
     margin: 0 12px;
     text-align: center;
+    position: relative;
     &--img {
         width: 246px;
         height: 199px;
@@ -14,30 +15,41 @@
     margin: 0 -12px;
     height: 100vh; 
     background-image: url("../../assets/images/login-image-mobile.png");
-    background-color: #cccccc; 
-    background-size: cover; 
+    background-color: #cccccc;
+    background-size: cover;
+}
+
+.Logout--button__container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: .7em;
+    position: absolute;
+    bottom: 1em;
+    width: 100%;
+    padding: 0 .5em;
 }
 
 .Logout--button__login {
-    margin: 0 5px;
-    position: absolute;
     bottom: 33px;
-    right: 50%;
     text-align: center;
-    @include btn-secondary(165px, 50px);
+    @include btn-secondary(99%, 50px);
 }
 .Logout--button__register {
-    left: 50%;
-    position: absolute;
     bottom: 33px;
-    @include btn-primary(165px, 50px);
+    @include btn-primary(99%, 50px);
 }
 
-@media only screen and (min-width: 768px){
+@include media( mobile-s ) {
+    .Logout--button__login, .Logout--button__register {
+        height: 40px;
+    }
+}
+
+@include media ( tablet ){
     .Logout--container {
         margin: 0 -12px;
         height: 100vh; 
-        background-image: url("../../assets//images/login-image.png");
+        background-image: url("../../assets/images/login-image.png");
         background-color: #cccccc; 
         background-size: 100% 100%;
         }

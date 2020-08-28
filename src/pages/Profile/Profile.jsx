@@ -5,10 +5,12 @@ import Navbar from '../../Components/Navbar/Navbar'
 
 function Profile() {
   return (
-    <div className='Profile'>
+    <>
       <Navbar />
-      <UserProfile />
-    </div>
+      <div className='Profile'>
+        <UserProfile />
+      </div>
+    </>
   )
 }
 

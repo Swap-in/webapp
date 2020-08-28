@@ -1,5 +1,6 @@
 import React from 'react'
 import './NotificationItem.scss'
+import { Link } from 'react-router-dom'
 import Button from '../button'
 
 function NotificationItem() {
@@ -10,7 +11,9 @@ function NotificationItem() {
         <span>Jaime Lopez le dio like a una de tus prendas</span>
       </div>
       <div className='NotificationItem--buttons'>
-        <Button title='Ver' className='NotificationItem--buttons__secundary' />
+        <Link to='/admin'>
+          <Button title='Ver' className='NotificationItem--buttons__secundary' />
+        </Link>
       </div>
     </div>
   )

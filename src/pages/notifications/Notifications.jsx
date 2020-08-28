@@ -4,16 +4,18 @@ import Navbar from '../../Components/Navbar/Navbar'
 import PageTitle from '../../Components/PageTitle'
 import NotificationItem from '../../Components/NotificationItem'
 
-function Notifications({ title }) {
+function Notifications() {
   return (
-    <div className='Notifications'>
+    <>
       <Navbar goBackIcon />
-      <PageTitle title={title} />
-      <NotificationItem />
-      <NotificationItem />
-      <NotificationItem />
-      <NotificationItem />
-    </div>
+      <div className='Notifications'>
+        <PageTitle title='Notificaciones' />
+        <NotificationItem />
+        <NotificationItem />
+        <NotificationItem />
+        <NotificationItem />
+      </div>
+    </>
   )
 }
 

@@ -1,10 +1,21 @@
 @import '../../sass/utils.scss';
 
 .Register {
-    display: block;
     margin: 0 12px;
-    padding: 1em;
     text-align: center;
+    padding: 1em 0;
+    &--container {
+        form {
+            width: 100%;
+            span {
+                @include paragraph(1em, $purple-color-third);
+            }
+            .Input--container {
+                margin: 1em 0;
+                height: 52px;
+            }
+        }
+    }
     &--icon {
         text-align: left;
     }
@@ -14,13 +25,33 @@
         font-size: 36px;
         color: $purple-color-third;
     }
-    &--img__container p {
-        padding-top: 32px;
-        font-family: $paragraph-font;
-        font-size: 13px;
-        font-weight: 900;
-        color: $purple-color-third;
+    &--img__container {
+        padding: 1em 0;
+        p {
+            margin-bottom: 1em;
+            font-family: $paragraph-font;
+            font-size: 13px;
+            font-weight: 900;
+            color: $purple-color-third;
+        }
+        img {
+            width: 35%;
+            cursor: pointer;
+        }
     }
+}
+
+.Loading--register {
+    height: 60px;
+    margin-top: 2em;
+}
+
+.Register--dropdown {
+    width: 100%;
+    height: 52px;
+    border: 1px solid $purple-color-third;
+    border-radius: 6px;
+    color: rgba(119, 28, 127, 0.5);
 }
 
 .Register--container {
@@ -31,11 +62,8 @@
     display: block;
     text-align: center;
 }
-
-.Register--input__field {
-    margin: 16px 0;
-}
 .Register--button {
     margin-top: 40px;
     @include btn-primary(100%, 50px);
 }
+

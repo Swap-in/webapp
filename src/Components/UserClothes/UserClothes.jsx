@@ -9,12 +9,12 @@ function UserClothes({ image, location }) {
   const isAdmin = location.pathname === '/admin'
   return (
     <div className='UserClothes'>
+      {isAdmin && (
+        <button type='button' className='UserClothes--edit'>
+          <img src={editIcon} alt='Edit' />
+        </button>
+      )}
       <Link to={`${location.pathname}/${id}`}>
-        {isAdmin && (
-          <div type='button' className='UserClothes--edit'>
-            <img src={editIcon} alt='Edit' />
-          </div>
-        )}
         <div className='UserClothes--img'>
           <img
             src={image || 'https://uniforma.net/21-superlarge_default/camisas-de-trabajo-algodon.jpg'}

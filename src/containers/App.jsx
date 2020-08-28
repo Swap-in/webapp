@@ -1,51 +1,47 @@
-import React from 'react'
+import React, { lazy, Suspense } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import '../sass/resets.scss'
-import Login from '../pages/login'
-import Register from '../pages/register'
-import Logout from '../pages/logout'
-import Error404 from '../pages/error404'
-import Profile from '../pages/Profile'
-import AdminPictures from '../pages/adminPictures'
-import AdminClothes from '../pages/adminClothes/AdminClothes'
-import Feed from '../pages/feed'
-import Notifications from '../pages/notifications/Notifications'
+import Token from '../pages/Token'
+import PrivateRoute from '../providers/PrivateRoute'
+import Loader from '../Components/loader/Loader'
+import UserProvider from '../providers/UserProvider'
+
+const Logout = lazy(() => import('../pages/logout'))
+const Login = lazy(() => import('../pages/login'))
+const Register = lazy(() => import('../pages/register'))
+const Profile = lazy(() => import('../pages/Profile'))
+const AdminClothes = lazy(() => import('../pages/adminClothes'))
+const Feed = lazy(() => import('../pages/feed'))
+const Notifications = lazy(() => import('../pages/notifications'))
+const Search = lazy(() => import('../pages/search'))
+const UploadClothes = lazy(() => import('../pages/uploadClothes'))
+const ProfileClothes = lazy(() => import('../pages/profileClothes'))
+const Error404 = lazy(() => import('../pages/error404'))
 
 function App() {
   return (
     <>
-      <Router>
-        <Switch>
-          <Route exact path='/'>
-            <Logout />
-          </Route>
-          <Route exact path='/login'>
-            <Login />
-          </Route>
-          <Route exact path='/register'>
-            <Register />
-          </Route>
-          <Route exact path='/profile'>
-            <Profile />
-          </Route>
-          <Route exact path='/feed'>
-            <Feed />
-          </Route>
-          <Route exact path='/upload'>
-            <AdminPictures title='Subir prenda' />
-          </Route>
-          <Route exact path='/notifications'>
-            <Notifications title='Notificaciones' />
-          </Route>
-          <Route exact path='/admin'>
-            <AdminClothes />
-          </Route>
-          <Route exact path='/admin/:id'>
-            <AdminPictures title='Editar prenda' />
-          </Route>
-          <Route component={Error404} />
-        </Switch>
-      </Router>
+      <UserProvider>
+        <Suspense fallback={<Loader />}>
+          <Router>
+            <Switch>
+              <Route exact path='/token' component={Token} />
+              <Route exact path='/' component={Logout} />
+              <Route path='/login' component={Login} />
+              <Route path='/register' component={Register} />
+              <PrivateRoute path='/profile' component={Profile} />
+              <PrivateRoute path='/feed' component={Feed} />
+              <PrivateRoute exact path='/upload' component={UploadClothes} />
+              <PrivateRoute exact path='/notifications' component={Notifications} />
+              <PrivateRoute exact path='/search' component={Search} />
+              <PrivateRoute exact path='/search/:id' component={AdminClothes} />
+              <PrivateRoute exact path='/garment' component={ProfileClothes} />
+              <PrivateRoute exact path='/admin' component={AdminClothes} />
+              <PrivateRoute component={Error404} />
+            </Switch>
+          </Router>
+        </Suspense>
+      </UserProvider>
     </>
   )
 }

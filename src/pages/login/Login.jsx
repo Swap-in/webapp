@@ -1,25 +1,34 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
+import { Link, useHistory } from 'react-router-dom'
 import './Login.scss'
 import Input from '../../Components/input'
 import Button from '../../Components/button'
 import MainLogo from '../../assets/brand/logo.svg'
 import Navbar from '../../Components/Navbar'
 import PageTitle from '../../Components/PageTitle'
+import Loader from '../../Components/loader'
+import useUser from '../../hooks/useUser'
 
 function Login() {
 
-  const [email, setEmail] = useState('')
+  const { login, isLogged, loading, errors } = useUser()
+  const history = useHistory()
+  const [userName, setUserName] = useState('')
   const [password, setPassword] = useState('')
-  console.log(password)
 
-  const handleLogin = (e) => {
+  const onLogin = async (e) => {
     e.preventDefault();
-    alert(email)
+    const data = { userName, password }
+    login(data)
   }
+
+  useEffect(() => {
+    if (isLogged) history.push('/feed')
+  }, [history, isLogged])
+
   return (
     <>
-      <Navbar goBackIcon className='Navbar--login' />
+      <Navbar goBackIcon />
       <div className='Login'>
         <div className='Login--container'>
           <figure className='Login--logo__container'>
@@ -27,16 +36,14 @@ function Login() {
           </figure>
           <PageTitle title='Iniciar Sesión' />
           <form
-            onSubmit={handleLogin}
             className='Login--form'
           >
-            <p>Email</p>
+            <p>Nombre de usuario</p>
             <Input
-              type='email'
-              name='email'
-              placeholder='ejemplo@ejemplo.com'
+              type='text'
+              name='username'
               className='Login--input'
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => setUserName(e.target.value)}
             />
             <p>Contraseña</p>
             <Input
@@ -45,9 +52,13 @@ function Login() {
               className='Login--input'
               onChange={(e) => setPassword(e.target.value)}
             />
+            {errors && <span className='errors'>Datos incorrectos</span>}
+            {loading && <Loader className='Loading--login' />}
             <Button
               title='INICIAR SESIÓN'
               className='Login--button'
+              onClick={onLogin}
+              disabled={!userName || !password}
             />
             <h6>
               ¿Aún no tienes cuenta?

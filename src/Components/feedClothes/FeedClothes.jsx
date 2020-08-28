@@ -2,13 +2,14 @@ import React from 'react'
 import './FeedClothes.scss'
 import FeedNav from '../feedNav'
 import FeedFooter from '../feedFooter'
+import FeedContent from '../feedContent/FeedContent'
 
-function FeedClothes() {
+function FeedClothes({ openMatchModal }) {
   return (
     <div className='FeedClothes'>
       <FeedNav />
-      <img src='https://image.dhgate.com/0x0s/f2-albu-g10-M00-37-09-rBVaVlyktamAaMItAACo9Qhz5no083.jpg/nuevos-hombres-camisa-para-hombre-de-manga.jpg' alt='Clothes' />
-      <FeedFooter />
+      <FeedContent />
+      <FeedFooter openMatchModal={openMatchModal} />
     </div>
   )
 }
