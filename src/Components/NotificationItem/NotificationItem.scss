@@ -1,35 +1,52 @@
 @import '../../sass/utils.scss';
+@import '../../sass/breakpoints.scss';
+
 .NotificationItem {
-    // background-color: bisque;
     display: flex;
     justify-content: space-around;
-    flex-wrap: nowrap;
     align-items: center;
-    margin: 1em 1em 0 1em;
-
-    &--image{
+    margin: 1em;
+    &--image {
         width: 70px;
-        min-width: 70px;
         -o-object-fit: cover;
-           object-fit: cover;
+        object-fit: cover;
         height: 70px;
         border-radius: 50%;
     };
-    &--Text span{
+    &--Text span {
         padding: 10px;
         font-size: 18px;
         color: blue;
-        min-width: 250px;
-        // border: solid 1px red;
         display: flex;
         @include title(1.3em, $black-color-first);
         font-weight: 500;
     };
-    &--buttons__secundary{
-        @include btn-secondary(100px, 50px);
+    &--buttons__secondary {
+        @include btn-secondary(90%, 50px);
         @include title(1.3em, $black-color-first);
         font-weight: 500;
         margin-left: 20px;
         line-height: 48px;
     };
+}
+
+@include media( mobile-s ) {
+    .NotificationItem {
+        margin: .5em;
+        width: 95%;
+        &--image {
+            width: 40px;
+            height: 40px;
+        }
+        &--Text span {
+            font-size: 1em;
+            padding: .5em;
+        }
+        &--buttons__secondary {
+            font-size: 1em;
+            height: 30px;
+            line-height: 0;
+            margin-left: 0;
+        }
+    }
 }

@@ -11,6 +11,7 @@ function Feed() {
       setIsOpen(false) :
       setIsOpen(true)
   }
+
   return (
     <>
       <main className='Feed'>

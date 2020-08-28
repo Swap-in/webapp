@@ -20,7 +20,6 @@ function SubmitProfilePicture({ setURLImage }) {
   useEffect(() => {
     if (task) {
       const onComplete = () => {
-        console.log('completado')
         task.snapshot.ref.getDownloadURL()
           .then((imageURL) => {
             setURLImage(imageURL)
