@@ -1,8 +1,6 @@
-import React, { useRef, useState, useContext } from 'react'
+import React, { useRef, useState } from 'react'
 import plusButton from '../../assets/icons/plus-button.svg'
-import UserContext from '../../context'
 import './AdminPictures.scss'
-
 
 function AdminPictures({ id }) {
   const submitFile = useRef()

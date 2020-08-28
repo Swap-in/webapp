@@ -69,9 +69,6 @@ module.exports = {
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
-            options: {
-              esModule: true,
-            },
           },
           'css-loader',
           'sass-loader',
@@ -104,6 +101,7 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: 'css/[name]-[contenthash].css',
       chunkFilename: 'css/[name]-[contenthash].css',
+      ignoreOrder: true,
     }),
     new CleanWebpackPlugin({
       cleanOnceBeforeBuildPatterns: ['***'],
