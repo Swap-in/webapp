@@ -10,14 +10,14 @@ import UserContext from '../../context'
 function UserProfile() {
 
   const { user } = useContext(UserContext)
-  console.log(user)
+
   return (
     <>
       <div className='UserProfile'>
         <PageTitle title='Mi perfil' />
         <div className='UserProfile--info'>
           <div className='UserProfile--info__img'>
-            <img src={userDefault} alt='User' />
+            <img src={user.picture || userDefault} alt='User' />
           </div>
           <h4 className='UserProfile--info__name'>
             {user.first_name}

@@ -3,6 +3,7 @@ import './AdminPictures.scss'
 import SubmitPicture from '../SubmitPicture/SubmitPicture'
 
 function AdminPictures() {
+
   return (
     <>
       <div className='AdminPictures'>
