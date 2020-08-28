@@ -30,3 +30,26 @@
     }
   }
 }
+
+
+.SubmitPicture {
+  background-color: $white-color-first;
+  box-shadow: 1px 10px 10px 5px $white-color-second;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  cursor: pointer;
+  @include flex(center, center);
+  label {
+    cursor: pointer;
+    width: 50%;
+    @include flex(center, center);
+  }
+  &--image {
+    width: 70%;
+    @include flex(center, center);
+    img {
+      width: 100%;
+    }
+  }
+}
