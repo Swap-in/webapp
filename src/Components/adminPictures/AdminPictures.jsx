@@ -17,17 +17,18 @@ function AdminPictures({ setURLImages }) {
 
   function handleSubmitPictures(e) {
     e.preventDefault()
-    const images = [image1, image2, image3, image4, image5]
     const urls = []
+    const images = [image1, image2, image3, image4, image5]
     images.forEach((image) => {
-      const currentTask = uploadClothes(image, user.id)
-      currentTask.on('state_changed', () => {
-        console.log('completado')
-        currentTask.snapshot.ref.getDownloadURL()
-          .then((imageURL) => {
-            urls.push(imageURL)
-          })
-      })
+      if (image) {
+        const currentTask = uploadClothes(image, user.id)
+        currentTask.on('state_changed', () => {
+          currentTask.snapshot.ref.getDownloadURL()
+            .then((imageURL) => {
+              urls.push(imageURL)
+            })
+        })
+      }
     })
     setURLImages(urls)
   }
@@ -41,7 +42,7 @@ function AdminPictures({ setURLImages }) {
             <div className='SubmitPicture'>
               <label htmlFor='img1'>
                 <div className='SubmitPicture--image'>
-                  <img src={image1} alt='add Garment' />
+                  <img src={plusButton} alt='add Garment' />
                 </div>
                 <input
                   type='file'

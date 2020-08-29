@@ -4,23 +4,23 @@ import './RegisterModal.scss'
 import PageTitle from '../PageTitle'
 import Button from '../button'
 
-function RegisterModal({ isOpen }) {
+function GenericModal({ isOpen, title, children, page, btnTitle }) {
   const history = useHistory()
   return (
     <div className='Overlay'>
       <div className={isOpen && 'RegisterModal'}>
-        <PageTitle title='Que bien!' />
+        <PageTitle title={title} />
         <p>
-          Ya quedan pocos pasos, revisa tu correo para validar tu información!
+          {children}
         </p>
         <Button
           className='RegisterModal--btn'
-          onClick={() => history.push('/token')}
-          title='Pega el token'
+          onClick={() => history.push(`/${page}`)}
+          title={btnTitle}
         />
       </div>
     </div>
   )
 }
 
-export default RegisterModal
+export default GenericModal

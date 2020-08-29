@@ -4,13 +4,24 @@ import FeedNav from '../feedNav'
 import FeedFooter from '../feedFooter'
 import FeedContent from '../feedContent/FeedContent'
 
-function FeedClothes({ openMatchModal }) {
+function FeedClothes({ openMatchModal, clothesData }) {
+
   return (
-    <div className='FeedClothes'>
-      <FeedNav />
-      <FeedContent />
-      <FeedFooter openMatchModal={openMatchModal} />
-    </div>
+    <>
+      {clothesData && (
+        <div className='FeedClothes'>
+          <FeedNav
+            username={clothesData.username}
+            picture={clothesData.profile_picture}
+          />
+          <FeedContent clothes={clothesData.pictures} />
+          <FeedFooter
+            openMatchModal={openMatchModal}
+            clothesData={clothesData}
+          />
+        </div>
+      )}
+    </>
   )
 }
 

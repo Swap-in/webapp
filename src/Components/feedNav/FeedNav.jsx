@@ -4,8 +4,9 @@ import { Link } from 'react-router-dom'
 import menuLogo from '../../assets/icons/menu-button.svg'
 import MenuContainer from '../../containers/MenuContainer'
 import useOpenMenu from '../../hooks/useOpenMenu'
+import userDefaultIcon from '../../assets/icons/user-icon-default.svg'
 
-function FeedNav() {
+function FeedNav({ username, picture }) {
   const { transitionMenu, openNav, onOpenNav } = useOpenMenu(false)
 
   return (
@@ -18,10 +19,10 @@ function FeedNav() {
           transition={transitionMenu}
         />
       </button>
-      <Link to='/profile/diego' className='FeedNav--user'>
-        <p>UserName</p>
+      <Link to='/profile' className='FeedNav--user'>
+        <p>{username}</p>
         <div className='FeedNav--user__img'>
-          <img src='https://images.pexels.com/photos/1310522/pexels-photo-1310522.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500' alt='User' />
+          <img src={picture || userDefaultIcon} alt={username} />
         </div>
       </Link>
     </div>

@@ -79,7 +79,14 @@ function Register() {
     <>
       <Navbar goBackIcon />
       <AlertContainer isOpen={openModal}>
-        <RegisterModal isOpen={openModal} />
+        <RegisterModal
+          isOpen={openModal}
+          title='Que bien!'
+          page='login'
+          btnTitle='Inicia Sesión'
+        >
+          Ya quedan pocos pasos, revisa tu correo para validar tu información!
+        </RegisterModal>
       </AlertContainer>
       <div className='Register'>
         <PageTitle title='Registro' />

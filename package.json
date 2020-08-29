@@ -20,6 +20,7 @@
     "firebase": "^7.19.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-responsive-carousel": "^3.2.9",
     "react-router-dom": "^5.2.0"
   },
   "devDependencies": {

@@ -6,7 +6,6 @@ const useUploadClothes = () => {
 
   const convertImageToUrl = useCallback((currentFile) => {
     const fileToUrl = URL.createObjectURL(currentFile)
-    console.log(fileToUrl)
     return fileToUrl
   }, [])
 
