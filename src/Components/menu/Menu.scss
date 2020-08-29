@@ -8,6 +8,7 @@
   left: 0;
   right: 0;
   transform: translateX(-1000px);
+  z-index: 1000;
   &--close {
     @include flex(center, flex-end);
     padding: .5em;

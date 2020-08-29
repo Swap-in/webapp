@@ -9,6 +9,7 @@
   padding: .5em;
   background: rgb(0,0,0);
   background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 44%, rgba(0,0,0,0.8) 99%);
+  z-index: 100;
   &--menu {
     width: 60%;
     img {

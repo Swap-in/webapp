@@ -1,17 +1,20 @@
 import React from 'react'
+import Carousel from 'react-bootstrap/Carousel'
 import './FeedContent.scss'
 
 function FeedContent({ clothes }) {
 
   return (
     <div className='FeedContent'>
-      <div className='FeedContent--carousel'>
+      <Carousel>
         {clothes?.map((image) => (
-          <div className='FeedContent--carousel__items' key={image}>
-            <img src={image} alt='element' />
-          </div>
+          <Carousel.Item>
+            <div className='FeedContent--items'>
+              <img src={image} alt='element' />
+            </div>
+          </Carousel.Item>
         ))}
-      </div>
+      </Carousel>
     </div>
   )
 }
