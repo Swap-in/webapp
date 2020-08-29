@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import './UserProfile.scss'
 import { Link } from 'react-router-dom'
 import UserClothes from '../UserClothes'
@@ -6,10 +6,17 @@ import userDefault from '../../assets/icons/user-icon-default.svg'
 import Button from '../button'
 import PageTitle from '../PageTitle/PageTitle'
 import UserContext from '../../context'
+import getProfileImage from '../../services/getProfileImage'
+
 
 function UserProfile() {
+const { user, token } = useContext(UserContext)
+const {clotheImage, setClotheImage } = useState(null)
 
-  const { user } = useContext(UserContext)
+useEffect(()=> {
+  getProfileImage(user.id, token)
+  .then(data => console.log(data))
+}, [token])
 
   return (
     <>
