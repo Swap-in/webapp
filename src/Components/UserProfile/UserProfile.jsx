@@ -36,7 +36,6 @@ function UserProfile() {
             <UserClothes />
             <UserClothes />
             <UserClothes />
-            <UserClothes />
           </div>
         </div>
       </div>
