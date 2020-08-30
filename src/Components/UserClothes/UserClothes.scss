@@ -5,6 +5,10 @@
   border-radius: 1em;
   box-shadow: 1px 1px 9px -2px gray;
   position: relative;
+  &:hover .UserClothes--description {
+    opacity: 1;
+    transition: .4s;
+  }
   &--edit {
     position: absolute;
     width: 55px;
@@ -23,5 +27,25 @@
       width: 90%;
       object-fit: cover;
     }
+  }
+  h2 {
+    @include title(1.1em, $white-color-second);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: .5em;
+    background-color: transparentize($black-color-first, .5);
+  }
+  &--description {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1em;
+    @include title(1.1em, $purple-color-first);
+    backdrop-filter: blur(2px);
+    background-color: transparentize($white-color-first, .5);
+    opacity: 0;
   }
 }

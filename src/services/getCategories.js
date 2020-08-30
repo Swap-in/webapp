@@ -8,7 +8,7 @@ function getCategories(token) {
     },
   })
     .then((res) => {
-      if (!res.ok) throw new Error('Error response')
+      if (!res.ok) throw new Error(res.text())
       return res.json()
     })
     .then((data) => data)

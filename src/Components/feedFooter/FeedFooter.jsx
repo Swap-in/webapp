@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import './FeedFooter.scss'
 import likeIcon from '../../assets/icons/like.svg'
 import superLikeIcon from '../../assets/icons/superlike.svg'
@@ -10,7 +10,6 @@ import UserContext from '../../context'
 
 function FeedFooter({ clothesData, setOpenModal }) {
   const { token, user } = useContext(UserContext)
-  const [match, setMatch] = useState(false)
   const handleReactions = (e) => {
     const typeOfLike = e.target.id
     const sendData = {
@@ -22,8 +21,6 @@ function FeedFooter({ clothesData, setOpenModal }) {
     addLike(sendData)
       .then((data) => {
         setOpenModal(data[0].match)
-        setMatch(data[0].match)
-        console.log(match)
       })
   }
 

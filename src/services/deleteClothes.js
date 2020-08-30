@@ -1,8 +1,8 @@
 const ENDPOINT = 'https://swapin.herokuapp.com'
 
-function getCategories(token, id) {
-  return fetch(`${ENDPOINT}/clothes/notification_user/${id}`, {
-    method: 'GET',
+function deleteClothes(token, id) {
+  return fetch(`${ENDPOINT}/user/clothes/${id}/`, {
+    method: 'DELETE',
     headers: {
       'Authorization': `token ${token}`,
     },
@@ -14,4 +14,4 @@ function getCategories(token, id) {
     .then((data) => data)
 }
 
-export default getCategories
+export default deleteClothes

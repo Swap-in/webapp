@@ -7,7 +7,10 @@ function getFeedData(token) {
       'Authorization': `token ${token}`,
     },
   })
-    .then((res) => res.json())
+    .then((res) => {
+      if (!res.ok) throw new Error(res.text())
+      return res.json()
+    })
     .then((data) => data)
 }
 

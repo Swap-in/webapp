@@ -1,17 +1,23 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import './NotificationItem.scss'
 import { Link } from 'react-router-dom'
 import Button from '../button'
 
 function NotificationItem({ data }) {
-  useEffect(() => {
-    console.log(data)
-  }, [data])
+
   return (
     <div className='NotificationItem'>
-      <img className='NotificationItem--image' src='https://images.pexels.com/photos/904276/pexels-photo-904276.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=70' alt='' />
+      <img className='NotificationItem--image' src={data.picture} alt='User' />
       <div className='NotificationItem--Text'>
-        <span>Jaime Lopez le dio like a una de tus prendas</span>
+        <span>
+          {data.user_name}
+          {' '}
+          le dio
+          {' '}
+          {data.type_like}
+          {' '}
+          a una de tus prendas
+        </span>
       </div>
       <div className='NotificationItem--buttons'>
         <Link to='/admin'>

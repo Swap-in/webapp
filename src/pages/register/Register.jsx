@@ -6,9 +6,9 @@ import Navbar from '../../Components/Navbar'
 import PageTitle from '../../Components/PageTitle'
 import register from '../../services/register'
 import AlertContainer from '../../containers/AlertContainer'
-import RegisterModal from '../../Components/registerModal/RegisterModal'
 import Loader from '../../Components/loader'
 import SubmitProfilePicture from '../../Components/submitProfilePicture/SubmitProfilePicture'
+import GenericModal from '../../Components/registerModal'
 
 function Register() {
 
@@ -79,14 +79,14 @@ function Register() {
     <>
       <Navbar goBackIcon />
       <AlertContainer isOpen={openModal}>
-        <RegisterModal
+        <GenericModal
           isOpen={openModal}
           title='Que bien!'
           page='login'
           btnTitle='Inicia Sesión'
         >
           Ya quedan pocos pasos, revisa tu correo para validar tu información!
-        </RegisterModal>
+        </GenericModal>
       </AlertContainer>
       <div className='Register'>
         <PageTitle title='Registro' />

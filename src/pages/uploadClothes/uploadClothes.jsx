@@ -7,7 +7,7 @@ import FormUpload from '../../Components/addClothes'
 import UserContext from '../../context'
 import useAddClothes from '../../hooks/useAddClothes'
 import AlertContainer from '../../containers/AlertContainer'
-import GenericModal from '../../Components/registerModal/RegisterModal'
+import GenericModal from '../../Components/registerModal/GenericModal'
 
 function UploadClothes() {
   const { addClothesService, errors, loading, success } = useAddClothes()
