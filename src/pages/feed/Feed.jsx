@@ -6,18 +6,21 @@ import MatchContainer from '../../containers/MatchContainer'
 import getFeedData from '../../services/getFeed'
 import UserContext from '../../context'
 import Loader from '../../Components/loader'
+import useOpenMatchModal from '../../hooks/useOpenMatch'
 
 function Feed() {
   const history = useHistory()
-  const [isOpen, setIsOpen] = useState(false)
   const [feedData, setFeedData] = useState([])
+  const [matchData, setMatchData] = useState()
   const { token } = useContext(UserContext)
-  const noClothes = feedData.length === 0
+  const { onOpenModal, openModal } = useOpenMatchModal(false)
 
   useEffect(() => {
     getFeedData(token)
-      .then((data) => setFeedData(data))
-  }, [token, history, noClothes])
+      .then((data) => {
+        setFeedData(data)
+      })
+  }, [token, history])
 
   return (
     <>
@@ -25,12 +28,16 @@ function Feed() {
         {feedData ? feedData.map((data) => (
           <FeedClothes
             key={data.id}
-            setOpenModal={setIsOpen}
             clothesData={data}
+            setMatchData={setMatchData}
           />
         )) : <Loader />}
       </main>
-      <MatchContainer isOpen={isOpen} setIsOpen={setIsOpen} />
+      <MatchContainer
+        isOpen={openModal}
+        onOpenModal={onOpenModal}
+        matchData={matchData}
+      />
     </>
   )
 }

@@ -1,6 +1,5 @@
 import React from 'react'
 import './NotificationItem.scss'
-import Button from '../button'
 
 function NotificationItem({ data }) {
 
@@ -20,10 +19,14 @@ function NotificationItem({ data }) {
       </div>
       <div className='NotificationItem--buttons'>
         {data.is_match && (
-          <Button
-            title='Cuadrar'
+          <a
+            href={`https:wa.me/${data.phone_number}`}
             className='NotificationItem--buttons__secondary'
-          />
+            target='_blank'
+            rel='noreferrer'
+          >
+            Cuadrar
+          </a>
         )}
       </div>
     </div>
