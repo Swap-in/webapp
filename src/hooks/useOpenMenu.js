@@ -5,7 +5,6 @@ function useOpenMenu(initialState) {
   const [transitionMenu, setTransitionMenu] = useState('')
   function onOpenNav() {
     if (openNav) {
-      setTransitionMenu('is-closing')
       setOpenNav(false)
     } else {
       setOpenNav(true)

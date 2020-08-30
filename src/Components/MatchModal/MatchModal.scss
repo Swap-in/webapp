@@ -18,7 +18,8 @@
   &--clothes {
     margin-top: .5em;
     position: relative;
-    @include flex(center, space-between);
+    height: 40%;
+    @include flex(center, center);
     &__like {
       position: absolute;
       left: 43%;
