@@ -7,6 +7,9 @@
     margin: 2em 0 .5em 0;
     @include paragraph(1.2em, $purple-color-third);
   }
+  &--loader {
+    height: 100px;
+  }
 }
 
 .SearchContainerResults {

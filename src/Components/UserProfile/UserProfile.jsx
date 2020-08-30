@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './UserProfile.scss'
 import { Link } from 'react-router-dom'
 import UserClothes from '../UserClothes'
@@ -6,10 +6,19 @@ import userDefault from '../../assets/icons/user-icon-default.svg'
 import Button from '../button'
 import PageTitle from '../PageTitle/PageTitle'
 import UserContext from '../../context'
+import getUserImages from '../../services/getUserImages'
+import Loader from '../loader'
 
 function UserProfile() {
+  const { user, token } = useContext(UserContext)
+  const [clothes, setClothes] = useState(null)
 
-  const { user } = useContext(UserContext)
+  useEffect(() => {
+    getUserImages(user.id, token)
+      .then((data) => {
+        setClothes(data.clothes_by_user)
+      })
+  }, [token, user.id, setClothes])
 
   return (
     <>
@@ -32,11 +41,12 @@ function UserProfile() {
         <div className='UserProfile--clothes'>
           <h3>Mis Prendas</h3>
           <div className='UserProfile--clothes__container'>
-            <UserClothes />
-            <UserClothes />
-            <UserClothes />
-            <UserClothes />
-            <UserClothes />
+            {clothes ? clothes.map((clothe) => (
+              <UserClothes
+                key={clothe.id}
+                clotheData={clothe}
+              />
+            )) : <Loader className='UserProfile--loader' />}
           </div>
         </div>
       </div>

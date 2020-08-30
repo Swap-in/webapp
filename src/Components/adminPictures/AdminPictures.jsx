@@ -4,11 +4,12 @@ import plusButton from '../../assets/icons/plus-button.svg'
 import UserContext from '../../context'
 import useUploadClothes from '../../hooks/useUploadClothes'
 import Button from '../button'
+import Loader from '../loader'
 
 function AdminPictures({ setURLImages }) {
 
   const { user } = useContext(UserContext)
-  const { uploadClothes } = useUploadClothes()
+  const { uploadClothes, stateImage, onError, onProgress, setStateImage } = useUploadClothes()
   const [image1, setImage1] = useState()
   const [image2, setImage2] = useState()
   const [image3, setImage3] = useState()
@@ -17,17 +18,28 @@ function AdminPictures({ setURLImages }) {
 
   function handleSubmitPictures(e) {
     e.preventDefault()
-    const images = [image1, image2, image3, image4, image5]
     const urls = []
+    const images = [image1, image2, image3, image4, image5]
     images.forEach((image) => {
-      const currentTask = uploadClothes(image, user.id)
-      currentTask.on('state_changed', () => {
-        console.log('completado')
-        currentTask.snapshot.ref.getDownloadURL()
-          .then((imageURL) => {
-            urls.push(imageURL)
+      if (image) {
+        const currentTask = uploadClothes(image, user.id)
+        const onComplete = () => {
+          currentTask.snapshot.ref.getDownloadURL()
+            .then((imageURL) => {
+              urls.push(imageURL)
+            })
+          setStateImage({
+            errors: false,
+            loadingImages: false,
+            success: true,
+            noImages: false,
           })
-      })
+        }
+        currentTask.on('state_changed',
+          onProgress,
+          onError,
+          onComplete)
+      }
     })
     setURLImages(urls)
   }
@@ -43,7 +55,12 @@ function AdminPictures({ setURLImages }) {
                 <div className='SubmitPicture--image'>
                   <img src={plusButton} alt='add Garment' />
                 </div>
-                <input type='file' accept='image/*' id='img1' onChange={(e) => setImage1(e.target.files[0])} />
+                <input
+                  type='file'
+                  accept='image/*'
+                  id='img1'
+                  onChange={(e) => setImage1(e.target.files[0])}
+                />
               </label>
             </div>
             <div className='SubmitPicture'>
@@ -51,7 +68,12 @@ function AdminPictures({ setURLImages }) {
                 <div className='SubmitPicture--image'>
                   <img src={plusButton} alt='add Garment' />
                 </div>
-                <input type='file' accept='image/*' id='img2' onChange={(e) => setImage2(e.target.files[0])} />
+                <input
+                  type='file'
+                  accept='image/*'
+                  id='img2'
+                  onChange={(e) => setImage2(e.target.files[0])}
+                />
               </label>
             </div>
             <div className='SubmitPicture'>
@@ -59,7 +81,12 @@ function AdminPictures({ setURLImages }) {
                 <div className='SubmitPicture--image'>
                   <img src={plusButton} alt='add Garment' />
                 </div>
-                <input type='file' accept='image/*' id='img3' onChange={(e) => setImage3(e.target.files[0])} />
+                <input
+                  type='file'
+                  accept='image/*'
+                  id='img3'
+                  onChange={(e) => setImage3(e.target.files[0])}
+                />
               </label>
             </div>
             <div className='SubmitPicture'>
@@ -67,7 +94,12 @@ function AdminPictures({ setURLImages }) {
                 <div className='SubmitPicture--image'>
                   <img src={plusButton} alt='add Garment' />
                 </div>
-                <input type='file' accept='image/*' id='img4' onChange={(e) => setImage4(e.target.files[0])} />
+                <input
+                  type='file'
+                  accept='image/*'
+                  id='img4'
+                  onChange={(e) => setImage4(e.target.files[0])}
+                />
               </label>
             </div>
             <div className='SubmitPicture'>
@@ -75,16 +107,38 @@ function AdminPictures({ setURLImages }) {
                 <div className='SubmitPicture--image'>
                   <img src={plusButton} alt='add Garment' />
                 </div>
-                <input type='file' accept='image/*' id='img5' onChange={(e) => setImage5(e.target.files[0])} />
+                <input
+                  type='file'
+                  accept='image/*'
+                  id='img5'
+                  onChange={(e) => setImage5(e.target.files[0])}
+                />
               </label>
             </div>
-            <Button
-              title='Subir'
-              type='button'
-              onClick={handleSubmitPictures}
-              disabled={!image1}
-              className='SubmitPicture--button'
-            />
+            <div className='SubmitPicture--section'>
+              {stateImage.loadingImages && (
+                <Loader className='SubmitPicture--loader' />
+              )}
+              {stateImage.noImages && (
+                <Button
+                  title='Subir'
+                  type='button'
+                  onClick={handleSubmitPictures}
+                  disabled={!image1}
+                  className='SubmitPicture--button'
+                />
+              )}
+              {stateImage.success && (
+                <span className='SubmitPicture--success'>
+                  Tus imágenes se subieron!
+                </span>
+              )}
+              {stateImage.errors && (
+                <span className='SubmitPicture--error'>
+                  Hubo un error al subir tus prendas
+                </span>
+              )}
+            </div>
           </div>
         </div>
       </div>

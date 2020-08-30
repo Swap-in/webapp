@@ -5,6 +5,7 @@ import Navbar from '../../Components/Navbar/Navbar'
 
 function Profile() {
   return (
+
     <>
       <Navbar />
       <div className='Profile'>

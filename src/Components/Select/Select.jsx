@@ -1,19 +1,27 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import './Select.scss'
+import getCategories from '../../services/getCategories'
+import UserContext from '../../context'
 
-function Select() {
-  const OPTIONS = ['corbatas', 'zapatos', 'Pantalones', 'Playeras', 'Sombreros']
-  const [option, setOption] = useState(OPTIONS[0])
+function Select({ setOption }) {
+  const { token } = useContext(UserContext)
+  const [options, setOptions] = useState()
+
   const handleChangeOptions = (e) => {
     e.preventDefault()
     setOption(e.target.value)
   }
 
-  console.log(option)
+  useEffect(() => {
+    getCategories(token)
+      .then((data) => setOptions(data))
+  }, [token])
+
   return (
     <form className='formSearch'>
       <select className='formSearch--Select' onChange={handleChangeOptions}>
-        {OPTIONS.map((option) => <option key={option}>{option}</option>)}
+        {options?.map((option) => (
+          <option key={option.id}>{option.description}</option>))}
       </select>
     </form>
   )

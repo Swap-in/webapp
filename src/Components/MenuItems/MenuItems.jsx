@@ -4,7 +4,7 @@ import './MenuItems.scss'
 import Button from '../button'
 import useUser from '../../hooks/useUser'
 
-function MenuItems({ icon, title, page, onLogout }) {
+function MenuItems({ icon, title, page, onLogout, amount }) {
   const { logout } = useUser()
   const handleLogout = () => {
     logout()
@@ -17,6 +17,9 @@ function MenuItems({ icon, title, page, onLogout }) {
           <Link to={page} style={{ color: 'inherit', textDecoration: 'inherit' }}>
             <img src={icon} alt='home' className='MenuItems--img' />
             <span className='MenuItems--text'>{title}</span>
+            {amount && (
+              <span className='MenuItems--amount'>{amount.length}</span>
+            )}
           </Link>
         </div>
       </div>

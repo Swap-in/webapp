@@ -1,10 +1,14 @@
 @import '../../sass/utils.scss';
 
 .Overlay {
+  position: absolute;
+  z-index: 1000;
   @include overlay()
 }
 
 .MatchModal {
+  position: relative;
+  z-index: 10000;
   height: 50%;
   width: 90%;
   h2 {
@@ -14,7 +18,8 @@
   &--clothes {
     margin-top: .5em;
     position: relative;
-    @include flex(center, space-between);
+    height: 40%;
+    @include flex(center, center);
     &__like {
       position: absolute;
       left: 43%;

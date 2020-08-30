@@ -29,6 +29,9 @@
       @include paragraph(1em, $purple-color-first)
     }
   };
+  &--loader {
+    height: 100px;
+  }
 };
 
 .UserProfile--clothes {

@@ -33,6 +33,19 @@
 .MenuItems--text {
     margin-left: 20px;
 }
+.MenuItems--amount {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    padding: .4em;
+    background-color: $white-color-second;
+    font-weight: bold;
+    @include title(.7em, $purple-color-first);
+    @include flex(center, center)
+}
 
 .logout {
     width: 100%;

@@ -20,7 +20,7 @@ async function register(data) {
   })
     .then((res) => {
       if (!res.ok) {
-        throw new Error('bad request')
+        throw new Error(res.text())
       }
       return res.json()
     })
