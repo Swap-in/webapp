@@ -5,6 +5,7 @@
     display: grid;
     grid-template-columns: 15% 65% 20%;
     margin: 1em;
+    align-items: center;
     &--image {
         width: 70px;
         -o-object-fit: cover;
@@ -39,14 +40,15 @@
             height: 40px;
         }
         &--Text span {
-            font-size: 1em;
+            font-size: .8em;
             padding: .5em;
         }
         &--buttons__secondary {
-            font-size: 1em;
-            height: 30px;
+            font-size: .8em;
+            height: 20px;
             line-height: 0;
             margin-left: 0;
+            padding: 5px;
         }
     }
 }

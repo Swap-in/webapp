@@ -1,4 +1,5 @@
 @import '../../sass/utils.scss';
+@import '../../sass/breakpoints.scss';
 
 .AdminPictures {
   padding: 1em;
@@ -41,11 +42,12 @@
   @include flex(center, center);
   label {
     cursor: pointer;
-    width: 50%;
+    width: 60%;
+    margin-bottom: 0;
     @include flex(center, center);
   }
   &--image {
-    width: 70%;
+    width: 80%;
     @include flex(center, center);
     img {
       width: 80%;
@@ -59,5 +61,16 @@
   }
   &--error {
     @include title(1.1em, $purple-color-first);
+  }
+}
+
+@include media(mobile-s) {
+  .SubmitPicture {
+    &--image {
+      width: 100%;
+      img {
+        width: 90%;
+      }
+    }
   }
 }

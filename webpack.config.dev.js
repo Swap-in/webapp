@@ -11,6 +11,7 @@ module.exports = {
   mode: 'development',
   devtool: 'cheap-module-eval-source-map',
   devServer: {
+    host: '192.168.0.12',
     compress: true,
     port: 8081,
     open: true,
