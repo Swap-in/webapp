@@ -1,17 +1,44 @@
 @import '../../sass/utils';
 
 .SearchResultsItem {
-  overflow: hidden;
-  border-radius: 1em;
+  position: relative;
   margin: .5em;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
   border: 0.5px solid rgba(0, 0, 0, 0.1);
+  border-radius: 1em;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+  &--user {
+    padding: .5em;
+    background-color: transparentize($white-color-first, .5);
+    backdrop-filter: blur(2px);
+    @include flex(center, flex-end);
+    img {
+      width: 50px;
+      height: 50px;
+    }
+    h3 {
+      margin: 0 1em;
+      @include title(1.1em, $brand-color)
+    }
+  }
   &--img {
-    cursor: pointer;
     width: 100%;
+    cursor: pointer;
     @include flex(center, center);
     img {
       width: 50%;
+    }
+  }
+  &--description {
+    position: absolute;
+    padding: 1em;
+    bottom: 0;
+    width: 100%;
+    background-color: transparentize($white-color-first, .5);
+    backdrop-filter: blur(2px);
+    h3 {
+      margin-bottom: 1em;
+      @include title(1.2em, $purple-color-first);
     }
   }
 }

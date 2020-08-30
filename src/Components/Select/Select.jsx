@@ -20,7 +20,6 @@ function Select({ setOption }) {
   return (
     <form className='formSearch'>
       <select className='formSearch--Select' onChange={handleChangeOptions}>
-        <option defaultValue>Selecciona</option>
         {options?.map((option) => (
           <option key={option.id}>{option.description}</option>))}
       </select>
