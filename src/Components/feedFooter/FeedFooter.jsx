@@ -29,7 +29,7 @@ function FeedFooter({ clothesData, setOpenModal }) {
       <div className='FeedFooter--content'>
         <div className='FeedFooter--content__description'>
           <h3>{clothesData.title}</h3>
-          <Pellet title={`Tipo ${clothesData.category_id}`} />
+          <Pellet title={clothesData.category_id} />
           <Pellet title={clothesData.gender} />
           <Pellet title={clothesData.brand} />
           <p>{clothesData.description}</p>

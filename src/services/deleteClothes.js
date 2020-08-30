@@ -1,6 +1,6 @@
 const ENDPOINT = 'https://swapin.herokuapp.com'
 
-function deleteClothes(token, id) {
+async function deleteClothes(token, id) {
   return fetch(`${ENDPOINT}/user/clothes/${id}/`, {
     method: 'DELETE',
     headers: {

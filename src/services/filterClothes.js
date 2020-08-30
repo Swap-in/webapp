@@ -1,7 +1,7 @@
 const ENDPOINT = 'https://swapin.herokuapp.com'
 
-async function getCategories(token) {
-  return fetch(`${ENDPOINT}/clothes/get_categories/`, {
+async function filterClothes(token, categoryId, userId) {
+  return fetch(`${ENDPOINT}/clothes/search_clothes/${categoryId}/${userId}/`, {
     method: 'GET',
     headers: {
       'Authorization': `token ${token}`,
@@ -14,4 +14,4 @@ async function getCategories(token) {
     .then((data) => data)
 }
 
-export default getCategories
+export default filterClothes

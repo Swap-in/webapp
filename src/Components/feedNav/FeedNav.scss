@@ -22,6 +22,7 @@
     @include flex(center, center);
     p {
       margin-right: .5em;
+      margin-top: 1em;
       @include title(1.1em, $white-color-first);
     }
     &__img {
