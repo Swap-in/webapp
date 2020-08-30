@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './NotificationItem.scss'
 import { Link } from 'react-router-dom'
 import Button from '../button'
 
-function NotificationItem() {
+function NotificationItem({ data }) {
+  useEffect(() => {
+    console.log(data)
+  }, [data])
   return (
     <div className='NotificationItem'>
       <img className='NotificationItem--image' src='https://images.pexels.com/photos/904276/pexels-photo-904276.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=70' alt='' />

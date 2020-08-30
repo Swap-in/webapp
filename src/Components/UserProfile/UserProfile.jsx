@@ -43,7 +43,6 @@ useEffect(()=> {
             <UserClothes />
             <UserClothes />
             <UserClothes />
-            <UserClothes />
           </div>
         </div>
       </div>

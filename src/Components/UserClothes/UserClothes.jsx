@@ -19,6 +19,9 @@ function UserClothes({ image, location }) {
           alt='item'
         />
       </div>
+      {!isAdmin && (
+        <h2>Titulo de prenda</h2>
+      )}
     </div>
   )
 }

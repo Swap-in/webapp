@@ -1,15 +1,19 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import './AddClothes.scss'
 import Button from '../button/Button'
 import Loader from '../loader'
+import getCategories from '../../services/getCategories'
+import UserContext from '../../context'
 
 function AddClothes({ setFormData, handleUpload, errors, loading }) {
+  const { token } = useContext(UserContext)
   const [title, setTitle] = useState()
   const [clotheType, setClotheType] = useState('')
   const [brand, setBrand] = useState('')
   const [size, setSize] = useState('')
   const [gender, setGender] = useState('')
   const [description, setDescription] = useState('')
+  const [categories, setCategories] = useState()
   const disabledButton = !clotheType || !brand || !size || !gender || !description
 
   useEffect(() => {
@@ -23,6 +27,11 @@ function AddClothes({ setFormData, handleUpload, errors, loading }) {
     }
     setFormData(data)
   }, [title, brand, clotheType, description, gender, setFormData, size])
+
+  useEffect(() => {
+    getCategories(token)
+      .then((data) => setCategories(data))
+  }, [token])
 
   return (
     <>
@@ -38,10 +47,14 @@ function AddClothes({ setFormData, handleUpload, errors, loading }) {
                 id='clothesType'
               >
                 <option defaultValue>Tipo</option>
-                <option value='1'>Cabeza</option>
-                <option value='2'>Torso</option>
-                <option value='3'>Piernas</option>
-                <option value='4'>Pies</option>
+                {categories && categories.map((category) => (
+                  <option
+                    key={category.id}
+                    value={category.id}
+                  >
+                    {category.description}
+                  </option>
+                ))}
               </select>
             </label>
             <label htmlFor='title'>
