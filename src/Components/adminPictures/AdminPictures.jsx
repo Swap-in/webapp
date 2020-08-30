@@ -4,11 +4,12 @@ import plusButton from '../../assets/icons/plus-button.svg'
 import UserContext from '../../context'
 import useUploadClothes from '../../hooks/useUploadClothes'
 import Button from '../button'
+import Loader from '../loader'
 
 function AdminPictures({ setURLImages }) {
 
   const { user } = useContext(UserContext)
-  const { uploadClothes } = useUploadClothes()
+  const { uploadClothes, stateImage, onError, onProgress, setStateImage } = useUploadClothes()
   const [image1, setImage1] = useState()
   const [image2, setImage2] = useState()
   const [image3, setImage3] = useState()
@@ -22,12 +23,22 @@ function AdminPictures({ setURLImages }) {
     images.forEach((image) => {
       if (image) {
         const currentTask = uploadClothes(image, user.id)
-        currentTask.on('state_changed', () => {
+        const onComplete = () => {
           currentTask.snapshot.ref.getDownloadURL()
             .then((imageURL) => {
               urls.push(imageURL)
             })
-        })
+          setStateImage({
+            errors: false,
+            loadingImages: false,
+            success: true,
+            noImages: false,
+          })
+        }
+        currentTask.on('state_changed',
+          onProgress,
+          onError,
+          onComplete)
       }
     })
     setURLImages(urls)
@@ -104,13 +115,30 @@ function AdminPictures({ setURLImages }) {
                 />
               </label>
             </div>
-            <Button
-              title='Subir'
-              type='button'
-              onClick={handleSubmitPictures}
-              disabled={!image1}
-              className='SubmitPicture--button'
-            />
+            <div className='SubmitPicture--section'>
+              {stateImage.loadingImages && (
+                <Loader className='SubmitPicture--loader' />
+              )}
+              {stateImage.noImages && (
+                <Button
+                  title='Subir'
+                  type='button'
+                  onClick={handleSubmitPictures}
+                  disabled={!image1}
+                  className='SubmitPicture--button'
+                />
+              )}
+              {stateImage.success && (
+                <span className='SubmitPicture--success'>
+                  Tus imágenes se subieron!
+                </span>
+              )}
+              {stateImage.errors && (
+                <span className='SubmitPicture--error'>
+                  Hubo un error al subir tus prendas
+                </span>
+              )}
+            </div>
           </div>
         </div>
       </div>

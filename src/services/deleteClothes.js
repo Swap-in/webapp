@@ -9,7 +9,7 @@ async function deleteClothes(token, id) {
   })
     .then((res) => {
       if (!res.ok) throw new Error(res.text())
-      return res.json()
+      return res.status
     })
     .then((data) => data)
 }

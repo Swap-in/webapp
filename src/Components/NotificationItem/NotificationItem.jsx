@@ -1,6 +1,5 @@
 import React from 'react'
 import './NotificationItem.scss'
-import { Link } from 'react-router-dom'
 import Button from '../button'
 
 function NotificationItem({ data }) {
@@ -20,12 +19,12 @@ function NotificationItem({ data }) {
         </span>
       </div>
       <div className='NotificationItem--buttons'>
-        <Link to='/admin'>
+        {data.is_match && (
           <Button
-            title='Ver'
+            title='Cuadrar'
             className='NotificationItem--buttons__secondary'
           />
-        </Link>
+        )}
       </div>
     </div>
   )

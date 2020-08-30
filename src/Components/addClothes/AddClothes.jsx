@@ -105,7 +105,7 @@ function AddClothes({ setFormData, handleUpload, errors, loading }) {
               >
                 <option defaultValue>Genero</option>
                 <option value='MALE'>Hombre</option>
-                <option value='WOMEN'>Mujer</option>
+                <option value='FEMALE'>Mujer</option>
                 <option value='UNISEX'>Unisex</option>
               </select>
             </label>

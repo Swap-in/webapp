@@ -9,7 +9,6 @@ function useAddClothes() {
     addClothes(data, images, id, token)
       .then((data) => {
         setState({ loading: false, errors: false, success: true })
-        console.log(data)
         return data
       })
       .catch((err) => {

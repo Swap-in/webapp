@@ -10,7 +10,7 @@ function UserClothes({ location, clotheData }) {
   const { token } = useContext(UserContext)
   const handleDelete = () => {
     deleteClothes(token, clotheData.id)
-      .then((data) => console.log(data))
+      .then(() => window.location.reload())
   }
 
   return (
@@ -24,7 +24,7 @@ function UserClothes({ location, clotheData }) {
         <>
           <div className='UserClothes--img'>
             <img
-              src={clotheData.picture_1 || 'https://uniforma.net/21-superlarge_default/camisas-de-trabajo-algodon.jpg'}
+              src={clotheData.picture_1}
               alt='item'
             />
           </div>

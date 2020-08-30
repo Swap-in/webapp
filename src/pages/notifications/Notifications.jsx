@@ -15,13 +15,17 @@ function Notifications() {
     getNotifications(token, user.id)
       .then((data) => setNotifications(data))
   }, [token, user.id])
+
   return (
     <>
       <Navbar goBackIcon />
       <div className='Notifications'>
         <PageTitle title='Notificaciones' />
         {notifications ? notifications.map((notification) => (
-          <NotificationItem data={notification} />
+          <NotificationItem
+            data={notification}
+            key={notification.notification_id}
+          />
         )) : <Loader />}
       </div>
     </>
