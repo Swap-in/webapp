@@ -18,7 +18,6 @@ function UploadClothes() {
 
   const handleUpload = (e) => {
     e.preventDefault();
-    console.log({ URLImages, formData })
     addClothesService(formData, URLImages, user.id, token)
   }
   useEffect(() => {

@@ -1,19 +1,16 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import './UserClothes.scss'
 import { withRouter } from 'react-router-dom'
 import deleteIcon from '../../assets/icons/trash.svg'
 import UserContext from '../../context'
 import deleteClothes from '../../services/deleteClothes'
-import AlertContainer from '../../containers/AlertContainer'
-import GenericModal from '../registerModal'
 
 function UserClothes({ location, clotheData }) {
   const isAdmin = location.pathname === '/admin'
   const { token } = useContext(UserContext)
-  const [openModal, setOpenModal] = useState()
   const handleDelete = () => {
     deleteClothes(token, clotheData.id)
-      .then(() => setOpenModal(true))
+      .then((data) => console.log(data))
   }
 
   return (
@@ -41,9 +38,6 @@ function UserClothes({ location, clotheData }) {
           )}
         </>
       )}
-      <AlertContainer isOpen={openModal}>
-        <GenericModal />
-      </AlertContainer>
     </div>
   )
 }
