@@ -1,10 +1,14 @@
 @import '../../sass/utils.scss';
 
 .Overlay {
+  position: absolute;
+  z-index: 1000;
   @include overlay()
 }
 
 .MatchModal {
+  position: relative;
+  z-index: 10000;
   height: 50%;
   width: 90%;
   h2 {

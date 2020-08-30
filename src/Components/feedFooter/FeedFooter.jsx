@@ -1,11 +1,31 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import './FeedFooter.scss'
 import likeIcon from '../../assets/icons/like.svg'
 import superLikeIcon from '../../assets/icons/superlike.svg'
 import dislikeIcon from '../../assets/icons/dislike.svg'
 import Pellet from '../pellet/Pellet'
+import Reactions from '../reactions/Reactions'
+import addLike from '../../services/addLike'
+import UserContext from '../../context'
 
-function FeedFooter({ openMatchModal, clothesData }) {
+function FeedFooter({ clothesData, setOpenModal }) {
+  const { token, user } = useContext(UserContext)
+  const [match, setMatch] = useState(false)
+  const handleReactions = (e) => {
+    const typeOfLike = e.target.id
+    const sendData = {
+      token,
+      id: user.id,
+      clotheId: clothesData.id,
+      typeLike: typeOfLike,
+    }
+    addLike(sendData)
+      .then((data) => {
+        setOpenModal(data[0].match)
+        setMatch(data[0].match)
+        console.log(match)
+      })
+  }
 
   return (
     <div className='FeedFooter'>
@@ -19,25 +39,24 @@ function FeedFooter({ openMatchModal, clothesData }) {
         </div>
       </div>
       <div className='FeedFooter--actions'>
-        <button
-          type='button'
+        <Reactions
           className='FeedFooter--actions__button'
-        >
-          <img src={likeIcon} alt='Like' />
-        </button>
-        <button
-          type='button'
+          onClick={handleReactions}
+          image={likeIcon}
+          id='LIKE'
+        />
+        <Reactions
           className='FeedFooter--actions__button'
-          onClick={() => openMatchModal()}
-        >
-          <img src={superLikeIcon} alt='Super Like' />
-        </button>
-        <button
-          type='button'
+          onClick={handleReactions}
+          image={superLikeIcon}
+          id='SUPERLIKE'
+        />
+        <Reactions
           className='FeedFooter--actions__button'
-        >
-          <img src={dislikeIcon} alt='Dislike' />
-        </button>
+          onClick={handleReactions}
+          image={dislikeIcon}
+          id='DISLIKE'
+        />
       </div>
     </div>
   )

@@ -22,17 +22,13 @@ function Feed() {
       .then((data) => setFeedData(data))
   }, [token])
 
-  useEffect(() => {
-    console.log({ feedData })
-  })
-
   return (
     <>
       <main className='Feed'>
         {feedData ? feedData.map((data) => (
           <FeedClothes
             key={data.id}
-            openMatchModal={onMatchWithSuperlike}
+            setOpenModal={setIsOpen}
             clothesData={data}
           />
         )) : <Loader />}
