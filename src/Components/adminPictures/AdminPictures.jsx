@@ -9,7 +9,7 @@ import Loader from '../loader'
 function AdminPictures({ setURLImages }) {
 
   const { user } = useContext(UserContext)
-  const { uploadClothes, stateImage, onError, onProgress, setStateImage } = useUploadClothes()
+  const { uploadClothes, stateImage, onError, onProgress, setStateImage, convertImageToUrl } = useUploadClothes()
   const [image1, setImage1] = useState()
   const [image2, setImage2] = useState()
   const [image3, setImage3] = useState()
@@ -53,7 +53,7 @@ function AdminPictures({ setURLImages }) {
             <div className='SubmitPicture'>
               <label htmlFor='img1'>
                 <div className='SubmitPicture--image'>
-                  <img src={plusButton} alt='add Garment' />
+                  <img src={convertImageToUrl(image1) || plusButton} alt='add Garment' />
                 </div>
                 <input
                   type='file'
@@ -66,7 +66,7 @@ function AdminPictures({ setURLImages }) {
             <div className='SubmitPicture'>
               <label htmlFor='img2'>
                 <div className='SubmitPicture--image'>
-                  <img src={plusButton} alt='add Garment' />
+                  <img src={convertImageToUrl(image2) || plusButton} alt='add Garment' />
                 </div>
                 <input
                   type='file'
@@ -79,7 +79,7 @@ function AdminPictures({ setURLImages }) {
             <div className='SubmitPicture'>
               <label htmlFor='img3'>
                 <div className='SubmitPicture--image'>
-                  <img src={plusButton} alt='add Garment' />
+                  <img src={convertImageToUrl(image3) || plusButton} alt='add Garment' />
                 </div>
                 <input
                   type='file'
@@ -92,7 +92,7 @@ function AdminPictures({ setURLImages }) {
             <div className='SubmitPicture'>
               <label htmlFor='img4'>
                 <div className='SubmitPicture--image'>
-                  <img src={plusButton} alt='add Garment' />
+                  <img src={convertImageToUrl(image4) || plusButton} alt='add Garment' />
                 </div>
                 <input
                   type='file'
@@ -105,7 +105,7 @@ function AdminPictures({ setURLImages }) {
             <div className='SubmitPicture'>
               <label htmlFor='img5'>
                 <div className='SubmitPicture--image'>
-                  <img src={plusButton} alt='add Garment' />
+                  <img src={convertImageToUrl(image5) || plusButton} alt='add Garment' />
                 </div>
                 <input
                   type='file'

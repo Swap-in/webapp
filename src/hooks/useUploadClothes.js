@@ -11,8 +11,11 @@ const useUploadClothes = () => {
   })
 
   const convertImageToUrl = useCallback((currentFile) => {
-    const fileToUrl = URL.createObjectURL(currentFile)
-    return fileToUrl
+    if (currentFile) {
+      const fileToUrl = URL.createObjectURL(currentFile)
+      return fileToUrl
+    }
+    return null
   }, [])
 
   const onProgress = () => {

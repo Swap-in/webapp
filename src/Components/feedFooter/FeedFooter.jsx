@@ -8,8 +8,9 @@ import Reactions from '../reactions/Reactions'
 import addLike from '../../services/addLike'
 import UserContext from '../../context'
 
-function FeedFooter({ clothesData, setOpenModal }) {
+function FeedFooter({ clothesData, setMatchData, openModal }) {
   const { token, user } = useContext(UserContext)
+
   const handleReactions = (e) => {
     const typeOfLike = e.target.id
     const sendData = {
@@ -20,7 +21,10 @@ function FeedFooter({ clothesData, setOpenModal }) {
     }
     addLike(sendData)
       .then((data) => {
-        setOpenModal(data[0].match)
+        setMatchData(data)
+        console.log(data)
+        openModal(!data[0].match)
+        console.log(data[0].match)
       })
   }
 

@@ -21,7 +21,7 @@ function Select({ setOption }) {
     <form className='formSearch'>
       <select className='formSearch--Select' onChange={handleChangeOptions}>
         {options?.map((option) => (
-          <option key={option.id}>{option.description}</option>))}
+          <option key={option.id} value={option.id}>{option.description}</option>))}
       </select>
     </form>
   )

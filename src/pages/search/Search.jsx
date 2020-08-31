@@ -12,16 +12,11 @@ function Search() {
   const { token, user } = useContext(UserContext)
   const [option, setOption] = useState(1)
   const [clothes, setClothes] = useState(null)
-  console.log(option)
 
   useEffect(() => {
     filterClothes(token, option, user.id)
       .then((data) => setClothes(data))
   }, [token, user, option])
-
-  useEffect(() => {
-    console.log(clothes)
-  }, [clothes])
 
   return (
     <>
@@ -34,7 +29,6 @@ function Search() {
           {clothes ? clothes.map((result) => (
             <SearchResults key={result.id} clothesData={result} />
           )) : <Loader className='Search--loader' />}
-          <SearchResults />
         </div>
       </div>
     </>

@@ -1,24 +1,38 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './MatchModal.scss'
 import PageTitle from '../PageTitle'
 import Button from '../button'
 import likeLogo from '../../assets/icons/superlike.svg'
+import userIconDefault from '../../assets/icons/user-icon-default.svg'
+import UserContext from '../../context'
 
-function MatchModal({ setIsOpen }) {
+function MatchModal({ userMatch, onOpenModal }) {
+  const { user } = useContext(UserContext)
+
+  console.log('modal', userMatch)
   return (
     <div className='Overlay'>
-      <div className='MatchModal'>
-        <PageTitle title='Has hecho match!' />
+      <div className={`MatchModal ${userMatch && 'active'}`}>
+        <PageTitle title='Has hecho match! con username' />
         <div className='MatchModal--clothes'>
+          <img src={user.picture} alt='' className='MatchModal--clothes__picture' />
           <img
             src={likeLogo}
             alt='like'
             className='MatchModal--clothes__like'
           />
+          <img src={userMatch.picture || userIconDefault} alt='' className='MatchModal--clothes__picture' />
         </div>
         <div className='MatchModal--buttons'>
-          <Button title='Ignorar' className='MatchModal--buttons__ignore' onClick={setIsOpen(false)} />
-          <Button title='Acordar' className='MatchModal--buttons__agree' />
+          <Button title='Ignorar' className='MatchModal--buttons__ignore' onClick={() => onOpenModal()} />
+          <a
+            href={`https://wa.me/${userMatch.phone_number}`}
+            className='MatchModal--buttons__agree'
+            target='_blank'
+            rel='noreferrer'
+          >
+            Acordar
+          </a>
         </div>
       </div>
     </div>

@@ -8,7 +8,7 @@
   }
 
   @else if $breakpoint == mobile-m {
-    @media screen and (min-width: 375px) and (max-width: 425px){ @content }
+    @media screen and (min-width: 375px) and (max-width: 500px){ @content }
   }
 
   @else if $breakpoint == tablet {
