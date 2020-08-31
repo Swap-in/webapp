@@ -13,12 +13,14 @@ function UploadClothes() {
   const { addClothesService, errors, loading, success } = useAddClothes()
   const { user, token } = useContext(UserContext)
   const [formData, setFormData] = useState('')
-  const [URLImages, setURLImages] = useState()
+  const [URLImages, setURLImages] = useState([])
   const [openModal, setOpenModal] = useState(false)
+  const [noImgError, setNoImgError] = useState(false)
 
   const handleUpload = (e) => {
     e.preventDefault();
-    addClothesService(formData, URLImages, user.id, token)
+    if (!URLImages[0]) return setNoImgError(true)
+    return addClothesService(formData, URLImages, user.id, token)
   }
   useEffect(() => {
     if (success) {
@@ -43,6 +45,7 @@ function UploadClothes() {
         <PageTitle title='Subir prenda' />
         <div className='uploadClothes--clothes'>
           <AdminPictures setURLImages={setURLImages} />
+          {noImgError && <span>sube una imagen al menos</span>}
           <FormUpload
             setFormData={setFormData}
             handleUpload={handleUpload}

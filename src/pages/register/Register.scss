@@ -4,12 +4,13 @@
     margin: 0 12px;
     text-align: center;
     padding: 1em 0;
+    span {
+        @include paragraph(1em, $purple-color-third);
+    }
     &--container {
         form {
             width: 100%;
-            span {
-                @include paragraph(1em, $purple-color-third);
-            }
+            
             .Input--container {
                 margin: 1em 0;
                 height: 52px;
@@ -35,7 +36,7 @@
             color: $purple-color-third;
         }
         img {
-            width: 35%;
+            width: 30%;
             cursor: pointer;
         }
     }

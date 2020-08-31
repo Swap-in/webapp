@@ -4,7 +4,7 @@ import FeedNav from '../feedNav'
 import FeedFooter from '../feedFooter'
 import FeedContent from '../feedContent/FeedContent'
 
-function FeedClothes({ clothesData, setMatchData }) {
+function FeedClothes({ clothesData, setMatchData, openModal }) {
 
   return (
     <>
@@ -18,6 +18,7 @@ function FeedClothes({ clothesData, setMatchData }) {
           <FeedFooter
             clothesData={clothesData}
             setMatchData={setMatchData}
+            openModal={openModal}
           />
         </div>
       )}

@@ -9,7 +9,7 @@ function useOpenMatchModal(initialState) {
       setOpenModal(true)
     }
   }
-  return { openModal, onOpenModal }
+  return { openModal, onOpenModal, setOpenModal }
 }
 
 export default useOpenMatchModal

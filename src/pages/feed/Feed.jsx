@@ -13,14 +13,14 @@ function Feed() {
   const [feedData, setFeedData] = useState([])
   const [matchData, setMatchData] = useState()
   const { token } = useContext(UserContext)
-  const { onOpenModal, openModal } = useOpenMatchModal(false)
+  const { onOpenModal, openModal, setOpenModal } = useOpenMatchModal(false)
 
   useEffect(() => {
     getFeedData(token)
       .then((data) => {
         setFeedData(data)
       })
-  }, [token, history])
+  }, [token, history, setOpenModal])
 
   return (
     <>
@@ -30,13 +30,14 @@ function Feed() {
             key={data.id}
             clothesData={data}
             setMatchData={setMatchData}
+            openModal={setOpenModal}
           />
         )) : <Loader />}
       </main>
       <MatchContainer
         isOpen={openModal}
         onOpenModal={onOpenModal}
-        matchData={matchData}
+        userMatch={matchData}
       />
     </>
   )

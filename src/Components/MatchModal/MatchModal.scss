@@ -11,6 +11,9 @@
   z-index: 10000;
   height: 50%;
   width: 90%;
+  padding: 1em;
+  border-radius: 20px;
+  background-color: transparentize($white-color-first, .5);
   h2 {
     text-align: center;
     color: $brand-color-alt;
@@ -18,28 +21,46 @@
   &--clothes {
     margin-top: .5em;
     position: relative;
-    height: 40%;
-    @include flex(center, center);
+    @include flex(center, space-around);
+    height: 45%;
+      &__picture {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
     &__like {
-      position: absolute;
-      left: 43%;
       z-index: 100;
-    }
-    .UserClothes {
-      box-shadow: none;
     }
   }
   &--buttons {
     margin-top: 1em;
+    position: absolute;
+    bottom: 1.5em;
+    width: 95%;
     @include flex(center, space-around);
     &__agree {
-      @include btn-primary(100%, 50px)
+      @include flex(center, center);
+      @include btn-primary(100%, 50px);
     }
     &__ignore {
       @include btn-secondary(100%, 50px);
     }
-    .Btn--container {
+    .Btn--container, a {
       width: 45%;
     }
+  }
+}
+
+.active {
+  animation: fadeIn .5s forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }

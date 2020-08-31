@@ -43,11 +43,9 @@ function Register() {
     }
     setLoading(true)
     await register(formData)
-      .then((res) => console.log(res))
       .then(() => setOpenModal(true))
       .then(() => setLoading(false))
-      .catch((err) => {
-        console.error(err)
+      .catch(() => {
         setLoading(false)
         setFormErrors({ other: 'Error al registrarse' })
       })
@@ -94,6 +92,7 @@ function Register() {
           <p>FOTO DE PERFIL</p>
           <SubmitProfilePicture setURLImage={setURLImage} />
         </div>
+        {!URLImage && <span>Sube una foto de perfil</span>}
         <div className='Register--container'>
           <form>
             <Input
@@ -170,7 +169,7 @@ function Register() {
               onClick={validateInputsAndSend}
               title='CREAR CUENTA'
               type='button'
-              disabled={!firstName || !lastName || !gender || !phone || !email || !password || !confirmPassword}
+              disabled={!firstName || !lastName || !gender || !phone || !email || !password || !confirmPassword || !URLImage}
             />
           </form>
         </div>
