@@ -9,7 +9,6 @@ import UserContext from '../../context'
 function MatchModal({ userMatch, onOpenModal }) {
   const { user } = useContext(UserContext)
 
-  console.log('modal', userMatch)
   return (
     <div className='Overlay'>
       <div className={`MatchModal ${userMatch && 'active'}`}>

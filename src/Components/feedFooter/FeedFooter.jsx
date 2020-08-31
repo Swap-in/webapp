@@ -22,9 +22,7 @@ function FeedFooter({ clothesData, setMatchData, openModal }) {
     addLike(sendData)
       .then((data) => {
         setMatchData(data)
-        console.log(data)
-        openModal(!data[0].match)
-        console.log(data[0].match)
+        openModal(data[0].match)
       })
   }
 

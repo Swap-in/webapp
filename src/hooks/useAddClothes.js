@@ -11,8 +11,7 @@ function useAddClothes() {
         setState({ loading: false, errors: false, success: true })
         return data
       })
-      .catch((err) => {
-        console.error('Error', err)
+      .catch(() => {
         setState({ loading: false, errors: true, success: false })
       })
   }, [])

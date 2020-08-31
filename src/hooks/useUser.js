@@ -18,10 +18,9 @@ function useUser() {
         window.sessionStorage.setItem('token', userData.token)
         window.sessionStorage.setItem('user', JSON.stringify(userData.user))
       })
-      .catch((err) => {
+      .catch(() => {
         setState({ loading: false, error: true })
         window.sessionStorage.clear()
-        console.error(err)
       })
   }, [setToken, setUser])
 
