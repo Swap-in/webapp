@@ -4,11 +4,11 @@
 
 @mixin media ($breakpoint) {
   @if $breakpoint == mobile-s {
-    @media only screen and (max-width: 374px) { @content; }
+    @media only screen and (max-width: 380px) { @content; }
   }
 
   @else if $breakpoint == mobile-m {
-    @media screen and (min-width: 375px) and (max-width: 500px){ @content }
+    @media screen and (max-width: 500px){ @content }
   }
 
   @else if $breakpoint == tablet {

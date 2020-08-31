@@ -124,7 +124,7 @@ function AdminPictures({ setURLImages }) {
                   title='Subir'
                   type='button'
                   onClick={handleSubmitPictures}
-                  disabled={!image1}
+                  disabled={!image1 || !image2}
                   className='SubmitPicture--button'
                 />
               )}

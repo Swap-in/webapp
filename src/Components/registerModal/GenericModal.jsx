@@ -4,11 +4,12 @@ import './RegisterModal.scss'
 import PageTitle from '../PageTitle'
 import Button from '../button'
 
-function GenericModal({ isOpen, title, children, page, btnTitle }) {
+function GenericModal({ title, children, page, btnTitle }) {
   const history = useHistory()
   return (
     <div className='Overlay'>
-      <div className={isOpen && 'RegisterModal'}>
+      {/* <div className={isOpen && 'RegisterModal'}> */}
+      <div className='RegisterModal'>
         <PageTitle title={title} />
         <p>
           {children}

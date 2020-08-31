@@ -20,7 +20,7 @@ function NotificationItem({ data }) {
       <div className='NotificationItem--buttons'>
         {data.is_match && (
           <a
-            href={`https:wa.me/${data.phone_number}`}
+            href={`https://wa.me/${data.phone_number}`}
             className='NotificationItem--buttons__secondary'
             target='_blank'
             rel='noreferrer'

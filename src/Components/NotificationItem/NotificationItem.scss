@@ -31,7 +31,7 @@
     };
 }
 
-@include media( mobile-s ) {
+@include media( mobile-m ) {
     .NotificationItem {
         margin: .5em;
         width: 95%;

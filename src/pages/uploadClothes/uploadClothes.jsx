@@ -45,7 +45,7 @@ function UploadClothes() {
         <PageTitle title='Subir prenda' />
         <div className='uploadClothes--clothes'>
           <AdminPictures setURLImages={setURLImages} />
-          {noImgError && <span>sube una imagen al menos</span>}
+          {noImgError && <span>sube dos imágenes al menos</span>}
           <FormUpload
             setFormData={setFormData}
             handleUpload={handleUpload}

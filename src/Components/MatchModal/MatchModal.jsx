@@ -12,7 +12,7 @@ function MatchModal({ userMatch, onOpenModal }) {
   return (
     <div className='Overlay'>
       <div className={`MatchModal ${userMatch && 'active'}`}>
-        <PageTitle title='Has hecho match! con username' />
+        <PageTitle title={`Has hecho match! con ${userMatch[0].username}`} />
         <div className='MatchModal--clothes'>
           <img src={user.picture} alt='' className='MatchModal--clothes__picture' />
           <img
@@ -20,12 +20,12 @@ function MatchModal({ userMatch, onOpenModal }) {
             alt='like'
             className='MatchModal--clothes__like'
           />
-          <img src={userMatch.picture || userIconDefault} alt='' className='MatchModal--clothes__picture' />
+          <img src={userMatch[0].picture || userIconDefault} alt='' className='MatchModal--clothes__picture' />
         </div>
         <div className='MatchModal--buttons'>
           <Button title='Ignorar' className='MatchModal--buttons__ignore' onClick={() => onOpenModal()} />
           <a
-            href={`https://wa.me/${userMatch.phone_number}`}
+            href={`https://wa.me/${userMatch[0].phone_number}`}
             className='MatchModal--buttons__agree'
             target='_blank'
             rel='noreferrer'

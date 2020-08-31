@@ -1,4 +1,5 @@
 @import '../../sass/utils.scss';
+@import '../../sass/breakpoints.scss';
 
 .Overlay {
   position: absolute;
@@ -9,7 +10,7 @@
 .MatchModal {
   position: relative;
   z-index: 10000;
-  height: 50%;
+  height: 70%;
   width: 90%;
   padding: 1em;
   border-radius: 20px;
@@ -62,5 +63,25 @@
   }
   100% {
     opacity: 1;
+  }
+}
+
+@include media(mobile-m) {
+  .MatchModal {
+    height: 90%;
+    &--clothes {
+      &__picture {
+        width: 110px;
+        height: 110px;
+      }
+    }
+  }
+}
+@include media(mobile-s) {
+  .MatchModal {
+    &--clothes__picture {
+      width: 80px;
+      height: 80px;
+    }
   }
 }
