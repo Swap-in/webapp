@@ -4,7 +4,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './FeedContent.scss'
 
 function FeedContent({ clothes }) {
-
   return (
     <div className='FeedContent'>
       <Carousel>
