@@ -12,6 +12,7 @@
     }
 }
 .Logout--container {
+    position: relative;
     margin: 0 -12px;
     height: 100vh; 
     background-image: url("../../assets/images/login-image-mobile.png");
@@ -50,7 +51,6 @@
         margin: 0 -12px;
         height: 100vh; 
         background-image: url("../../assets/images/login-image.png");
-        background-color: #cccccc; 
         background-size: 100% 100%;
         }
     }

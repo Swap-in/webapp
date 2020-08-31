@@ -4,7 +4,7 @@
 .AdminPictures {
   padding: 1em;
   &--clothes {
-    height: 40vh;
+    height: 60vh;
     &__grid {
       height: 100%;
       display: grid;
@@ -69,7 +69,7 @@
     &--image {
       width: 100%;
       img {
-        width: 90%;
+        width: 100%;
       }
     }
   }
