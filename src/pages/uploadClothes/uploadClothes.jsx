@@ -19,7 +19,7 @@ function UploadClothes() {
 
   const handleUpload = (e) => {
     e.preventDefault();
-    if (!URLImages[0]) return setNoImgError(true)
+    if (!URLImages[1]) return setNoImgError(true)
     return addClothesService(formData, URLImages, user.id, token)
   }
   useEffect(() => {

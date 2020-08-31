@@ -42,6 +42,9 @@
 @include media(mobile-s) {
   .FeedNav {
     grid-template-columns: repeat(3, 1fr);
+    &--menu {
+      width: 77%;
+    }
     &--user {
       grid-column: 3 / 4;
     }
