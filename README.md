@@ -10,9 +10,9 @@ that ara allowed in firebase.
 For deployment service we use Vercel in the Frontend and Heroku for the API.
 
 ## Visuals
-[URL](./src/assets/images/visual1.png)
-[URL](./src/assets/images/visual2.png)
-[URL](./src/assets/images/visual3.png)
+![](./src/assets/images/visual1.png)
+![](./src/assets/images/visual2.png)
+![](./src/assets/images/visual3.png)
 
 ## Demo
 
